@@ -1,0 +1,10 @@
+{
+    "directories-bin": [
+        "vendor/jms/serializer/src/JMS/Serializer/Annotation/",
+        "vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/"
+    ],
+    "replacements": {
+        "revision": "HEAD"
+    },
+    "output": "ocular.phar"
+}

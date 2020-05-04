@@ -1,0 +1,51 @@
+{
+    "name": "nfephp-org/sintegra",
+    "type": "library",
+    "version": "0.0.1",
+    "description": "API para geração dos arquivos para Sintegra",
+    "keywords": ["sintegra", "nfephp"],
+    "homepage": "https://github.com/nfephp-org",
+    "license": ["GPL-3.0+", "LGPL-3.0+"],
+    "authors": [
+        {
+            "name": "Ismael A. Goncalves",
+            "email": "ismael_adriano@hotmail.com",
+            "homepage": "https://github.com/ismaeladriano",
+            "role": "dev"
+        }
+    ],
+    "require": {
+        "php" : ">=7.0",
+        "nfephp-org/sped-common": "^5.0",
+        "thecodingmachine/safe": "^0.1.5"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.10.3",
+        "phpunit/phpunit": "^7.3",
+        "squizlabs/php_codesniffer": "^3.4",
+        "scrutinizer/ocular": "^1.5",
+        "thecodingmachine/phpstan-safe-rule": "^0.1.2"
+    },
+    "autoload": {
+        "psr-4": {
+          "NFePHP\\Sintegra\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NFePHP\\Sintegra\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "phpunit": "phpunit",
+        "phpcbf": "vendor/bin/phpcbf --standard=psr2 src/ ",
+        "phpcs": "vendor/bin/phpcs --standard=psr2 src/",
+        "phpstan": "vendor/bin/phpstan analyse src/ --level 7",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable"
+}
