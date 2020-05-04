@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Sintegra Test Suite" tests="1" assertions="0" errors="1" failures="0" skipped="0" time="0.002740">
+    <testsuite name="NFePHP\Sintegra\Tests\Z0000Test" file="/home/ismaelc4/Projetos/compufacil/SubProjects/sintegra/src/tests/Z0000Test.php" tests="1" assertions="0" errors="1" failures="0" skipped="0" time="0.002740">
+      <testcase name="testZ0000" class="NFePHP\Sintegra\Tests\Z0000Test" classname="NFePHP.Sintegra.Tests.Z0000Test" file="/home/ismaelc4/Projetos/compufacil/SubProjects/sintegra/src/tests/Z0000Test.php" line="11" assertions="0" time="0.002740">
+        <error type="InvalidArgumentException">NFePHP\Sintegra\Tests\Z0000Test::testZ0000
+InvalidArgumentException: [0000] 0000 campo: MUNICIPIO valor incorreto [Ponta Porã]. (validação: ^.{30}$)
+[0000] 0000 campo: FAX valor incorreto [49344201222]. (validação: ^.{10}$)
+[0000] 0000 campo: DT_INI valor incorreto [20200301]. (validação: ^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})$)
+
+/home/ismaelc4/Projetos/compufacil/SubProjects/sintegra/src/Common/Element.php:101
+/home/ismaelc4/Projetos/compufacil/SubProjects/sintegra/src/Elements/Z0000.php:109
+/home/ismaelc4/Projetos/compufacil/SubProjects/sintegra/src/tests/Z0000Test.php:26
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>
