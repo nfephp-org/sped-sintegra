@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Sintegra Test Suite" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.002681">
+    <testsuite name="NFePHP\Sintegra\Tests\Z10Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z10Test.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.002681">
+      <testcase name="testZ10" class="NFePHP\Sintegra\Tests\Z10Test" classname="NFePHP.Sintegra.Tests.Z10Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z10Test.php" line="11" assertions="1" time="0.002681"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
