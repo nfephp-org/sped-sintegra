@@ -18,6 +18,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/7106f78428a344bc4f643c233a94e48795f10967",
                 "reference": "7106f78428a344bc4f643c233a94e48795f10967",
+
                 "shasum": ""
             },
             "require": {
@@ -497,6 +498,7 @@
                 "doctrine/lexer": "1.*",
                 "ext-tokenizer": "*",
                 "php": "^7.1 || ^8.0"
+
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
@@ -547,6 +549,7 @@
                 "parser"
             ],
             "time": "2020-05-25T17:24:27+00:00"
+
         },
         {
             "name": "doctrine/instantiator",
@@ -732,6 +735,7 @@
                 "web service"
             ],
             "time": "2020-05-25T19:35:05+00:00"
+
         },
         {
             "name": "guzzlehttp/promises",
@@ -1163,6 +1167,7 @@
                 "nette/security": "^3.0",
                 "nette/tester": "^2.0",
                 "phpstan/phpstan-nette": "^0.12",
+
                 "tracy/tracy": "^2.6"
             },
             "suggest": {
@@ -1185,6 +1190,7 @@
                 "BSD-3-Clause",
                 "GPL-2.0-only",
                 "GPL-3.0-only"
+
             ],
             "authors": [
                 {
@@ -1275,6 +1281,7 @@
                 "static"
             ],
             "time": "2020-05-14T10:29:59+00:00"
+
         },
         {
             "name": "nette/finder",
@@ -1433,6 +1440,7 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.4-dev"
+
                 }
             },
             "autoload": {
@@ -3764,6 +3772,7 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.17-dev"
+
                 }
             },
             "autoload": {
@@ -3800,6 +3809,7 @@
                 "shim"
             ],
             "time": "2020-05-12T16:47:27+00:00"
+
         },
         {
             "name": "symfony/process",

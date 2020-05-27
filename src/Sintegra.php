@@ -5,6 +5,7 @@ namespace NFePHP\Sintegra;
 use NFePHP\Sintegra\Common\BlockInterface;
 use NFePHP\Sintegra\SintegraEnum;
 
+
 abstract class Sintegra
 {
     protected $possibles = [];
@@ -36,7 +37,6 @@ abstract class Sintegra
     {
         $sintegra = '';
         $keys = array_keys($this->possibles);
-
         foreach ($keys as $key) {
             if (isset($this->$key)) {
                 $sintegra .= $this->$key;
