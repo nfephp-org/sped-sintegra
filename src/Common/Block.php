@@ -10,9 +10,9 @@ abstract class Block
     protected $bloco = '';
     protected $elementTotal;
 
-    public function __construct($total)
+    public function __construct()
     {
-        $this->elementTotal = $total;
+
     }
 
     /**
@@ -56,9 +56,6 @@ abstract class Block
      */
     public function get()
     {
-        //fazer a montagem do elemento 0990 Totalizador
-        $n = count(explode("\n", $this->bloco));
-        $this->bloco .= "|" . $this->elementTotal . "|$n|\n";
         return $this->bloco;
     }
 }

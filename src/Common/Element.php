@@ -93,7 +93,13 @@ abstract class Element
                     $stdParam->$key->format,
                     strtoupper($key)
                 );
-                $newstd->$key = $formated;
+
+                $newValue = $this->formatString(
+                    $formated,
+                    $stdParam->$key
+                );
+
+                $newstd->$key = $newValue;
             }
         }
         //se algum erro for detectado disparar um Exception
@@ -223,6 +229,22 @@ abstract class Element
     }
 
     /**
+     * Retorna string conforme o tamanho, pois sintegra considera as posições
+     * @return string
+     */
+    protected function formatString($value, $param)
+    {
+        $length = $param->length;
+
+        if (!$value) {
+            return;
+        }
+        $newValue = str_pad($value, $length, " ", STR_PAD_RIGHT);
+
+        return $newValue;
+    }
+
+    /**
      * Construtor do elemento
      * @return string
      */
@@ -230,7 +252,7 @@ abstract class Element
     {
         $register = '';
         foreach ($this->parameters as $key => $params) {
-            $register .= $this->std->$key . '|';
+            $register .= $this->std->$key;
         }
         return $register;
     }
@@ -241,6 +263,6 @@ abstract class Element
      */
     public function __toString()
     {
-        return '|' . $this->reg . '|' . $this->build();
+        return  $this->reg . $this->build();
     }
 }
