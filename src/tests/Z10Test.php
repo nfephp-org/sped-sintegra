@@ -11,21 +11,21 @@ class Z10Test extends TestCase
     public function testZ10()
     {
         $std = new stdClass();
-        $std->CNPJ = '00445335000113';
-        $std->IE = '283305053';
-        $std->NOME_CONTRIBUINTE = 'MOBILIARTE MADEIRA E ARTEFATOS EIRE';
-        $std->MUNICIPIO = 'Ponta Pora';
+        $std->CNPJ = '66291561000103';
+        $std->IE = '283305054';
+        $std->NOME_CONTRIBUINTE = 'Empresa Teste Ltda';
+        $std->MUNICIPIO = 'Concordia';
         $std->UF = 'SC';
-        // $std->FAX = '';
-        // $std->DT_INI = '';
-        // $std->DT_FIM = '';
-        // $std->COGIGO_MAGNETICO = '';
-        // $std->COGIGO_NATUREZAS = '';
-        // $std->COGIGO_FINALIDADE = '';
+        $std->FAX = '4934420101';
+        $std->DT_INI = '01012020';
+        $std->DT_FIM = '03012020';
+        $std->COGIGO_MAGNETICO = 3;
+        $std->COGIGO_NATUREZAS = 3;
+        $std->COGIGO_FINALIDADE = 1;
         $b1 = new Z10($std);
         $resp = "{$b1}";
 
-        $expected = '|10|00445335000113|283305053|MOBILIARTE MADEIRA E ARTEFATOS EIRE|Ponta Pora|SC|||||||';
+        $expected = '1066291561000103283305054     Empresa Teste Ltda                 Concordia                     SC49344201010101202003012020331';
         $this->assertEquals($expected, $resp);
     }
 }

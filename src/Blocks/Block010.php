@@ -16,5 +16,6 @@ final class Block010 extends Block implements BlockInterface
 {
     public $elements = [
         'z10' => ['class' => Elements\Z10::class, 'level' => 0, 'type' => 'single'],
+        'z11' => ['class' => Elements\Z11::class, 'level' => 0, 'type' => 'single'],
     ];
 }

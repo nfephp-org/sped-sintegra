@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "description": "API para geração dos arquivos para Sintegra",
     "keywords": ["sintegra", "nfephp"],
-    "homepage": "https://github.com/nfephp-org",
+    "homepage": "https://github.com/nfephp-org/sped-sintegra",
     "license": ["GPL-3.0+", "LGPL-3.0+"],
     "authors": [
         {

@@ -3,6 +3,8 @@
 namespace NFePHP\Sintegra;
 
 use NFePHP\Sintegra\Common\BlockInterface;
+use NFePHP\Sintegra\SintegraEnum;
+
 
 abstract class Sintegra
 {
@@ -51,38 +53,65 @@ abstract class Sintegra
      */
     protected function totalize($sintegra)
     {
-        $tot = '';
+        $sintegraArray = explode("\n", $sintegra);
+        $numeroTotalRegistros = count($sintegraArray);
+        $numeroTotalRegistros += 1;
+        $numeroTotalRegistros = str_pad($numeroTotalRegistros, 8, "0", STR_PAD_LEFT);
+        $numeroTotalRegistros = str_pad($numeroTotalRegistros, 53, " ", STR_PAD_RIGHT);
+        $totalRegistros90 = '2';
+
+        $cnpj = substr($sintegraArray[0], 2, 14);
+        $cnpj = str_pad($cnpj, 14, " ", STR_PAD_RIGHT);
+        $ie = substr($sintegraArray[0], 16, 14);
+        $ie = str_pad($ie, 14, " ", STR_PAD_RIGHT);
+
         $keys = [];
-        $aefd = explode("\n", $sintegra);
-        foreach ($aefd as $element) {
-            $param = explode("|", $element);
-            if (!empty($param[1])) {
-                $key = $param[1];
-                if (!empty($keys[$key])) {
-                    $keys[$key] += 1;
-                } else {
-                    $keys[$key] = 1;
+        $totalizador = '';
+        $somatorioPorBloco = [
+            SintegraEnum::REGISTRO_10 => 0,
+            SintegraEnum::REGISTRO_11 => 0,
+            SintegraEnum::REGISTRO_50 => 0,
+            SintegraEnum::REGISTRO_51 => 0,
+            SintegraEnum::REGISTRO_53 => 0,
+            SintegraEnum::REGISTRO_54 => 0,
+            SintegraEnum::REGISTRO_60 => 0,
+            SintegraEnum::REGISTRO_61 => 0,
+            SintegraEnum::REGISTRO_70 => 0,
+            SintegraEnum::REGISTRO_71 => 0,
+            SintegraEnum::REGISTRO_74 => 0,
+            SintegraEnum::REGISTRO_75 => 0,
+            SintegraEnum::REGISTRO_85 => 0,
+            SintegraEnum::REGISTRO_86 => 0,
+            SintegraEnum::REGISTRO_88 => 0,
+        ];
+
+        foreach ($sintegraArray as $element) {
+            $numeroBloco = substr($element,0, 2);
+
+            if (!empty($numeroBloco)) {
+                if (!isset($keys[$numeroBloco])) {
+                    $somatorioPorBloco[$numeroBloco] += 1;
+                    continue;
                 }
+                $somatorioPorBloco[$numeroBloco] = 1;
             }
         }
-        //Inicializa o bloco 9
-        $tot .= "|9001|0|\n";
-        $n = 0;
-        foreach ($keys as $key => $value) {
-            if (!empty($key)) {
-                $tot .= "|9900|$key|$value|\n";
-                $n++;
-            }
+
+        $inicioLinha = SintegraEnum::REGISTRO_90 . $cnpj . $ie;
+        $totalizador .= $inicioLinha;
+
+        foreach ($somatorioPorBloco as $key => $value) {
+           if ($key != SintegraEnum::REGISTRO_10 && $key != SintegraEnum::REGISTRO_11) {
+               $segundaLinha = $key == SintegraEnum::REGISTRO_75;
+
+               if ($segundaLinha)  {
+                    $totalizador .= str_pad($totalRegistros90, 6, " ", STR_PAD_LEFT)."\n";
+                    $totalizador .= $inicioLinha;
+                }
+                $totalizador .= $key . str_pad($value, 8, "0", STR_PAD_LEFT);
+           }
         }
-        $n++;
-        $tot .= "|9900|9001|1|\n";
-        $tot .= "|9900|9900|". ($n+3)."|\n";
-        $tot .= "|9900|9990|1|\n";
-        $tot .= "|9900|9999|1|\n";
-        $tot .= "|9990|". ($n+6) ."|\n";
-        $efd .= $tot;
-        $n = count(explode("\n", $efd));
-        $tot .= "|9999|$n|\n";
-        return $tot;
+
+       return $totalizador .= SintegraEnum::TOTALIZADOR_99 . $numeroTotalRegistros . $totalRegistros90;
     }
 }
