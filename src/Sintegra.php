@@ -86,7 +86,7 @@ abstract class Sintegra
         ];
 
         foreach ($sintegraArray as $element) {
-            $numeroBloco = substr($element,0, 2);
+            $numeroBloco = substr($element, 0, 2);
 
             if (!empty($numeroBloco)) {
                 if (!isset($keys[$numeroBloco])) {
@@ -101,17 +101,17 @@ abstract class Sintegra
         $totalizador .= $inicioLinha;
 
         foreach ($somatorioPorBloco as $key => $value) {
-           if ($key != SintegraEnum::REGISTRO_10 && $key != SintegraEnum::REGISTRO_11) {
-               $segundaLinha = $key == SintegraEnum::REGISTRO_75;
+            if ($key != SintegraEnum::REGISTRO_10 && $key != SintegraEnum::REGISTRO_11) {
+                $segundaLinha = $key == SintegraEnum::REGISTRO_75;
 
-               if ($segundaLinha)  {
+                if ($segundaLinha) {
                     $totalizador .= str_pad($totalRegistros90, 6, " ", STR_PAD_LEFT)."\n";
                     $totalizador .= $inicioLinha;
                 }
                 $totalizador .= $key . str_pad($value, 8, "0", STR_PAD_LEFT);
-           }
+            }
         }
 
-       return $totalizador .= SintegraEnum::TOTALIZADOR_99 . $numeroTotalRegistros . $totalRegistros90;
+        return $totalizador .= SintegraEnum::TOTALIZADOR_99 . $numeroTotalRegistros . $totalRegistros90;
     }
 }

@@ -12,7 +12,6 @@ abstract class Block
 
     public function __construct()
     {
-
     }
 
     /**

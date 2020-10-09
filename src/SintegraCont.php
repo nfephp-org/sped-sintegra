@@ -13,7 +13,6 @@ use NFePHP\Sintegra\Sintegra;
 final class SintegraCont extends Sintegra
 {
     protected $possibles = [
-        'block010' => ['class' => Blocks\Sintegra\Block010::class, 'order' => 1],
-        'block011' => ['class' => Blocks\Sintegra\Block011::class, 'order' => 2],
+        'blockSintegra' => ['class' => Blocks\Sintegra\BlockSintegra::class, 'order' => 1],
     ];
 }

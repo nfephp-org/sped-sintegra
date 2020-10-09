@@ -91,7 +91,8 @@ abstract class Element
                 $formated = $this->formater(
                     $std->$key,
                     $stdParam->$key->format,
-                    strtoupper($key)
+                    strtoupper($key),
+                    $stdParam->$key->length
                 );
 
                 $newValue = $this->formatString(
@@ -164,7 +165,7 @@ abstract class Element
      * @return int|string|float|null
      * @throws \InvalidArgumentException
      */
-    protected function formater($value, $format = null, $fieldname = '')
+    protected function formater($value, $format = null, $fieldname = '', $length)
     {
         if ($value === null) {
             return $value;
@@ -181,6 +182,15 @@ abstract class Element
         if ($value === '') {
             $value = 0;
         }
+
+        if ($format == 'totalNumber') {
+            return $this->numberTotalFormat(floatval($value), $length);
+        }
+
+        if ($format == 'aliquota') {
+            return $this->numberFormatAliquota($value, $length);
+        }
+
         $this->values->$name = (float) $value;
         return $this->numberFormat(floatval($value), $format, $fieldname);
     }
@@ -226,6 +236,19 @@ abstract class Element
         }
         $decplaces = (int) $n[1];
         return number_format($value, $decplaces, ',', '');
+    }
+
+
+    private function numberTotalFormat($value, $length)
+    {
+        return str_pad($value, $length, "0", STR_PAD_LEFT);
+    }
+
+    private function numberFormatAliquota($value, $length)
+    {
+        $value = str_pad($value, 4, "0", STR_PAD_RIGHT);
+
+        return str_pad($value, $length, "0", STR_PAD_LEFT);
     }
 
     /**
