@@ -3,6 +3,8 @@
 namespace NFePHP\Sintegra;
 
 use NFePHP\Sintegra\Sintegra;
+use Blocks\Sintegra\Block010;
+use Blocks\Sintegra\Block011;
 
 /**
  * Classe construtora do arquivo SINTEGRA
@@ -13,7 +15,7 @@ use NFePHP\Sintegra\Sintegra;
 final class SintegraCont extends Sintegra
 {
     protected $possibles = [
-        'block010' => ['class' => Blocks\Sintegra\Block010::class, 'order' => 1],
-        'block011' => ['class' => Blocks\Sintegra\Block011::class, 'order' => 2],
+        'block010' => ['class' => Block010::class, 'order' => 1],
+        'block011' => ['class' => Block011::class, 'order' => 2],
     ];
 }
