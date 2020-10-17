@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Sintegra Test Suite" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.002681">
-    <testsuite name="NFePHP\Sintegra\Tests\Z10Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z10Test.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.002681">
-      <testcase name="testZ10" class="NFePHP\Sintegra\Tests\Z10Test" classname="NFePHP.Sintegra.Tests.Z10Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z10Test.php" line="11" assertions="1" time="0.002681"/>
+  <testsuite name="" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.004656">
+    <testsuite name="Sintegra Test Suite" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.004656">
+      <testsuite name="NFePHP\Sintegra\Tests\Z10Test" file="/var/www/sped/sped-sintegra/src/tests/Z10Test.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.003407">
+        <testcase name="testZ10" class="NFePHP\Sintegra\Tests\Z10Test" classname="NFePHP.Sintegra.Tests.Z10Test" file="/var/www/sped/sped-sintegra/src/tests/Z10Test.php" line="11" assertions="1" time="0.003407"/>
+      </testsuite>
+      <testsuite name="NFePHP\Sintegra\Tests\Z11Test" file="/var/www/sped/sped-sintegra/src/tests/Z11Test.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.001249">
+        <testcase name="testZ11" class="NFePHP\Sintegra\Tests\Z11Test" classname="NFePHP.Sintegra.Tests.Z11Test" file="/var/www/sped/sped-sintegra/src/tests/Z11Test.php" line="11" assertions="1" time="0.001249"/>
+      </testsuite>
     </testsuite>
   </testsuite>
 </testsuites>

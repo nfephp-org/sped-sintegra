@@ -25,7 +25,8 @@ class Z10Test extends TestCase
         $b1 = new Z10($std);
         $resp = "{$b1}";
 
-        $expected = '1066291561000103283305054     Empresa Teste Ltda                 Concordia                     SC49344201010101202003012020331';
+        $expected = '1066291561000103283305054     Empresa Teste Ltda                 Concordia'
+            . '                     SC49344201010101202003012020331';
         $this->assertEquals($expected, $resp);
     }
 }

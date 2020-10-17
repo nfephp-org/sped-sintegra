@@ -21,7 +21,8 @@ class Z11Test extends TestCase
         $b1 = new Z11($std);
         $resp = "{$b1}";
 
-        $expected = '11AV CAP. MOR GOUVEIA               03005LAGOA NOVA            CENTRO         79900001MOBILIARTE MADEIRA          490034420122';
+        $expected = '11AV CAP. MOR GOUVEIA               03005LAGOA NOVA            '
+            .'CENTRO         79900001MOBILIARTE MADEIRA          490034420122';
         $this->assertEquals($expected, $resp);
     }
 }
