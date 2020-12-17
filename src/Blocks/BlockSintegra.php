@@ -18,5 +18,8 @@ final class BlockSintegra extends Block implements BlockInterface
         'z10' => ['class' => Elements\Z10::class, 'level' => 0, 'type' => 'single'],
         'z11' => ['class' => Elements\Z11::class, 'level' => 0, 'type' => 'single'],
         'z50' => ['class' => Elements\Z50::class, 'level' => 0, 'type' => 'single'],
+        'z51' => ['class' => Elements\Z51::class, 'level' => 0, 'type' => 'single'],
+        'z53' => ['class' => Elements\Z53::class, 'level' => 0, 'type' => 'single'],
+        'z54' => ['class' => Elements\Z54::class, 'level' => 0, 'type' => 'single'],
     ];
 }

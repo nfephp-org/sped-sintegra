@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Sintegra Test Suite" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.004355">
-    <testsuite name="NFePHP\Sintegra\Tests\Z50Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z50Test.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.004355">
-      <testcase name="testZ50" class="NFePHP\Sintegra\Tests\Z50Test" classname="NFePHP.Sintegra.Tests.Z50Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z50Test.php" line="11" assertions="1" time="0.004355"/>
+  <testsuite name="Sintegra Test Suite" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="0.003097">
+    <testsuite name="NFePHP\Sintegra\Tests\Z54Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z54Test.php" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="0.003097">
+      <testcase name="testZ54" class="NFePHP\Sintegra\Tests\Z54Test" classname="NFePHP.Sintegra.Tests.Z54Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z54Test.php" line="11" assertions="1" time="0.003097">
+        <failure type="PHPUnit\Framework\ExpectationFailedException">NFePHP\Sintegra\Tests\Z54Test::testZ54
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+-'5400000961293950550996120395102000001065565        000000010000000000100000000000000000000000100000000000000000000000000000700'
++'5466291561000103283305054     20052020SC55099612047610210661026102          000000061020000000300000000000300000000000024000000000000000000000000000800'
+
+/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z54Test.php:36
+</failure>
+      </testcase>
     </testsuite>
   </testsuite>
 </testsuites>
