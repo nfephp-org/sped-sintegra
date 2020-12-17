@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":152:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:2:{s:38:"NFePHP\Sintegra\Tests\Z10Test::testZ10";d:0.003;s:38:"NFePHP\Sintegra\Tests\Z11Test::testZ11";d:0.001;}}}

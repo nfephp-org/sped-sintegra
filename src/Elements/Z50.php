@@ -2,6 +2,10 @@
 
 namespace NFePHP\Sintegra\Elements;
 
+/**
+ *  Notas fiscais de compras e vendas
+ */
+
 use NFePHP\Sintegra\Common\Element;
 use NFePHP\Sintegra\Common\ElementInterface;
 use \stdClass;

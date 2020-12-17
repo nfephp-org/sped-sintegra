@@ -5,9 +5,6 @@ namespace NFePHP\Sintegra\Common;
 use \stdClass;
 use NFePHP\Common\Strings;
 use Exception;
-use function Safe\json_decode;
-use function Safe\json_encode;
-use function Safe\preg_match;
 
 abstract class Element
 {

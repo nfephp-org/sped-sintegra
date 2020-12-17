@@ -2,6 +2,10 @@
 
 namespace NFePHP\Sintegra\Elements;
 
+/**
+ * Total de nota fiscal quanto ao IPI
+ */
+
 use NFePHP\Sintegra\Common\Element;
 use NFePHP\Sintegra\Common\ElementInterface;
 use \stdClass;

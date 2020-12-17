@@ -18,7 +18,6 @@ class Z51Test extends TestCase
         $std->SERIE = '099';
         $std->NUM_DOC = '612047';
         $std->CFOP = '6102';
-        $std->EMITENTE = 'P';
         $std->VL_TOTAL = '30000';
         $std->VL_TOTAL_IPI = '30000';
         $std->ISENTA_NTRIBUTADA = '0';
@@ -28,7 +27,7 @@ class Z51Test extends TestCase
         $b1 = new Z51($std);
         $resp = "{$b1}";
 
-        $expected = '5066291561000103283305054     20052020SC550996120476102P000000003000000000000300000000000002400000000000000000000000000000800N';
+        $expected = '5166291561000103283305054     20052020SC0996120476102000000003000000000000300000000000000000000000000000000000000000000800N';
         $this->assertEquals($expected, $resp);
     }
 }

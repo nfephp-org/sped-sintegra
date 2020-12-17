@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Sintegra Test Suite" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="0.003097">
-    <testsuite name="NFePHP\Sintegra\Tests\Z54Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z54Test.php" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="0.003097">
-      <testcase name="testZ54" class="NFePHP\Sintegra\Tests\Z54Test" classname="NFePHP.Sintegra.Tests.Z54Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z54Test.php" line="11" assertions="1" time="0.003097">
+  <testsuite name="Sintegra Test Suite" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="0.003716">
+    <testsuite name="NFePHP\Sintegra\Tests\Z54Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z54Test.php" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="0.003716">
+      <testcase name="testZ54" class="NFePHP\Sintegra\Tests\Z54Test" classname="NFePHP.Sintegra.Tests.Z54Test" file="/home/ismaelc4/Projetos/sped-sintegra/src/tests/Z54Test.php" line="11" assertions="1" time="0.003716">
         <failure type="PHPUnit\Framework\ExpectationFailedException">NFePHP\Sintegra\Tests\Z54Test::testZ54
 Failed asserting that two strings are equal.
 --- Expected
