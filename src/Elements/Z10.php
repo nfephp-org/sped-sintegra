@@ -3,10 +3,9 @@
 namespace NFePHP\Sintegra\Elements;
 
 use NFePHP\Sintegra\Common\Element;
-use NFePHP\Sintegra\Common\ElementInterface;
 use \stdClass;
 
-class Z10 extends Element implements ElementInterface
+class Z10 extends Element
 {
     const REGISTRO = '10';
     const LEVEL = 0;

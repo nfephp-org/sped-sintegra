@@ -4,9 +4,10 @@ namespace NFePHP\Sintegra\Common;
 
 use \stdClass;
 use NFePHP\Common\Strings;
+use NFePHP\Sintegra\Common\ElementInterface;
 use Exception;
 
-abstract class Element
+abstract class Element implements ElementInterface
 {
 
     public $std;

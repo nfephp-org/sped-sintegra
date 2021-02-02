@@ -3,8 +3,8 @@
 namespace NFePHP\Sintegra;
 
 use NFePHP\Sintegra\Sintegra;
-use Blocks\Sintegra\Block1;
-use Blocks\Sintegra\Block5;
+use Blocks\Sintegra\Blocks\Block1;
+use Blocks\Sintegra\Blocks\Block5;
 
 /**
  * Classe construtora do arquivo SINTEGRA
