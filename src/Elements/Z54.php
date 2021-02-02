@@ -3,7 +3,7 @@
 namespace NFePHP\Sintegra\Elements;
 
 /**
- *  Itens das notas fiscais
+ *  Este registro é obrigatório para os contribuintes que emitem nota fiscal modelo 1 ou 1-A
  */
 
 use NFePHP\Sintegra\Common\Element;
@@ -16,40 +16,16 @@ class Z54 extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'string',
-            'regex' => '^[0-9]{14}$',
+            'type' => 'numeric',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => false,
             'info' => 'CNPJ do remetente nas entradas e dos destinátarios nas saídas',
-            'format' => '',
+            'format' => 'totalNumber',
             'length' => 14
-        ],
-        'IE' => [
-            'type' => 'string',
-            'regex' => '^[0-9]{2,14}$',
-            'required' => false,
-            'info' => 'Inscrição estadual do remetente nas entradas e do destinatário nas saídas',
-            'format' => '',
-            'length' => 14
-        ],
-        'DATA_EMISSAO' => [
-            'type' => 'string',
-            'regex' => '^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})$',
-            'required' => true,
-            'info' => 'Data de emissão na saída ou de recebimento na entrada',
-            'format' => '',
-            'length' => 8
-        ],
-        'UF' => [
-            'type' => 'string',
-            'regex' => '^.{2}$',
-            'required' => true,
-            'info' => 'Sigla da Unidade da Federação do remetente',
-            'format' => '',
-            'length' => 2
         ],
         'COD_MOD' => [
-            'type' => 'string',
-            'regex' => '^.{2}$',
+            'type' => 'numeric',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Código do modelo da nota fiscal',
             'format' => '',
@@ -65,10 +41,10 @@ class Z54 extends Element implements ElementInterface
         ],
         'NUM_DOC' => [
             'type' => 'numeric',
-            'regex' => '^(\d{6})$',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Número do documento fiscal',
-            'format' => '',
+            'format' => 'totalNumber',
             'length' => 6
         ],
         'CFOP' => [
@@ -80,8 +56,8 @@ class Z54 extends Element implements ElementInterface
             'length' => 4
         ],
         'CST' => [
-            'type' => 'numeric',
-            'regex' => '^(\d{3})$',
+            'type' => 'string',
+            'regex' => '^.{1,3}$',
             'required' => true,
             'info' => 'Código da Situação Tributária',
             'format' => '',
@@ -89,18 +65,18 @@ class Z54 extends Element implements ElementInterface
         ],
         'NUMERO_ITEM' => [
             'type' => 'numeric',
-            'regex' => '^(\d{4})$',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Número de ordem do item na nota fiscal',
-            'format' => '',
+            'format' => 'totalNumber',
             'length' => 3
         ],
         'CODIGO_PRODUTO' => [
-            'type' => 'numeric',
-            'regex' => '^(\d{4})$',
+            'type' => 'string',
+            'regex' => '^.{1,14}$',
             'required' => true,
             'info' => 'Código do produto ou serviço do informante',
-            'format' => '',
+            'format' => 'empty',
             'length' => 14
         ],
         'QUANTIDADE' => [
@@ -119,7 +95,7 @@ class Z54 extends Element implements ElementInterface
             'format' => 'totalNumber',
             'length' => 12
         ],
-        'VL_DESCONTO' => [
+        'OUTRAS_DESPESAS' => [
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
