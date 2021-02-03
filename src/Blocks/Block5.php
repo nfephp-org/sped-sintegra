@@ -7,12 +7,12 @@ use NFePHP\Sintegra\Common\Block;
 use NFePHP\Sintegra\Common\BlockInterface;
 
 /**
- * Classe constutora do bloco 010 (inicial) Sintegra
+ * Classe constutora do bloco 050 (notas fiscais de compra e vendde a) Sintegra
  *
  * Esta classe irá usar um recurso para invocar as classes de cada um dos elementos
  * constituintes listados.
  */
-final class Block1 extends Block implements BlockInterface
+final class Block5 extends Block implements BlockInterface
 {
     public $elements = [
         'z50' => ['class' => Elements\Z50::class, 'level' => 0, 'type' => 'single'],

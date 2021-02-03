@@ -12,7 +12,7 @@ use NFePHP\Sintegra\Common\BlockInterface;
  * Esta classe irá usar um recurso para invocar as classes de cada um dos elementos
  * constituintes listados.
  */
-final class Block1 extends Block implements BlockInterface
+final class Block8 extends Block implements BlockInterface
 {
     public $elements = [
         'z85' => ['class' => Elements\Z85::class, 'level' => 0, 'type' => 'single'],
