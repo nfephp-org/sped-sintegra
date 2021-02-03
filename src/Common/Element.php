@@ -189,6 +189,11 @@ abstract class Element implements ElementInterface
             return $this->numberFormatAliquota($value, $length);
         }
 
+        if ($format == 'empty') {
+            return $this->formatFieldEmpty($value, $length);
+        }
+
+
         $this->values->$name = (float) $value;
         return $this->numberFormat(floatval($value), $format, $fieldname);
     }
@@ -247,6 +252,11 @@ abstract class Element implements ElementInterface
         $value = str_pad($value, 4, "0", STR_PAD_RIGHT);
 
         return str_pad($value, $length, "0", STR_PAD_LEFT);
+    }
+
+    private function formatFieldEmpty($value, $length)
+    {
+        return str_pad($value, $length, " ", STR_PAD_RIGHT);
     }
 
     /**
