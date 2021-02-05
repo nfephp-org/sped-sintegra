@@ -61,7 +61,7 @@ abstract class Sintegra
         $registro90 = '';
         $totalLinhasRegistro = count($totalizadoresLinhas);        
         foreach ($totalizadoresLinhas as $linha) {
-            $complementoLinha = str_pad($totalLinhasRegistro, (126 - strlen($linha)), " ", STR_PAD_LEFT)."\n";
+            $complementoLinha = str_pad($totalLinhasRegistro, (126 - strlen($linha)), " ", STR_PAD_LEFT)."\r\n";
             $registro90 .= $linha . $complementoLinha;
         }
         
@@ -92,22 +92,22 @@ abstract class Sintegra
         $somatorioPorBloco = [
             SintegraEnum::REGISTRO_10 => 0,
             SintegraEnum::REGISTRO_11 => 0,
-            SintegraEnum::REGISTRO_50 => 2,
-            SintegraEnum::REGISTRO_51 => 3,
-            SintegraEnum::REGISTRO_53 => 4,
-            SintegraEnum::REGISTRO_54 => 1,
-            SintegraEnum::REGISTRO_55 => 1,
-            SintegraEnum::REGISTRO_56 => 1,
-            SintegraEnum::REGISTRO_60 => 1,
-            SintegraEnum::REGISTRO_61 => 1,
-            SintegraEnum::REGISTRO_70 => 1,
-            SintegraEnum::REGISTRO_71 => 1,
-            SintegraEnum::REGISTRO_74 => 1,
-            SintegraEnum::REGISTRO_75 => 1,
-            SintegraEnum::REGISTRO_76 => 1,
-            SintegraEnum::REGISTRO_77 => 1,
-            SintegraEnum::REGISTRO_85 => 1,
-            SintegraEnum::REGISTRO_86 => 1,
+            SintegraEnum::REGISTRO_50 => 0,
+            SintegraEnum::REGISTRO_51 => 0,
+            SintegraEnum::REGISTRO_53 => 0,
+            SintegraEnum::REGISTRO_54 => 0,
+            SintegraEnum::REGISTRO_55 => 0,
+            SintegraEnum::REGISTRO_56 => 0,
+            SintegraEnum::REGISTRO_60 => 0,
+            SintegraEnum::REGISTRO_61 => 0,
+            SintegraEnum::REGISTRO_70 => 0,
+            SintegraEnum::REGISTRO_71 => 0,
+            SintegraEnum::REGISTRO_74 => 0,
+            SintegraEnum::REGISTRO_75 => 0,
+            SintegraEnum::REGISTRO_76 => 0,
+            SintegraEnum::REGISTRO_77 => 0,
+            SintegraEnum::REGISTRO_85 => 0,
+            SintegraEnum::REGISTRO_86 => 0,
         ];
 
         foreach ($sintegraArray as $element) {
@@ -136,6 +136,8 @@ abstract class Sintegra
         $totalizadoresLinhas = [];
         $linha = $inicioLinha;
         foreach ($somatorioPorBloco as $key => $value) {
+            $totalGeral += $value;
+
             if ($key == SintegraEnum::REGISTRO_10
                 || $key == SintegraEnum::REGISTRO_11
                 || $value == 0) {
@@ -149,15 +151,17 @@ abstract class Sintegra
             }
 
             $linha .= $totalizadorRegistro;
-            $totalGeral += $value;
         }
 
-        $totalizador99 = SintegraEnum::TOTALIZADOR_99 . str_pad($totalGeral, 8, "0", STR_PAD_LEFT);
-        if(strlen($linha.$totalizador99) > 125){
+        
+        if(strlen($linha) > 115){
             $totalizadoresLinhas[] = $linha;
             $linha = $inicioLinha;
+            $totalGeral += 1;
         }
         
+        $totalGeral += 1;
+        $totalizador99 = SintegraEnum::TOTALIZADOR_99 . str_pad($totalGeral, 8, "0", STR_PAD_LEFT);
         $linha .= $totalizador99;
         if (strlen($linha) > 0) {
             $totalizadoresLinhas[] = $linha;

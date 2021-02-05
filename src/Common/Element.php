@@ -169,15 +169,15 @@ abstract class Element implements ElementInterface
             return $value;
         }
         if (!is_numeric($value)) {
-            //se não é numerico então permitir apenas ASCII
-            return Strings::toASCII($value);
+            //se não é numerico então passa para ASCII
+            $value = Strings::toASCII($value);
         }
         if (empty($format)) {
             return $value;
         }
         //gravar os valores numericos para possivel posterior validação complexa
         $name = strtolower($fieldname);
-        if ($value === '') {
+        if ($value === '' && $format !== 'empty') {
             $value = 0;
         }
 
