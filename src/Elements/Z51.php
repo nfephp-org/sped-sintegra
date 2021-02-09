@@ -108,7 +108,7 @@ class Z51 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => false,
             'info' => 'Brancos',
-            'format' => 'totalNumber',
+            'format' => 'empty',
             'length' => 20
         ],
         'SITUACAO' => [
@@ -128,6 +128,7 @@ class Z51 extends Element implements ElementInterface
     public function __construct(\stdClass $std)
     {
         parent::__construct(self::REGISTRO);
+        $std->BRANCOS = '';
         $this->std = $this->standarize($std);
     }
 }

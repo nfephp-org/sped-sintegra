@@ -132,8 +132,8 @@ class Z53 extends Element implements ElementInterface
             'regex' => '^.{1}$',
             'required' => false,
             'info' => 'Brancos',
-            'format' => '',
-            'length' => 20
+            'format' => 'empty',
+            'length' => 29
         ],
     ];
 
@@ -144,6 +144,7 @@ class Z53 extends Element implements ElementInterface
     public function __construct(\stdClass $std)
     {
         parent::__construct(self::REGISTRO);
+        $std->BRANCOS = '';
         $this->std = $this->standarize($std);
     }
 }
