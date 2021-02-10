@@ -58,9 +58,9 @@ class Z54 extends Element implements ElementInterface
         'CST' => [
             'type' => 'string',
             'regex' => '^.{1,3}$',
-            'required' => true,
+            'required' => false,
             'info' => 'Código da Situação Tributária',
-            'format' => '',
+            'format' => 'empty',
             'length' => 3
         ],
         'NUMERO_ITEM' => [
