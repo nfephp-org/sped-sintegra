@@ -11,8 +11,8 @@ class Z75Test extends TestCase
     public function testZ75()
     {
         $std = new stdClass();
-        $std->DT_INI = '01022020';
-        $std->DT_FIM = '01022020';
+        $std->DT_INI = '20200101';
+        $std->DT_FIM = '20210131';
         $std->CODIGO_PRODUTO = '1';
         $std->CODIGO_NCM = '19059090';
         $std->DESCRICAO = 'Bala Fini Morango (Tributado)';

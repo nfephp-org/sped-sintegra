@@ -16,8 +16,8 @@ final class SintegraCont extends Sintegra
     protected $possibles = [
         'block1' => ['class' => Block1::class, 'order' => 1],
         'block5' => ['class' => Block5::class, 'order' => 2],
-        'block7' => ['class' => Block6::class, 'order' => 3],
+        'block6' => ['class' => Block6::class, 'order' => 3],
         'block7' => ['class' => Block7::class, 'order' => 4],
-        'block7' => ['class' => Block8::class, 'order' => 5],
+        'block8' => ['class' => Block8::class, 'order' => 5],
     ];
 }
