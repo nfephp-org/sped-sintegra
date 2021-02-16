@@ -27,6 +27,8 @@ class Z10Test extends TestCase
 
         $expected = '1066291561000103283305054     Empresa Teste Ltda                 Concordia'
             . '                     SC49344201010101202003012020331';
+        print_r($resp);
+        die;
         $this->assertEquals($expected, $resp);
     }
 }
