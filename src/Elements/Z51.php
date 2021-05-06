@@ -25,7 +25,7 @@ class Z51 extends Element implements ElementInterface
         ],
         'IE' => [
             'type' => 'string',
-            'regex' => '^[0-9]{2,14}$',
+            'regex' => '^[0-9]{2,14}$|^ISENTO$',
             'required' => false,
             'info' => 'Inscrição estadual do remetente nas entradas e do destinatário nas saídas',
             'format' => '',
@@ -33,7 +33,7 @@ class Z51 extends Element implements ElementInterface
         ],
         'DATA_EMISSAO' => [
             'type' => 'string',
-            'regex' => '^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})$',
+            'regex' => '^([12]\d{3})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))$',
             'required' => true,
             'info' => 'Data de emissão na saída ou de recebimento na entrada',
             'format' => '',
@@ -108,7 +108,7 @@ class Z51 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => false,
             'info' => 'Brancos',
-            'format' => 'totalNumber',
+            'format' => 'empty',
             'length' => 20
         ],
         'SITUACAO' => [
@@ -128,6 +128,7 @@ class Z51 extends Element implements ElementInterface
     public function __construct(\stdClass $std)
     {
         parent::__construct(self::REGISTRO);
+        $std->BRANCOS = '';
         $this->std = $this->standarize($std);
     }
 }

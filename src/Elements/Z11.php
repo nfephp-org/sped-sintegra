@@ -32,7 +32,7 @@ class Z11 extends Element implements ElementInterface
             'regex' => '^.{2,22}$',
             'required' => false,
             'info' => 'Complemento do endereço',
-            'format' => '',
+            'format' => 'empty',
             'length' => 22
         ],
         'BAIRRO' => [

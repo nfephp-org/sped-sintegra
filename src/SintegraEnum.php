@@ -17,6 +17,7 @@ class SintegraEnum
     const REGISTRO_56 = '56';
     const REGISTRO_60 = '60';
     const REGISTRO_61 = '61';
+    const REGISTRO_61R = '61R';
     const REGISTRO_70 = '70';
     const REGISTRO_71 = '71';
     const REGISTRO_74 = '74';

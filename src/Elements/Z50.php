@@ -25,7 +25,7 @@ class Z50 extends Element implements ElementInterface
         ],
         'IE' => [
             'type' => 'string',
-            'regex' => '^[0-9]{2,14}$',
+            'regex' => '^[0-9]{2,14}$|^ISENTO$',
             'required' => false,
             'info' => 'Inscrição estadual do remetente nas entradas e do destinatário nas saídas',
             'format' => '',
@@ -33,7 +33,7 @@ class Z50 extends Element implements ElementInterface
         ],
         'DATA_EMISSAO' => [
             'type' => 'string',
-            'regex' => '^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})$',
+            'regex' => '^([12]\d{3})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))$',
             'required' => true,
             'info' => 'Data de emissão na saída ou de recebimento na entrada',
             'format' => '',
@@ -42,9 +42,9 @@ class Z50 extends Element implements ElementInterface
         'UF' => [
             'type' => 'string',
             'regex' => '^.{2}$',
-            'required' => true,
+            'required' => false,
             'info' => 'Sigla da Unidade da Federação do remetente',
-            'format' => '',
+            'format' => 'empty',
             'length' => 2
         ],
         'COD_MOD' => [
