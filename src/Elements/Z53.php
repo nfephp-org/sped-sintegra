@@ -4,6 +4,14 @@ namespace NFePHP\Sintegra\Elements;
 
 /**
  * Substituição tributária
+ *
+ * Os registros tipo 53 só deverão ser gerados por contribuintes substitutos
+ * tributários. Substituto tributário é aquele a quem a legislação obriga a, no momento
+ * da venda de seu produto, além de pagar o imposto próprio, fazer a retenção do
+ * imposto referente às operações seguintes, recolhendo-o em separado daquele
+ * referente a suas próprias operações. Ele está obrigado a gerar o registro 50 e o
+ * registro 53, referentes a uma mesma operação. Substituído é o comerciante que
+ *adquire a mercadoria com o imposto já retido.
  */
 
 use NFePHP\Sintegra\Common\Element;
@@ -82,7 +90,7 @@ class Z53 extends Element implements ElementInterface
         'EMITENTE' => [
             'type' => 'string',
             'regex' => '^.{1}$',
-            'required' => false,
+            'required' => true,
             'info' => 'Emitente da Nota Fiscal (P- próprio/T-terceiros)',
             'format' => '',
             'length' => 1
@@ -114,22 +122,22 @@ class Z53 extends Element implements ElementInterface
         'SITUACAO' => [
             'type' => 'string',
             'regex' => '^.{1}$',
-            'required' => false,
+            'required' => true,
             'info' => 'Situação da Nota fiscal',
             'format' => '',
             'length' => 1
         ],
         'CODIGO_ANTECIPACAO' => [
             'type' => 'string',
-            'regex' => '^.{1}$',
-            'required' => false,
+            'regex' => '^(1|2|3|4|5|6| )$',
+            'required' => true,
             'info' => 'Código que identifica o tipo da Antecipação Tributária',
             'format' => '',
             'length' => 1
         ],
         'BRANCOS' => [
-            'type' => 'numeric',
-            'regex' => '^.{1}$',
+            'type' => 'string',
+            'regex' => '',
             'required' => false,
             'info' => 'Brancos',
             'format' => 'empty',
@@ -146,5 +154,6 @@ class Z53 extends Element implements ElementInterface
         parent::__construct(self::REGISTRO);
         $std->BRANCOS = '';
         $this->std = $this->standarize($std);
+        $this->postValidation();
     }
 }

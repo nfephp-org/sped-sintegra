@@ -15,7 +15,4 @@ class Z85 extends Element implements ElementInterface
     const REGISTRO = '85';
     const LEVEL = 0;
     const PARENT = '';
-    
-    
-    
 }

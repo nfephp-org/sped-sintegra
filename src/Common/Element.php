@@ -29,7 +29,7 @@ abstract class Element implements ElementInterface
 
     public function postValidation()
     {
-        return true;
+        return;
     }
 
     /**
