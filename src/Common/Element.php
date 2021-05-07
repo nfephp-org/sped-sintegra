@@ -4,9 +4,10 @@ namespace NFePHP\Sintegra\Common;
 
 use \stdClass;
 use NFePHP\Common\Strings;
+use NFePHP\Sintegra\Common\ElementInterface;
 use Exception;
 
-abstract class Element
+abstract class Element implements ElementInterface
 {
 
     public $std;
@@ -88,7 +89,8 @@ abstract class Element
                 $formated = $this->formater(
                     $std->$key,
                     $stdParam->$key->format,
-                    strtoupper($key)
+                    strtoupper($key),
+                    $stdParam->$key->length
                 );
 
                 $newValue = $this->formatString(
@@ -161,23 +163,37 @@ abstract class Element
      * @return int|string|float|null
      * @throws \InvalidArgumentException
      */
-    protected function formater($value, $format = null, $fieldname = '')
+    protected function formater($value, $format = null, $fieldname = '', $length)
     {
         if ($value === null) {
             return $value;
         }
         if (!is_numeric($value)) {
-            //se não é numerico então permitir apenas ASCII
-            return Strings::toASCII($value);
+            //se não é numerico então passa para ASCII
+            $value = Strings::toASCII($value);
         }
         if (empty($format)) {
             return $value;
         }
         //gravar os valores numericos para possivel posterior validação complexa
         $name = strtolower($fieldname);
-        if ($value === '') {
+        if ($value === '' && $format !== 'empty') {
             $value = 0;
         }
+
+        if ($format == 'totalNumber') {
+            return $this->numberTotalFormat(floatval($value), $length);
+        }
+
+        if ($format == 'aliquota') {
+            return $this->numberFormatAliquota($value, $length);
+        }
+
+        if ($format == 'empty') {
+            return $this->formatFieldEmpty($value, $length);
+        }
+
+
         $this->values->$name = (float) $value;
         return $this->numberFormat(floatval($value), $format, $fieldname);
     }
@@ -223,6 +239,24 @@ abstract class Element
         }
         $decplaces = (int) $n[1];
         return number_format($value, $decplaces, ',', '');
+    }
+
+
+    private function numberTotalFormat($value, $length)
+    {
+        return str_pad($value, $length, "0", STR_PAD_LEFT);
+    }
+
+    private function numberFormatAliquota($value, $length)
+    {
+        $value = str_pad($value, 4, "0", STR_PAD_RIGHT);
+
+        return str_pad($value, $length, "0", STR_PAD_LEFT);
+    }
+
+    private function formatFieldEmpty($value, $length)
+    {
+        return str_pad($value, $length, " ", STR_PAD_RIGHT);
     }
 
     /**

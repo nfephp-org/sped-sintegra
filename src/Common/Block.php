@@ -1,10 +1,12 @@
 <?php
 namespace NFePHP\Sintegra\Common;
 
+use NFePHP\Sintegra\Common\BlockInterface;
+
 /**
  * Classe abstrata basica de onde cada bloco é cunstruido
  */
-abstract class Block
+abstract class Block implements BlockInterface
 {
     public $elements = [];
     protected $bloco = '';

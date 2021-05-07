@@ -3,10 +3,9 @@
 namespace NFePHP\Sintegra\Elements;
 
 use NFePHP\Sintegra\Common\Element;
-use NFePHP\Sintegra\Common\ElementInterface;
 use \stdClass;
 
-class Z10 extends Element implements ElementInterface
+class Z10 extends Element
 {
     const REGISTRO = '10';
     const LEVEL = 0;
@@ -63,7 +62,7 @@ class Z10 extends Element implements ElementInterface
         ],
         'DT_INI' => [
             'type' => 'string',
-            'regex' => '^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})$',
+            'regex' => '^([12]\d{3})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))$',
             'required' => true,
             'info' => 'Data inicial das informações contidas no arquivo.',
             'format' => '',
@@ -71,7 +70,7 @@ class Z10 extends Element implements ElementInterface
         ],
         'DT_FIM' => [
             'type' => 'string',
-            'regex' => '^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})$',
+            'regex' => '^([12]\d{3})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))$',
             'required' => true,
             'info' => 'Data final das informações contidas no arquivo.',
             'format' => '',
