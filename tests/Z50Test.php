@@ -13,7 +13,7 @@ class Z50Test extends TestCase
         $std = new stdClass();
         $std->CNPJ = '66291561000103';
         $std->IE = '283305054';
-        $std->DATA_EMISSAO = '20052020';
+        $std->DATA_EMISSAO = '20050220';
         $std->UF = 'SC';
         $std->COD_MOD = '55';
         $std->SERIE = '099';
@@ -30,7 +30,7 @@ class Z50Test extends TestCase
         $b1 = new Z50($std);
         $resp = "{$b1}";
 
-        $expected = '5066291561000103283305054     20052020SC550996120476102P000000003000000000000300000000000002400000000000000000000000000000800N';
+        $expected = '5066291561000103283305054     20050220SC550996120476102P000000003000000000000300000000000002400000000000000000000000000000800N';
         $this->assertEquals($expected, $resp);
     }
 }

@@ -7,7 +7,7 @@ use NFePHP\Sintegra\Common\Block;
 use NFePHP\Sintegra\Common\BlockInterface;
 
 /**
- * Classe constutora do bloco 8 Sintegra  Informações de exportações 
+ * Classe constutora do bloco 8 Sintegra  Informações de exportações
  *
  * Esta classe irá usar um recurso para invocar as classes de cada um dos elementos
  * constituintes listados.

@@ -13,6 +13,8 @@ use \stdClass;
 class Z53 extends Element implements ElementInterface
 {
     const REGISTRO = '53';
+    
+    protected $len = 126;
 
     protected $parameters = [
         'CNPJ' => [

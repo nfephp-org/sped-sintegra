@@ -14,6 +14,7 @@ abstract class Element implements ElementInterface
     public $values;
     protected $parameters;
     private $reg;
+    private $strchar = ' ';
 
     /**
      * Constructor
@@ -70,10 +71,6 @@ abstract class Element implements ElementInterface
             if (!key_exists($key, $arr)) {
                 $newstd->$key = null;
             } else {
-                if ($std->$key === null) {
-                    $newstd->$key = null;
-                    continue;
-                }
                 //se o valor para o parametro foi passado, então validar
                 $resp = $this->isFieldInError(
                     $std->$key,
@@ -88,9 +85,9 @@ abstract class Element implements ElementInterface
                 //e formatar o dado passado
                 $formated = $this->formater(
                     $std->$key,
-                    $stdParam->$key->format,
+                    $stdParam->$key->length,
                     strtoupper($key),
-                    $stdParam->$key->length
+                    $stdParam->$key->format
                 );
 
                 $newValue = $this->formatString(
@@ -119,10 +116,11 @@ abstract class Element implements ElementInterface
     {
         $type = $param->type;
         $regex = $param->regex;
-        if (empty($regex)) {
+        
+        if (($input === null || $input === '') && !$required) {
             return false;
         }
-        if (($input === null || $input === '') && !$required) {
+        if (empty($regex)) {
             return false;
         }
         switch ($type) {
@@ -163,10 +161,14 @@ abstract class Element implements ElementInterface
      * @return int|string|float|null
      * @throws \InvalidArgumentException
      */
-    protected function formater($value, $format = null, $fieldname = '', $length)
-    {
+    protected function formater(
+        $value,
+        $length,
+        $fieldname = '',
+        $format = null
+    ) {
         if ($value === null) {
-            return $value;
+            $value = '';
         }
         if (!is_numeric($value)) {
             //se não é numerico então passa para ASCII
@@ -192,8 +194,6 @@ abstract class Element implements ElementInterface
         if ($format == 'empty') {
             return $this->formatFieldEmpty($value, $length);
         }
-
-
         $this->values->$name = (float) $value;
         return $this->numberFormat(floatval($value), $format, $fieldname);
     }
@@ -256,7 +256,7 @@ abstract class Element implements ElementInterface
 
     private function formatFieldEmpty($value, $length)
     {
-        return str_pad($value, $length, " ", STR_PAD_RIGHT);
+        return str_pad($value, $length, $this->strchar, STR_PAD_RIGHT);
     }
 
     /**
@@ -266,12 +266,7 @@ abstract class Element implements ElementInterface
     protected function formatString($value, $param)
     {
         $length = $param->length;
-
-        if (!$value) {
-            return;
-        }
-        $newValue = str_pad($value, $length, " ", STR_PAD_RIGHT);
-
+        $newValue = strtoupper(str_pad($value, $length, $this->strchar, STR_PAD_RIGHT));
         return $newValue;
     }
 
@@ -284,6 +279,11 @@ abstract class Element implements ElementInterface
         $register = '';
         foreach ($this->parameters as $key => $params) {
             $register .= $this->std->$key;
+        }
+        $len = $this->len;
+        $lenreg = strlen($register)+strlen($this->reg);
+        if ($lenreg != $len) {
+            throw new \Exception("Erro na construção do elemento esperado {$len} encontrado {$lenreg}.");
         }
         return $register;
     }

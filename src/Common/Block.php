@@ -12,10 +12,6 @@ abstract class Block implements BlockInterface
     protected $bloco = '';
     protected $elementTotal;
 
-    public function __construct()
-    {
-    }
-
     /**
      * Call classes to build each EFD element
      * @param string $name
@@ -34,19 +30,7 @@ abstract class Block implements BlockInterface
         if (empty($arguments[0])) {
             throw new \Exception("Sem dados passados para o método [$name].");
         }
-
         $elclass = new $className($arguments[0]);
-
-        //aqui deve ser feita a construção do bloco
-        //para fazer a montagem verificar o elemento pai
-        //se não existir elemento pai no bloco disparar um exception
-        //$parent = $elclass::PARENT;
-
-        //o parent pode ser um ou multipos separados por |
-        //se não existir o parent então apenas acrescentar sem necessidade
-        //de verificação
-        //TODO
-
         $this->bloco .= "{$elclass}\n";
     }
 

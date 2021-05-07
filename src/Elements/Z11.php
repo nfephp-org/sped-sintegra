@@ -9,6 +9,8 @@ use \stdClass;
 class Z11 extends Element implements ElementInterface
 {
     const REGISTRO = '11';
+    
+    protected $len = 126;
 
     protected $parameters = [
         'LOGRADOURO' => [
@@ -20,11 +22,11 @@ class Z11 extends Element implements ElementInterface
             'length' => 34
         ],
         'NUMERO' => [
-            'type' => 'string',
+            'type' => 'numeric',
             'regex' => '^[0-9]{1,5}$',
             'required' => true,
             'info' => 'Número do endereço.',
-            'format' => '',
+            'format' => 'totalNumber',
             'length' => 5
         ],
         'COMPLEMENTO' => [
@@ -39,32 +41,32 @@ class Z11 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^.{2,15}$',
             'required' => false,
-            'info' => 'Bairro do estabelicimento',
+            'info' => 'Bairro do estabeleicimento',
             'format' => '',
             'length' => 15
         ],
         'CEP' => [
             'type' => 'string',
-            'regex' => '^.{8}$',
+            'regex' => '^[0-9]{8}$',
             'required' => true,
             'info' => 'CEP do endereço',
-            'format' => '',
+            'format' => 'totalNumber',
             'length' => 8
         ],
         'CONTATO' => [
             'type' => 'string',
-            'regex' => '^.{1,22}$',
+            'regex' => '^.{1,28}$',
             'required' => true,
-            'info' => 'Nome da pessoa responsavel pelo estabelcimento',
+            'info' => 'Nome da pessoa responsavel pelo estabelecimento',
             'format' => '',
             'length' => 28
         ],
         'TELEFONE' => [
             'type' => 'string',
-            'regex' => '^.{12}$',
+            'regex' => '^[0-9]{5,12}$',
             'required' => true,
-            'info' => 'Telefone do estabelicimento',
-            'format' => '',
+            'info' => 'Telefone do estabeleicimento',
+            'format' => 'totalNumber',
             'length' => 12
         ],
     ];

@@ -3,7 +3,7 @@
 namespace NFePHP\Sintegra\Elements;
 
 /**
- * Guia Nacional de Recolhimento de Tributos Estaduais - GNRE 
+ * Guia Nacional de Recolhimento de Tributos Estaduais - GNRE
  */
 
 use NFePHP\Sintegra\Common\Element;
@@ -15,4 +15,6 @@ class Z55 extends Element implements ElementInterface
     const REGISTRO = '55';
     const LEVEL = 0;
     const PARENT = '';
+    
+    protected $len = 126;
 }

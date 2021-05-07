@@ -3,7 +3,7 @@
 namespace NFePHP\Sintegra\Elements;
 
 /**
- * Informações de exportações 
+ * Informações de exportações
  */
 
 use NFePHP\Sintegra\Common\Element;
@@ -15,4 +15,8 @@ class Z85 extends Element implements ElementInterface
     const REGISTRO = '85';
     const LEVEL = 0;
     const PARENT = '';
+    
+    protected $len = 126;
+    
+    
 }

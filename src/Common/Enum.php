@@ -1,11 +1,11 @@
 <?php
 
-namespace NFePHP\Sintegra;
+namespace NFePHP\Sintegra\Common;
 
 /**
  * @author Ismael Adriano <ismael_adriano@hotmail.com>
  */
-class SintegraEnum
+class Enum
 {
     const REGISTRO_10 = '10';
     const REGISTRO_11 = '11';
