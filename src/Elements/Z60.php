@@ -16,5 +16,5 @@ class Z60 extends Element implements ElementInterface
     const LEVEL = 0;
     const PARENT = '';
     
-    protected $len = 126;
+    
 }

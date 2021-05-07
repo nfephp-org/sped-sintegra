@@ -15,6 +15,7 @@ abstract class Element implements ElementInterface
     protected $parameters;
     private $reg;
     private $strchar = ' ';
+    protected $len = 126;
 
     /**
      * Constructor

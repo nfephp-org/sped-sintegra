@@ -14,7 +14,6 @@ class Z61 extends Element implements ElementInterface
 {
     const REGISTRO = '61';
     
-    protected $len = 126;
 
     protected $parameters = [
         'BRANCOS_1' => [

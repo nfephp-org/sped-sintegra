@@ -9,8 +9,6 @@ use \stdClass;
 class Z11 extends Element implements ElementInterface
 {
     const REGISTRO = '11';
-    
-    protected $len = 126;
 
     protected $parameters = [
         'LOGRADOURO' => [

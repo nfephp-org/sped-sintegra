@@ -11,7 +11,7 @@ class Z10 extends Element
     const LEVEL = 0;
     const PARENT = '';
     
-    protected $len = 126;
+    
 
     protected $parameters = [
         'CNPJ' => [
