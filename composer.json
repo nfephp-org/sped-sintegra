@@ -1,5 +1,5 @@
 {
-    "name": "nfephp-org/sintegra",
+    "name": "nfephp-org/sped-sintegra",
     "type": "library",
     "version": "0.0.1",
     "description": "API para geração dos arquivos para Sintegra",
