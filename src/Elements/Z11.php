@@ -77,5 +77,6 @@ class Z11 extends Element implements ElementInterface
     {
         parent::__construct(self::REGISTRO);
         $this->std = $this->standarize($std);
+        $this->postValidation();
     }
 }

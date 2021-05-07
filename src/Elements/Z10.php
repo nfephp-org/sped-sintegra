@@ -10,8 +10,6 @@ class Z10 extends Element
     const REGISTRO = '10';
     const LEVEL = 0;
     const PARENT = '';
-    
-    
 
     protected $parameters = [
         'CNPJ' => [
@@ -128,11 +126,12 @@ class Z10 extends Element
         $lastday = date("Ymt", strtotime($dini->format('Y-m-d')));
         
         if ($dfim <= $dini) {
-            throw new \Exception("Erro: Bloco1, campo 10 - A data final deve ser maior que a data inicial.");
+            throw new \Exception("Erro: Bloco1, campo 10 - A data final deve "
+                . "ser maior que a data inicial.");
         }
         if ($this->std->dt_fim != $lastday) {
-            throw new \Exception("Erro: Bloco1, campo 10 - A data final deve ser o último dia do mês indicado na data inicial.");
+            throw new \Exception("Erro: Bloco1, campo 10 - A data final deve "
+                . "ser o último dia do mês indicado na data inicial.");
         }
-         
     }
 }

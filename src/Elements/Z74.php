@@ -15,5 +15,4 @@ class Z74 extends Element implements ElementInterface
     const REGISTRO = '74';
     const LEVEL = 0;
     const PARENT = '';
-    
 }

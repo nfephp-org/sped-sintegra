@@ -4,6 +4,20 @@ namespace NFePHP\Sintegra\Elements;
 
 /**
  * Total de nota fiscal quanto ao IPI
+ *
+ * Os registros tipo 51 deverão ser gerados somente por contribuintes de IPI.
+ * Os contribuintes exclusivamente de ICMS não deverão informar registros tipo 51, ainda que
+ *  tenham recebido mercadorias sujeitas ao IPI.
+ * Só deverão ser informadas no registro tipo 51 operações acobertadas por notas fiscais
+ * modelo 1 ou 1A (código de modelo = 01 no tipo 50), não devendo ser informadas
+ * operações acobertadas por outros modelos de documentos fiscais (principalmente os
+ * modelos 06 e 22, que são informados somente no tipo 50). Observar que no lay out do
+ * tipo 51 não existe campo para modelo de documento fiscal, sendo que o validador
+ * SINTEGRA assume que todos os registros são modelo 01 para comparação das críticas
+ * de integridade relacional entre os tipos 50 e 51.
+ * Deve haver correspondência com a NF indicada no tipo 50 correspondente, conter os
+ * mesmos, CGC, número da nota, CFOP, data de emissão da nota, série da nota, valor
+ * total e a mesma situação.
  */
 
 use NFePHP\Sintegra\Common\Element;
@@ -16,24 +30,24 @@ class Z51 extends Element implements ElementInterface
     
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'string',
+            'type' => 'numeric',
             'regex' => '^[0-9]{14}$',
             'required' => false,
             'info' => 'CNPJ do remetente nas entradas e dos destinátarios nas saídas',
-            'format' => '',
+            'format' => 'totalNumber',
             'length' => 14
         ],
         'IE' => [
             'type' => 'string',
-            'regex' => '^[0-9]{2,14}$|^ISENTO$',
+            'regex' => '^ISENTO|[0-9]{2,14}$',
             'required' => false,
             'info' => 'Inscrição estadual do remetente nas entradas e do destinatário nas saídas',
-            'format' => '',
+            'format' => 'totalNumber',
             'length' => 14
         ],
         'DATA_EMISSAO' => [
             'type' => 'string',
-            'regex' => '^([12]\d{3})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))$',
+            'regex' => '^(2[0-9]{3})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])$',
             'required' => true,
             'info' => 'Data de emissão na saída ou de recebimento na entrada',
             'format' => '',
@@ -41,7 +55,7 @@ class Z51 extends Element implements ElementInterface
         ],
         'UF' => [
             'type' => 'string',
-            'regex' => '^.{2}$',
+            'regex' => '^(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)$',
             'required' => true,
             'info' => 'Sigla da Unidade da Federação do remetente',
             'format' => '',
@@ -49,7 +63,7 @@ class Z51 extends Element implements ElementInterface
         ],
         'SERIE' => [
             'type' => 'string',
-            'regex' => '^.{1,3}$',
+            'regex' => '^[0-9]{1,3}$',
             'required' => true,
             'info' => 'Série do documento fiscal',
             'format' => '',
@@ -57,10 +71,10 @@ class Z51 extends Element implements ElementInterface
         ],
         'NUM_DOC' => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{1,9}$',
+            'regex' => '^[0-9]{1,6}$',
             'required' => true,
             'info' => 'Número do documento fiscal',
-            'format' => '',
+            'format' => 'totalNumber',
             'length' => 6
         ],
         'CFOP' => [
@@ -104,8 +118,8 @@ class Z51 extends Element implements ElementInterface
             'length' => 13
         ],
         'BRANCOS' => [
-            'type' => 'numeric',
-            'regex' => '^\d+(\.\d*)?|\.\d+$',
+            'type' => 'string',
+            'regex' => '',
             'required' => false,
             'info' => 'Brancos',
             'format' => 'empty',
@@ -113,7 +127,7 @@ class Z51 extends Element implements ElementInterface
         ],
         'SITUACAO' => [
             'type' => 'string',
-            'regex' => '^.{1}$',
+            'regex' => '^(S|N)$',
             'required' => false,
             'info' => 'Situação da Nota fiscal',
             'format' => '',
@@ -130,5 +144,6 @@ class Z51 extends Element implements ElementInterface
         parent::__construct(self::REGISTRO);
         $std->BRANCOS = '';
         $this->std = $this->standarize($std);
+        $this->postValidation();
     }
 }

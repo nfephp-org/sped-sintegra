@@ -15,6 +15,4 @@ class Z60 extends Element implements ElementInterface
     const REGISTRO = '60';
     const LEVEL = 0;
     const PARENT = '';
-    
-    
 }

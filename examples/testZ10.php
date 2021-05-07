@@ -5,7 +5,7 @@ require_once '../bootstrap.php';
 
 
 $std = new \stdClass();
-$std->CNPJ = '12345678901'; //Obrig 
+$std->cNPJ = '12345678901'; //Obrig 
 $std->IE = null; //opcional
 $std->NOME_CONTRIBUINTE = 'FULANO DE TAL LTDA'; //Obrig Nome comercial (razao social)
 $std->MUNICIPIO = 'BREJO SECO'; //Obrig Municipio do estabelicimento
