@@ -17,18 +17,16 @@ class Z10Test extends TestCase
         $std->MUNICIPIO = 'Concordia';
         $std->UF = 'SC';
         $std->FAX = '4934420101';
-        $std->DT_INI = '01012020';
-        $std->DT_FIM = '03012020';
-        $std->COGIGO_MAGNETICO = 3;
+        $std->DT_INI = '20200101';
+        $std->DT_FIM = '20200131';
+        $std->COGIGO_MAGNETICO = 2;
         $std->COGIGO_NATUREZAS = 3;
         $std->COGIGO_FINALIDADE = 1;
         $b1 = new Z10($std);
         $resp = "{$b1}";
 
-        $expected = '1066291561000103283305054     Empresa Teste Ltda                 Concordia'
-            . '                     SC49344201010101202003012020331';
-        print_r($resp);
-        die;
+        $expected = '106629156100010300000283305054EMPRESA TESTE LTDA                 '
+            .'CONCORDIA                     SC49344201012020010120200131231';
         $this->assertEquals($expected, $resp);
     }
 }

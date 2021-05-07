@@ -13,7 +13,7 @@ use \stdClass;
 class Z54 extends Element implements ElementInterface
 {
     const REGISTRO = '54';
-
+    
     protected $parameters = [
         'CNPJ' => [
             'type' => 'numeric',
