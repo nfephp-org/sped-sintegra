@@ -13,6 +13,6 @@ use \stdClass;
 class Z70 extends Element implements ElementInterface
 {
     const REGISTRO = '70';
-    const LEVEL = 0;
-    const PARENT = '';
+    
+    protected $parameters = [];
 }

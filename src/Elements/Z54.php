@@ -65,7 +65,7 @@ class Z54 extends Element implements ElementInterface
             'regex' => '^.{1,3}$',
             'required' => true,
             'info' => 'Código da Situação Tributária',
-            'format' => 'empty',
+            'format' => '',
             'length' => 3
         ],
         'NUMERO_ITEM' => [
@@ -81,7 +81,7 @@ class Z54 extends Element implements ElementInterface
             'regex' => '^.{1,14}$',
             'required' => true,
             'info' => 'Código do produto ou serviço do informante',
-            'format' => 'empty',
+            'format' => '',
             'length' => 14
         ],
         'QUANTIDADE' => [
