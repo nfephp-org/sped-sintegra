@@ -10,10 +10,10 @@ use NFePHP\Sintegra\Common\Element;
 use NFePHP\Sintegra\Common\ElementInterface;
 use \stdClass;
 
-class Z60D extends Element implements ElementInterface
+class Z60I extends Element implements ElementInterface
 {
     const REGISTRO = '60';
-    protected $subtipo = 'D';
-    
+    protected $subtipo = 'I';
+
     protected $parameters = [];
 }
