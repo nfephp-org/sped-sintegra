@@ -3,16 +3,17 @@
 namespace NFePHP\Sintegra\Elements;
 
 /**
- *  Registro de inventário
+ * - Exclusivo para empresas emissoras de Cupom Fiscal
  */
 
 use NFePHP\Sintegra\Common\Element;
 use NFePHP\Sintegra\Common\ElementInterface;
 use \stdClass;
 
-class Z74 extends Element implements ElementInterface
+class Z60D extends Element implements ElementInterface
 {
-    const REGISTRO = '74';
+    const REGISTRO = '60';
+    protected $subtipo = 'D';
     
     protected $parameters = [];
 }

@@ -8,8 +8,6 @@ use \stdClass;
 class Z10 extends Element
 {
     const REGISTRO = '10';
-    const LEVEL = 0;
-    const PARENT = '';
 
     protected $parameters = [
         'CNPJ' => [

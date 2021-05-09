@@ -20,8 +20,6 @@ use \stdClass;
 class Z55 extends Element implements ElementInterface
 {
     const REGISTRO = '55';
-    const LEVEL = 0;
-    const PARENT = '';
     
     protected $parameters = [
         'CNPJ' => [

@@ -16,6 +16,7 @@ abstract class Element implements ElementInterface
     private $reg;
     private $strchar = ' ';
     protected $len = 126;
+    protected $subtipo = null;
 
     /**
      * Constructor
@@ -282,7 +283,7 @@ abstract class Element implements ElementInterface
             $register .= $this->std->$key;
         }
         $len = $this->len;
-        $lenreg = strlen($register)+strlen($this->reg);
+        $lenreg = strlen($register)+strlen($this->subtipo)+strlen($this->reg);
         if ($lenreg != $len) {
             throw new \Exception("Erro na construção do elemento esperado {$len} encontrado {$lenreg}.");
         }
@@ -295,6 +296,6 @@ abstract class Element implements ElementInterface
      */
     public function __toString()
     {
-        return  $this->reg . $this->build();
+        return  $this->reg . $this->subtipo . $this->build();
     }
 }

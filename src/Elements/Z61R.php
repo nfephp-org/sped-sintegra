@@ -3,7 +3,9 @@
 namespace NFePHP\Sintegra\Elements;
 
 /**
- * - Exclusivo para empresas emissoras de Cupom Fiscal/ NFCe
+ * Resumo mensal - Registro de mercadoria/produto ou serviço comercializados
+ * através de Nota Fiscal de Produtor ou Nota Fiscal de Venda a Consumidor
+ * não emitida por ECF.
  */
 
 use NFePHP\Sintegra\Common\Element;
@@ -14,7 +16,8 @@ class Z61R extends Element implements ElementInterface
 {
     const REGISTRO = '61';
     
-
+    protected $subtipo = 'R';
+    
     protected $parameters = [
         'MESTRE' => [
             'type' => 'string',

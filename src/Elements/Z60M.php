@@ -3,16 +3,17 @@
 namespace NFePHP\Sintegra\Elements;
 
 /**
- *  Registro de inventário
+ * Mestre - Identificador do equipamento
  */
 
 use NFePHP\Sintegra\Common\Element;
 use NFePHP\Sintegra\Common\ElementInterface;
 use \stdClass;
 
-class Z74 extends Element implements ElementInterface
+class Z60M extends Element implements ElementInterface
 {
-    const REGISTRO = '74';
+    const REGISTRO = '60';
+    protected $subtipo = 'M';
     
     protected $parameters = [];
 }
