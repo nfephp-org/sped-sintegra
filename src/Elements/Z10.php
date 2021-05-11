@@ -93,7 +93,7 @@ class Z10 extends Element
         'COGIGO_FINALIDADE' => [
             'type' => 'numeric',
             'regex' => '^(1|2|3|5)$',
-            'required' => false,
+            'required' => true,
             'info' => 'Código da finalidade do arquivo magnético',
             'format' => '',
             'length' => 1

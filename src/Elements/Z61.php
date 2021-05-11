@@ -41,7 +41,7 @@ class Z61 extends Element implements ElementInterface
         ],
         'COD_MOD' => [
             'type' => 'string',
-            'regex' => '^.{2,2}$',
+            'regex' => '^.{2}$',
             'required' => true,
             'info' => 'Código do modelo da nota fiscal',
             'format' => '',
@@ -65,7 +65,7 @@ class Z61 extends Element implements ElementInterface
         ],
         'NUM_INICIAL' => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{1,9}$',
+            'regex' => '^[0-9]{1,6}$',
             'required' => true,
             'info' => 'Número do primeiro documento fiscal emitido no dia do mesmo modelo, série e subsérie',
             'format' => '',
@@ -73,7 +73,7 @@ class Z61 extends Element implements ElementInterface
         ],
         'NUM_FINAL' => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{1,9}$',
+            'regex' => '^[0-9]{1,6}$',
             'required' => true,
             'info' => 'Número do primeiro documento fiscal emitido no dia do mesmo modelo, série e subsérie',
             'format' => '',

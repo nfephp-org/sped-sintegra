@@ -146,7 +146,7 @@ class Z50 extends Element implements ElementInterface
         'SITUACAO' => [
             'type' => 'string',
             'regex' => '^(S|N)$',
-            'required' => false,
+            'required' => true,
             'info' => 'Situação da Nota fiscal',
             'format' => '',
             'length' => 1
@@ -202,7 +202,7 @@ class Z50 extends Element implements ElementInterface
             '67', //67 - Conhecimento de Transporte Eletrônico para Outros Serviços, modelo 67
         ];
         if (!in_array($this->std->cod_mod, $possible)) {
-            throw new Exception("Erro: Bloco5, campo 50 - "
+            throw new \Exception("Erro: Bloco5, campo 50 - "
                 . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.");
         }
     }

@@ -13,6 +13,145 @@ use \stdClass;
 class Z76 extends Element implements ElementInterface
 {
     const REGISTRO = '76';
-    
-    protected $parameters = [];
+
+    protected $parameters = [
+        'CNPJ' => [
+            'type' => 'numeric',
+            'regex' => '^[0-9]{11,14}$',
+            'required' => true,
+            'info' => 'CNPJ/CPF do tomador do serviço',
+            'format' => 'totalNumber',
+            'length' => 14
+        ],
+        'IE' => [
+            'type' => 'string',
+            'regex' => '^ISENTO|[0-9]{2,14}$',
+            'required' => false,
+            'info' => 'Inscrição estadual do tomador do serviço',
+            'format' => 'totalNumber',
+            'length' => 14
+        ],
+        'COD_MOD' => [
+            'type' => 'numeric',
+            'regex' => '^[0-9]{2}$',
+            'required' => true,
+            'info' => 'Código do modelo da nota fiscal',
+            'format' => 'totalNumber',
+            'length' => 2
+        ],
+        'SERIE' => [
+            'type' => 'string',
+            'regex' => '^[0-9]{1,2}$',
+            'required' => true,
+            'info' => 'Série do documento fiscal',
+            'format' => '',
+            'length' => 2
+        ],
+        'SUB_SERIE' => [
+            'type' => 'string',
+            'regex' => '^.{1,2}$',
+            'required' => false,
+            'info' => 'Série do documento fiscal',
+            'format' => 'empty',
+            'length' => 2
+        ],
+        'NUM_DOC' => [
+            'type' => 'numeric',
+            'regex' => '^[0-9]{1,10}$',
+            'required' => true,
+            'info' => 'Número do documento fiscal',
+            'format' => 'totalNumber',
+            'length' => 10
+        ],
+        'CFOP' => [
+            'type' => 'numeric',
+            'regex' => '^(\d{4})$',
+            'required' => true,
+            'info' => 'Código Fiscal de Operação e Prestação',
+            'format' => '',
+            'length' => 4
+        ],
+        'DATA_EMISSAO' => [
+            'type' => 'string',
+            'regex' => '^(2[0-9]{3})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])$',
+            'required' => true,
+            'info' => 'Data de emissão na saída ou de recebimento na entrada',
+            'format' => '',
+            'length' => 8
+        ],
+        'UF' => [
+            'type' => 'string',
+            'regex' => '^(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)$',
+            'required' => true,
+            'info' => 'Sigla da Unidade da Federação do remetente',
+            'format' => 'empty',
+            'length' => 2
+        ],
+        'VL_TOTAL' => [
+            'type' => 'numeric',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
+            'required' => true,
+            'info' => 'Valor total da nota fiscal (com 2 decimais)',
+            'format' => 'totalNumber',
+            'length' => 13
+        ],
+        'VL_BC_ICMS' => [
+            'type' => 'numeric',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
+            'required' => true,
+            'info' => 'Base de Cálculo do ICMS (com 2 decimais)',
+            'format' => 'totalNumber',
+            'length' => 13
+        ],
+        'VL_ICMS' => [
+            'type' => 'numeric',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
+            'required' => true,
+            'info' => 'Montante do imposto (com 2 decimais)',
+            'format' => 'totalNumber',
+            'length' => 12
+        ],
+        'ISENTA_NTRIBUTADA' => [
+            'type' => 'numeric',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
+            'required' => true,
+            'info' => 'Valor amparado por isenção ou não incidência (com 2 decimais)',
+            'format' => 'totalNumber',
+            'length' => 12
+        ],
+        'OUTRAS' => [
+            'type' => 'numeric',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
+            'required' => true,
+            'info' => 'Valor que não confira débito ou crédito do ICMS (com 2 decimais)',
+            'format' => 'totalNumber',
+            'length' => 12
+        ],
+        'ALIQUOTA' => [
+            'type' => 'numeric',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
+            'required' => true,
+            'info' => 'Alíquota do ICMS (valor inteiro)',
+            'format' => 'aliquota',
+            'length' => 2
+        ],
+        'SITUACAO' => [
+            'type' => 'string',
+            'regex' => '^(S|N)$',
+            'required' => true,
+            'info' => 'Situação da Nota fiscal',
+            'format' => '',
+            'length' => 1
+        ],
+    ];
+
+    /**
+     * Constructor
+     * @param \stdClass $std
+     */
+    public function __construct(\stdClass $std)
+    {
+        parent::__construct(self::REGISTRO);
+        $this->std = $this->standarize($std);
+    }
 }

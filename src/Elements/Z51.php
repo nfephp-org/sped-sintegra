@@ -128,7 +128,7 @@ class Z51 extends Element implements ElementInterface
         'SITUACAO' => [
             'type' => 'string',
             'regex' => '^(S|N)$',
-            'required' => false,
+            'required' => true,
             'info' => 'Situação da Nota fiscal',
             'format' => '',
             'length' => 1

@@ -1,4 +1,6 @@
-vendor
-build
+/vendor
+/build
 composer.lock
 /nbproject
+/.idea
+

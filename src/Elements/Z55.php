@@ -86,6 +86,14 @@ class Z55 extends Element implements ElementInterface
             'format' => '',
             'length' => 20
         ],
+        'VL_TOTAL' => [
+            'type' => 'numeric',
+            'regex' => '^\d+(\.\d*)?|\.\d+$',
+            'required' => true,
+            'info' => 'Valor do GNRE (com 2 decimais)',
+            'format' => 'totalNumber',
+            'length' => 13
+        ],
         "DATA_VENCIMENTO" => [
             'type' => 'string',
             'regex' => '^(2[0-9]{3})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])$',
