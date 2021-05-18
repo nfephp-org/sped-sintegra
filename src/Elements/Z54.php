@@ -18,7 +18,7 @@ use \stdClass;
 class Z54 extends Element implements ElementInterface
 {
     const REGISTRO = '54';
-    
+
     protected $parameters = [
         'CNPJ' => [
             'type' => 'numeric',
@@ -54,7 +54,7 @@ class Z54 extends Element implements ElementInterface
         ],
         'CFOP' => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{4}$',
+            'regex' => "^[1,2,3,5,6,7]{1}[0-9]{3}$",
             'required' => true,
             'info' => 'Código Fiscal de Operação e Prestação',
             'format' => '',
@@ -152,7 +152,7 @@ class Z54 extends Element implements ElementInterface
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
-    
+
     /**
      * Validação secundária sobre as data informadas
      * @throws \Exception
@@ -191,7 +191,7 @@ class Z54 extends Element implements ElementInterface
             '67', //67 - Conhecimento de Transporte Eletrônico para Outros Serviços, modelo 67
         ];
         if (!in_array($this->std->cod_mod, $possible)) {
-            throw new Exception("Erro: Bloco5, campo 50 - Código "
+            throw new \Exception("Erro: Bloco5, campo 50 - Código "
                 . "[{$this->std->cod_mod}] de documento fiscal não encontrado.");
         }
     }

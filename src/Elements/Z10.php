@@ -3,7 +3,6 @@
 namespace NFePHP\Sintegra\Elements;
 
 use NFePHP\Sintegra\Common\Element;
-use \stdClass;
 
 class Z10 extends Element
 {
@@ -38,7 +37,7 @@ class Z10 extends Element
             'type' => 'string',
             'regex' => '^.{2,30}$',
             'required' => true,
-            'info' => 'Municipio do estabelicimento',
+            'info' => 'Municipio do estabelecimento',
             'format' => '',
             'length' => 30
         ],
@@ -76,8 +75,8 @@ class Z10 extends Element
         ],
         'COGIGO_MAGNETICO' => [
             'type' => 'numeric',
-            'regex' => '^(1|2)$',
-            'required' => false,
+            'regex' => '^(1|2|3)$',
+            'required' => true,
             'info' => 'Código da identificação da estrutura do arquivo magnético entregue',
             'format' => '',
             'length' => 1
@@ -85,7 +84,7 @@ class Z10 extends Element
         'COGIGO_NATUREZAS' => [
             'type' => 'numeric',
             'regex' => '^(1|2|3)$',
-            'required' => false,
+            'required' => true,
             'info' => 'Código da identificação da natureza das operações informadas',
             'format' => '',
             'length' => 1
@@ -110,9 +109,7 @@ class Z10 extends Element
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
-    
 
-    
     /**
      * Validação secundária sobre as data informadas
      * @throws \Exception
@@ -122,7 +119,6 @@ class Z10 extends Element
         $dini = \DateTime::createFromFormat('Ymd', $this->std->dt_ini);
         $dfim = \DateTime::createFromFormat('Ymd', $this->std->dt_fim);
         $lastday = date("Ymt", strtotime($dini->format('Y-m-d')));
-        
         if ($dfim <= $dini) {
             throw new \Exception("Erro: Bloco1, campo 10 - A data final deve "
                 . "ser maior que a data inicial.");

@@ -27,7 +27,7 @@ use \stdClass;
 class Z51 extends Element implements ElementInterface
 {
     const REGISTRO = '51';
-    
+
     protected $parameters = [
         'CNPJ' => [
             'type' => 'numeric',
@@ -79,7 +79,7 @@ class Z51 extends Element implements ElementInterface
         ],
         'CFOP' => [
             'type' => 'numeric',
-            'regex' => '^(\d{4})$',
+            'regex' => "^[1,2,3,5,6,7]{1}[0-9]{3}$",
             'required' => true,
             'info' => 'Código Fiscal de Operação e Prestação',
             'format' => '',
@@ -142,7 +142,6 @@ class Z51 extends Element implements ElementInterface
     public function __construct(\stdClass $std)
     {
         parent::__construct(self::REGISTRO);
-        $std->BRANCOS = '';
         $this->std = $this->standarize($std);
         $this->postValidation();
     }

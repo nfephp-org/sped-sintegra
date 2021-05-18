@@ -65,11 +65,19 @@ class Z76 extends Element implements ElementInterface
         ],
         'CFOP' => [
             'type' => 'numeric',
-            'regex' => '^(\d{4})$',
+            'regex' => "^[1,2,3,5,6,7]{1}[0-9]{3}$",
             'required' => true,
             'info' => 'Código Fiscal de Operação e Prestação',
             'format' => '',
             'length' => 4
+        ],
+        'TIPO_RECEITA' => [
+            'type' => 'string',
+            'regex' => '^(1|2|3)$',
+            'required' => true,
+            'info' => 'Código da identificação do tipo de receita (1 Receita própria; 2 Receita de terceiros; 3 Ressarcimento - utilizar este código somente nas hipóteses de estorno de débito do imposto, em que as correspondentes deduções do valor do serviço, da base de cálculo e do respectivo imposto, são lançados no documento fiscal com sinal negativo nos termos do Convênio ICMS 126/98.)',
+            'format' => 'empty',
+            'length' => 1
         ],
         'DATA_EMISSAO' => [
             'type' => 'string',

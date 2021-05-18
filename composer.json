@@ -11,12 +11,18 @@
             "name": "Ismael A. Goncalves",
             "email": "ismael_adriano@hotmail.com",
             "homepage": "https://github.com/ismaeladriano",
-            "role": "dev"
+            "role": "Developer"
         },
         {
             "name": "Roberto L. Machado",
             "email": "linux.rlm@gmail.com.br",
             "homepage": "http://www.nfephp.com.br",
+            "role": "Developer"
+        },
+        {
+            "name": "Cleiton Perin",
+            "email": "cperin20@gmail.com.br",
+            "homepage": "http://www.cloud-dfe.com.br",
             "role": "Developer"
         }
     ],

@@ -2,7 +2,6 @@
 
 namespace NFePHP\Sintegra;
 
-use NFePHP\Sintegra\Common\BaseSintegra;
 use Blocks\Sintegra\Blocks;
 
 /**

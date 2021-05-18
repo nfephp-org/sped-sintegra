@@ -142,6 +142,14 @@ class Z71 extends Element implements ElementInterface
             'info' => 'Valor total da nota fiscal (com 2 decimais)',
             'format' => 'totalNumber',
             'length' => 14
+        ],
+        'BRANCOS' => [
+            'type' => 'string',
+            'regex' => '^[0-9]{1}$',
+            'required' => false,
+            'info' => 'Brancos',
+            'format' => 'empty',
+            'length' => 12
         ]
     ];
 

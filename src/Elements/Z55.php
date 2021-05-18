@@ -20,7 +20,7 @@ use \stdClass;
 class Z55 extends Element implements ElementInterface
 {
     const REGISTRO = '55';
-    
+
     protected $parameters = [
         'CNPJ' => [
             'type' => 'numeric',
@@ -72,7 +72,7 @@ class Z55 extends Element implements ElementInterface
         ],
         "GNRE_AGENCIA" => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{1,3}$',
+            'regex' => '^[0-9]{4}$',
             'required' => true,
             'info' => 'Banco da GNRE preencher com o código do banco foi recolhida a GNRE',
             'format' => 'totalNumber',
@@ -119,7 +119,7 @@ class Z55 extends Element implements ElementInterface
             'length' => 30
         ],
     ];
-    
+
     /**
      * Constructor
      * @param \stdClass $std

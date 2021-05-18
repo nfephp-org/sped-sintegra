@@ -15,7 +15,7 @@ class Z61RTest extends TestCase
         $std->COD_PRODUTO = '000004';
         $std->QUANTIDADE = '1000';
         $std->VALOR_PRODUTO = '9000';
-        $std->BASE_ICMS = '0';
+        $std->VL_BC_ICMS = '0';
         $std->ALIQUOTA = '0';
         $b1 = new Z61R($std);
         $resp = "{$b1}";

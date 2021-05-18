@@ -80,7 +80,7 @@ class Z70 extends Element implements ElementInterface
         ],
         'CFOP' => [
             'type' => 'numeric',
-            'regex' => '^(\d{4})$',
+            'regex' => "^[1,2,3,5,6,7]{1}[0-9]{3}$",
             'required' => true,
             'info' => 'Código Fiscal de Operação e Prestação',
             'format' => '',
@@ -92,7 +92,7 @@ class Z70 extends Element implements ElementInterface
             'required' => true,
             'info' => 'Valor total da nota fiscal (com 2 decimais)',
             'format' => 'totalNumber',
-            'length' => 14
+            'length' => 13
         ],
         'VL_BC_ICMS' => [
             'type' => 'numeric',

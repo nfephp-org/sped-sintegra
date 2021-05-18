@@ -8,16 +8,15 @@ namespace NFePHP\Sintegra\Elements;
 
 use NFePHP\Sintegra\Common\Element;
 use NFePHP\Sintegra\Common\ElementInterface;
-use \stdClass;
 
 class Z75 extends Element implements ElementInterface
 {
     const REGISTRO = '75';
-    
+
     protected $parameters = [
         'DT_INI' => [
             'type' => 'string',
-            'regex' => '^([12]\d{3})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))$',
+            'regex' => '^(2[0-9]{3})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])$',
             'required' => true,
             'info' => 'Data inicial das informações contidas no arquivo.',
             'format' => '',
@@ -25,7 +24,7 @@ class Z75 extends Element implements ElementInterface
         ],
         'DT_FIM' => [
             'type' => 'string',
-            'regex' => '^([12]\d{3})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))$',
+            'regex' => '^(2[0-9]{3})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])$',
             'required' => true,
             'info' => 'Data final das informações contidas no arquivo.',
             'format' => '',
@@ -87,7 +86,7 @@ class Z75 extends Element implements ElementInterface
             'format' => 'totalNumber',
             'length' => 5
         ],
-        'BASE_ICMS' => [
+        'VL_BC_ICMS' => [
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,

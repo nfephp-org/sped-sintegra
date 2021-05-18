@@ -2,8 +2,8 @@
 
 namespace NFePHP\Sintegra\Blocks;
 
-use NFePHP\Sintegra\Elements;
 use NFePHP\Sintegra\Common\Block;
+use NFePHP\Sintegra\Elements;
 
 /**
  * Classe constutora do bloco 010 (inicial) Sintegra

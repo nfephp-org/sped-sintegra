@@ -16,7 +16,7 @@ class Z10Test extends TestCase
         $std->NOME_CONTRIBUINTE = 'Empresa Teste Ltda';
         $std->MUNICIPIO = 'Concordia';
         $std->UF = 'SC';
-        $std->FAX = '4934420101';
+        //$std->FAX = '4934420101';
         $std->DT_INI = '20200101';
         $std->DT_FIM = '20200131';
         $std->COGIGO_MAGNETICO = 2;

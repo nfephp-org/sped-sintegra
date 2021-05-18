@@ -10,12 +10,12 @@ try {
     $b1 = new Block1();
 
     $std = new \stdClass();
-    $std->CNPJ = '12345678901234'; //Obrig 
-    $std->IE = '12345678901'; //opcional 
+    $std->CNPJ = '12345678901234'; //Obrig
+    $std->IE = '12345678901'; //opcional
     $std->NOME_CONTRIBUINTE = 'FULANO DE TAL LTDA'; //Obrig Nome comercial (razao social)
-    $std->MUNICIPIO = 'BREJO SECO'; //Obrig Municipio do estabelicimento
+    $std->MUNICIPIO = 'BREJO SECO'; //Obrig Municipio do estabelecimento
     $std->UF = 'MA'; //Obrig Sigla da Unidade da Federação da pessoa
-    $std->FAX = null; //opcional Telefone do estabelicimento
+    $std->FAX = null; //opcional Telefone do estabelecimento
     $std->DT_INI = '20210101'; //Obrig Data inicial das informações contidas no arquivo
     $std->DT_FIM = '20210131'; //Obrig Data final das informações contidas no arquivo
     $std->COGIGO_MAGNETICO = '1'; //opcional Código da identificação da estrutura do arquivo magnético entregue
@@ -38,10 +38,10 @@ try {
     $std->LOGRADOURO = 'RUA DO OUVIDOR'; //Obrig Endereço do estabelcimento,
     $std->NUMERO = '100'; //Obrig Número do endereço
     $std->COMPLEMENTO = null; //opcional Complemento do endereço
-    $std->BAIRRO = ''; //opcional Bairro do estabelicimento
+    $std->BAIRRO = ''; //opcional Bairro do estabelecimento
     $std->CEP = '12345678'; //Obrig CEP do endereço
     $std->CONTATO = 'FULANO DE TAL'; //Obrig Nome da pessoa responsavel pelo estabelcimento
-    $std->TELEFONE = '5555555'; //Obrig Telefone do estabelicimento
+    $std->TELEFONE = '5555555'; //Obrig Telefone do estabelecimento
 
     $b1->z11($std);
 

@@ -49,7 +49,7 @@ class Z56 extends Element implements ElementInterface
         ],
         'CFOP' => [
             'type' => 'numeric',
-            'regex' => '^(\d{4})$',
+            'regex' => "^[1,2,3,5,6,7]{1}[0-9]{3}$",
             'required' => true,
             'info' => 'Código Fiscal de Operação e Prestação',
             'format' => '',
@@ -87,7 +87,7 @@ class Z56 extends Element implements ElementInterface
             'format' => '',
             'length' => 1
         ],
-        'CNPJ_CONCESSIOAÁRIA' => [
+        'CNPJ_CONCESSIONARIA' => [
             'type' => 'numeric',
             'regex' => '^[0-9]{11,14}$',
             'required' => true,
@@ -105,10 +105,10 @@ class Z56 extends Element implements ElementInterface
         ],
         'CHASSI' => [
             'type' => 'string',
-            'regex' => '^.{17}$',
-            'required' => false,
+            'regex' => '^.{5,17}$',
+            'required' => true,
             'info' => 'Código do chassi do veículo',
-            'format' => '',
+            'format' => 'empty',
             'length' => 17
         ],
         'BRANCOS' => [

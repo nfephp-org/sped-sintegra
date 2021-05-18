@@ -3,14 +3,13 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 require_once '../bootstrap.php';
 
-
 $std = new \stdClass();
-$std->cNPJ = '12345678901'; //Obrig 
+$std->cNPJ = '12345678901'; //Obrig
 $std->IE = null; //opcional
 $std->NOME_CONTRIBUINTE = 'FULANO DE TAL LTDA'; //Obrig Nome comercial (razao social)
-$std->MUNICIPIO = 'BREJO SECO'; //Obrig Municipio do estabelicimento
+$std->MUNICIPIO = 'BREJO SECO'; //Obrig Municipio do estabelecimento
 $std->UF = 'MA'; //Obrig Sigla da Unidade da Federação da pessoa
-$std->FAX = null; //opcional Telefone do estabelicimento
+$std->FAX = null; //opcional Telefone do estabelecimento
 $std->DT_INI = '20210101'; //Obrig Data inicial das informações contidas no arquivo
 $std->DT_FIM = '20210131'; //Obrig Data final das informações contidas no arquivo
 $std->COGIGO_MAGNETICO = '1'; //opcional Código da identificação da estrutura do arquivo magnético entregue
@@ -28,12 +27,10 @@ $std->COGIGO_FINALIDADE = '1'; //opcional Código da finalidade do arquivo magn�
 
 try {
     $z10 = new NFePHP\Sintegra\Elements\Z10($std);
-
     $txt = "{$z10}";
 
     header("Content-Type: text/plain");
     echo $txt;
-
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

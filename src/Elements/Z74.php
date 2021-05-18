@@ -49,9 +49,9 @@ class Z74 extends Element implements ElementInterface
         ],
         'CODIGO_POSSE' => [
             'type' => 'string',
-            'regex' => '^.{1}$',
+            'regex' => '^(1|2|3)$',
             'required' => true,
-            'info' => 'Código de posse das mercadorias inventariadas',
+            'info' => 'Código de posse das mercadorias inventariadas (1 Mercadorias de propriedade do Informante e em seu poder; 2 Mercadorias de propriedade do Informante em poder de terceiros; 3 Mercadorias de propriedade de terceiros em poder do Informante',
             'format' => 'empty',
             'length' => 1
         ],

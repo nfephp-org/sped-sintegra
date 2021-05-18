@@ -15,21 +15,20 @@ use \stdClass;
 class Z61R extends Element implements ElementInterface
 {
     const REGISTRO = '61';
-    
     protected $subtipo = 'R';
-    
+
     protected $parameters = [
         'MESTRE' => [
             'type' => 'string',
-            'regex' => '^.{1,1}$',
-            'required' => false,
+            'regex' => '^.{1}$',
+            'required' => true,
             'info' => 'Mestre/Analítico/Resumo',
             'format' => '',
             'length' => 1
         ],
         'PERIODO_EMISSAO' => [
             'type' => 'string',
-            'regex' => '^.{6,6}$',
+            'regex' => '^(2[0-9]{3})(0?[1-9]|1[012])$',
             'required' => false,
             'info' => 'Mês e Ano de emissão dos documentos fiscais',
             'format' => '',
@@ -59,7 +58,7 @@ class Z61R extends Element implements ElementInterface
             'format' => 'totalNumber',
             'length' => 16
         ],
-        'BASE_ICMS' => [
+        'VL_BC_ICMS' => [
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
@@ -81,8 +80,8 @@ class Z61R extends Element implements ElementInterface
             'required' => false,
             'info' => 'Brancos',
             'format' => 'empty',
-            'length' => 54
-        ],
+            'length' => 53
+        ]
     ];
 
     /**
@@ -93,8 +92,6 @@ class Z61R extends Element implements ElementInterface
     {
         parent::__construct(self::REGISTRO);
         $std->MESTRE = 'R';
-        $std->BRANCOS = '';
-
         $this->std = $this->standarize($std);
     }
 }

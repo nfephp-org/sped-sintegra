@@ -20,7 +20,7 @@ class Z75Test extends TestCase
         $std->ALIQUOTA_IPI = '0';
         $std->ALIQUOTA_ICMS = '07';
         $std->REDUCAO_BASE_ICMS = '0';
-        $std->BASE_ICMS = '0';
+        $std->VL_BC_ICMS = '0';
         $b1 = new Z75($std);
         $resp = "{$b1}";
 

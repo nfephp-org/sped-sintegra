@@ -2,9 +2,9 @@
 
 namespace NFePHP\Sintegra\Blocks;
 
-use NFePHP\Sintegra\Elements;
 use NFePHP\Sintegra\Common\Block;
 use NFePHP\Sintegra\Common\BlockInterface;
+use NFePHP\Sintegra\Elements;
 
 /**
  * Classe constutora do bloco 8 Sintegra  Informações de exportações

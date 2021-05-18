@@ -21,7 +21,7 @@ use \stdClass;
 class Z53 extends Element implements ElementInterface
 {
     const REGISTRO = '53';
-    
+
     protected $parameters = [
         'CNPJ' => [
             'type' => 'string',
@@ -73,7 +73,7 @@ class Z53 extends Element implements ElementInterface
         ],
         'NUM_DOC' => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{1,9}$',
+            'regex' => '^[0-9]{1,6}$',
             'required' => true,
             'info' => 'Número do documento fiscal',
             'format' => '',
@@ -81,7 +81,7 @@ class Z53 extends Element implements ElementInterface
         ],
         'CFOP' => [
             'type' => 'numeric',
-            'regex' => '^(\d{4})$',
+            'regex' => "^[1,2,3,5,6,7]{1}[0-9]{3}$",
             'required' => true,
             'info' => 'Código Fiscal de Operação e Prestação',
             'format' => '',
@@ -89,9 +89,9 @@ class Z53 extends Element implements ElementInterface
         ],
         'EMITENTE' => [
             'type' => 'string',
-            'regex' => '^.{1}$',
+            'regex' => '^(P|T)$',
             'required' => true,
-            'info' => 'Emitente da Nota Fiscal (P- próprio/T-terceiros)',
+            'info' => 'Emitente da Nota Fiscal (P - próprio; T - Terceiros)',
             'format' => '',
             'length' => 1
         ],
@@ -152,7 +152,6 @@ class Z53 extends Element implements ElementInterface
     public function __construct(\stdClass $std)
     {
         parent::__construct(self::REGISTRO);
-        $std->BRANCOS = '';
         $this->std = $this->standarize($std);
         $this->postValidation();
     }

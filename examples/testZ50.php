@@ -58,7 +58,6 @@ try {
 
     header("Content-Type: text/plain");
     echo "{$z50}";
-
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

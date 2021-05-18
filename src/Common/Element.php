@@ -2,10 +2,8 @@
 
 namespace NFePHP\Sintegra\Common;
 
-use \stdClass;
 use NFePHP\Common\Strings;
-use NFePHP\Sintegra\Common\ElementInterface;
-use Exception;
+use stdClass;
 
 abstract class Element implements ElementInterface
 {
@@ -40,7 +38,7 @@ abstract class Element implements ElementInterface
     protected function standarize(\stdClass $std)
     {
         if (empty($this->parameters)) {
-            throw new Exception('Parametros não estabelecidos na classe');
+            throw new \Exception('Parametros não estabelecidos na classe');
         }
         $errors = [];
         //passa todos as variáveis do stdClass para minusculo
@@ -56,7 +54,13 @@ abstract class Element implements ElementInterface
         }
         $stdParam = json_decode($json);
         if ($stdParam === null) {
-            throw new \RuntimeException("Houve uma falha na converção para stdClass");
+            throw new \RuntimeException("Houve uma falha na conversão para stdClass");
+        }
+        // init defautls params
+        foreach ($stdParam as $key => $param) {
+            if (!$param->required && $std->$key === null) {
+                $std->$key = '';
+            }
         }
         //verifica se foram passados os dados obrigatórios
         foreach ($std as $key => $value) {
@@ -108,7 +112,7 @@ abstract class Element implements ElementInterface
     }
 
     /**
-     * Verifica os campos comrelação ao tipo e seu regex
+     * Verifica os campos com-relação ao tipo e seu regex
      * @param string|integer|float|null $input
      * @param stdClass $param
      * @param string $fieldname
@@ -118,7 +122,7 @@ abstract class Element implements ElementInterface
     {
         $type = $param->type;
         $regex = $param->regex;
-        
+
         if (($input === null || $input === '') && !$required) {
             return false;
         }
@@ -142,7 +146,7 @@ abstract class Element implements ElementInterface
                 }
                 break;
         }
-        $input = (string) $input;
+        $input = (string)$input;
         if ($regex === 'email') {
             if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
                 return "[$this->reg] $element campo: $fieldname Esse email [$input] está incorreto.";
@@ -150,7 +154,7 @@ abstract class Element implements ElementInterface
             return false;
         }
         if (!preg_match("/$regex/", $input)) {
-            return "[$this->reg] $element campo: $fieldname valor incorreto [$input]. (validação: $regex)";
+            return "[$this->reg] $element campo: $fieldname valor incorreto [$input]. (validação: $regex) $param->info";
         }
         return false;
     }
@@ -168,7 +172,8 @@ abstract class Element implements ElementInterface
         $length,
         $fieldname = '',
         $format = null
-    ) {
+    )
+    {
         if ($value === null) {
             $value = '';
         }
@@ -196,7 +201,7 @@ abstract class Element implements ElementInterface
         if ($format == 'empty') {
             return $this->formatFieldEmpty($value, $length);
         }
-        $this->values->$name = (float) $value;
+        $this->values->$name = (float)$value;
         return $this->numberFormat(floatval($value), $format, $fieldname);
     }
 
@@ -214,16 +219,16 @@ abstract class Element implements ElementInterface
         $p = explode('.', "{$value}");
         $ndec = !empty($p[1]) ? strlen($p[1]) : 0; //decimal digits
         $nint = strlen($p[0]); //integer digits
-        $intdig = (int) $n[0];
+        $intdig = (int)$n[0];
         if ($nint > $intdig) {
             throw new \InvalidArgumentException("[$this->reg] O [$fieldname] é maior "
-            . "que o permitido [$format].");
+                . "que o permitido [$format].");
         }
         if ($mdec !== false) {
             //is multi decimal
             $mm = explode('-', $n[1]);
-            $decmin = (int) $mm[0];
-            $decmax = (int) $mm[1];
+            $decmin = (int)$mm[0];
+            $decmax = (int)$mm[1];
             //verificar a quantidade de decimais informada
             //se maior ou igual ao minimo e menor ou igual ao maximo
             if ($ndec >= $decmin && $ndec <= $decmax) {
@@ -239,7 +244,7 @@ abstract class Element implements ElementInterface
                 return number_format($value, $decmax, ',', '');
             }
         }
-        $decplaces = (int) $n[1];
+        $decplaces = (int)$n[1];
         return number_format($value, $decplaces, ',', '');
     }
 
@@ -283,7 +288,7 @@ abstract class Element implements ElementInterface
             $register .= $this->std->$key;
         }
         $len = $this->len;
-        $lenreg = strlen($register)+strlen($this->subtipo)+strlen($this->reg);
+        $lenreg = strlen($register) + strlen($this->subtipo) + strlen($this->reg);
         if ($lenreg != $len) {
             throw new \Exception("Erro na construção do elemento esperado {$len} encontrado {$lenreg}.");
         }
@@ -296,6 +301,6 @@ abstract class Element implements ElementInterface
      */
     public function __toString()
     {
-        return  $this->reg . $this->subtipo . $this->build();
+        return $this->reg . $this->subtipo . $this->build();
     }
 }

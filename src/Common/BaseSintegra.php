@@ -2,9 +2,6 @@
 
 namespace NFePHP\Sintegra\Common;
 
-use NFePHP\Sintegra\Common\BlockInterface;
-use NFePHP\Sintegra\Common\Enum;
-
 abstract class BaseSintegra
 {
     protected $possibles = [];
@@ -54,7 +51,7 @@ abstract class BaseSintegra
         $registro90 = '';
         $totalLinhasRegistro = count($totalizadoresLinhas);
         foreach ($totalizadoresLinhas as $linha) {
-            $complementoLinha = str_pad($totalLinhasRegistro, (126 - strlen($linha)), " ", STR_PAD_LEFT)."\r\n";
+            $complementoLinha = str_pad($totalLinhasRegistro, (126 - strlen($linha)), " ", STR_PAD_LEFT) . "\r\n";
             $registro90 .= $linha . $complementoLinha;
         }
         return $registro90;
@@ -135,7 +132,7 @@ abstract class BaseSintegra
                 continue;
             }
             $totalizadorRegistro = $key . str_pad($value, 8, "0", STR_PAD_LEFT);
-            if (strlen($linha.$totalizadorRegistro) > 125) {
+            if (strlen($linha . $totalizadorRegistro) > 125) {
                 $totalizadoresLinhas[] = $linha;
                 $linha = $inicioLinha;
             }

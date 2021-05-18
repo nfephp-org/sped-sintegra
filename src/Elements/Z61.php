@@ -13,7 +13,7 @@ use \stdClass;
 class Z61 extends Element implements ElementInterface
 {
     const REGISTRO = '61';
-    
+
     protected $parameters = [
         'BRANCOS_1' => [
             'type' => 'string',
@@ -144,11 +144,6 @@ class Z61 extends Element implements ElementInterface
     public function __construct(\stdClass $std)
     {
         parent::__construct(self::REGISTRO);
-        $std->BRANCOS_1 = '';
-        $std->BRANCOS_2 = '';
-        $std->BRANCOS_3 = '';
-        $std->SUB_SERIE = '';
-
         $this->std = $this->standarize($std);
     }
 }
