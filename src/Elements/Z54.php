@@ -100,7 +100,7 @@ class Z54 extends Element implements ElementInterface
             'format' => 'totalNumber',
             'length' => 12
         ],
-        'OUTRAS_DESPESAS' => [
+        'DESCONTO' => [
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
