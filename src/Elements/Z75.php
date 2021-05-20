@@ -58,7 +58,7 @@ class Z75 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^.{1,6}$',
             'required' => true,
-            'info' => 'Unidade de medida de comercialização do produto ( un, kg, mt, m3, sc, frd, kWh, etc..)',
+            'info' => 'Unidade de medida de comercialização do produto (un, kg, mt, m3, sc, frd, kWh, etc..)',
             'format' => 'empty',
             'length' => 6
         ],

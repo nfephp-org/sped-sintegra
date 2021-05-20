@@ -127,12 +127,12 @@ class Z51 extends Element implements ElementInterface
         ],
         'SITUACAO' => [
             'type' => 'string',
-            'regex' => '^(S|N)$',
+            'regex' => '^(S|N|E|X|2|4)$',
             'required' => true,
-            'info' => 'Situação da Nota fiscal',
+            'info' => 'Situação da Nota fiscal (N - Documento Fiscal Normal; S - Documento Fiscal Cancelado; E - Lançamento Extemporâneo de Documento Fiscal Normal; X - Lançamento Extemporâneo de Documento Fiscal Cancelado; 2 - Documento com USO DENEGADO; 4 - Documento com USO inutilizado)',
             'format' => '',
             'length' => 1
-        ],
+        ]
     ];
 
     /**
