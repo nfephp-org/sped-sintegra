@@ -189,7 +189,7 @@ class Z50 extends Element implements ElementInterface
             '20', //20 - Ordem de Coleta de Carga, modelo 20
             '21', //21 - Nota Fiscal de Serviço de Comunicação, modelo 21
             '22', //22 - Nota Fiscal de Serviço de Telecomunicações, modelo 22
-            '24', //Autorização de Carregamento e Transporte, modelo 24
+            '24', //24 - Autorização de Carregamento e Transporte, modelo 24
             '25', //25 - Manifesto de Carga, modelo 25
             '26', //26 - Conhecimento de Transporte Multimodal de Cargas, modelo 26
             '27', //27 - Nota Fiscal de Serviço de Transporte Ferroviário, modelo 27
