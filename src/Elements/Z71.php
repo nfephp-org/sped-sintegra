@@ -140,7 +140,7 @@ class Z71 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor total da nota fiscal (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '12v2',
             'length' => 14
         ],
         'BRANCOS' => [

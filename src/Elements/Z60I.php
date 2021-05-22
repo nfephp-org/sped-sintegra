@@ -69,7 +69,7 @@ class Z60I extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Quantidade comercializada da mercadoria/produto no dia (com 3 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v3',
             'length' => 13
         ],
         'VL_PRODUTO' => [
@@ -77,7 +77,7 @@ class Z60I extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor líquido (valor bruto diminuído do desconto) da mercadoria/produto (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'VL_BC_ICMS' => [
@@ -85,7 +85,7 @@ class Z60I extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de cálculo do ICMS - valor acumulado no dia (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'ALIQUOTA' => [
@@ -93,7 +93,7 @@ class Z60I extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Identificador da Situação Tributária / Alíquota do ICMS (com 2 decimais)',
-            'format' => 'empty',
+            'format' => '2v2',
             'length' => 4
         ],
         'VL_ICMS' => [
@@ -101,7 +101,7 @@ class Z60I extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Montante do imposto',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'BRANCOS' => [

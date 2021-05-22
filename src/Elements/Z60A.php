@@ -36,7 +36,7 @@ class Z60A extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor acumulado no Totalizador Geral (com 2 decimais)',
-            'format' => 'empty',
+            'format' => '2v2',
             'length' => 4
         ],
         'VL_TOTAL' => [
@@ -44,7 +44,7 @@ class Z60A extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor acumulado no final do dia no totalizador parcial da situação tributária / alíquota indicada no campo 05 (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'BRANCOS' => [

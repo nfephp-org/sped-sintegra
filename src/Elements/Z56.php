@@ -100,7 +100,7 @@ class Z56 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Alíquota do IPI (com 2 decimais)',
-            'format' => 'aliquota',
+            'format' => '2v2',
             'length' => 4
         ],
         'CHASSI' => [

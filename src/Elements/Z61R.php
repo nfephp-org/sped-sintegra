@@ -47,7 +47,7 @@ class Z61R extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Quantidade do produto acumulada vendida no mês (com 3 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v3',
             'length' => 13
         ],
         'VALOR_PRODUTO' => [
@@ -55,7 +55,7 @@ class Z61R extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => false,
             'info' => 'Valor bruto do produto - valor acumulado da venda do produto no mês (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '14v2',
             'length' => 16
         ],
         'VL_BC_ICMS' => [
@@ -63,7 +63,7 @@ class Z61R extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de cálculo do ICMS do valor acumulado no mês (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '14v2',
             'length' => 16
         ],
         'ALIQUOTA' => [
@@ -71,7 +71,7 @@ class Z61R extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Alíquota Utilizada no Cálculo do ICMS (com 2 decimais)',
-            'format' => 'aliquota',
+            'format' => '2v2',
             'length' => 4
         ],
         'BRANCOS' => [

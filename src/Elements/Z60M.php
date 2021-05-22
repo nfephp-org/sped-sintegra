@@ -52,8 +52,7 @@ class Z60M extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^[0-9]{1,6}$',
             'required' => true,
-            'info' => 'Número do primeiro documento fiscal emitido no dia (Número do Contador de Ordem de Operação -
-COO)',
+            'info' => 'Número do primeiro documento fiscal emitido no dia (Número do Contador de Ordem de Operação - COO)',
             'format' => 'totalNumber',
             'length' => 6
         ],
@@ -86,7 +85,7 @@ COO)',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor acumulado no totalizador de Venda Bruta',
-            'format' => 'totalNumber',
+            'format' => '14v2',
             'length' => 16
         ],
         'VL_TOTAL_GERAL' => [
@@ -94,7 +93,7 @@ COO)',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor acumulado no Totalizador Geral',
-            'format' => 'totalNumber',
+            'format' => '14v2',
             'length' => 16
         ],
         'BRANCOS' => [

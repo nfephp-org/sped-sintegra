@@ -91,7 +91,7 @@ class Z70 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor total da nota fiscal (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'VL_BC_ICMS' => [
@@ -99,7 +99,7 @@ class Z70 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de Cálculo do ICMS (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '12v2',
             'length' => 14
         ],
         'VL_ICMS' => [
@@ -107,7 +107,7 @@ class Z70 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Montante do imposto (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '12v2',
             'length' => 14
         ],
         'ISENTA_NTRIBUTADA' => [
@@ -115,7 +115,7 @@ class Z70 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor amparado por isenção ou não incidência (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '12v2',
             'length' => 14
         ],
         'OUTRAS' => [
@@ -123,7 +123,7 @@ class Z70 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor que não confira débito ou crédito do ICMS (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '12v2',
             'length' => 14
         ],
         'MOD_FRETE' => [
