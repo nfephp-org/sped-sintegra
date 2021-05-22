@@ -73,8 +73,8 @@ abstract class BaseSintegra
 
     /**
      * Get array of total lines by block
-     * @param Array $sintegraArray
-     * @return Array
+     * @param array $sintegraArray
+     * @return array
      */
     private function getSomatorioPorBloco($sintegraArray)
     {
@@ -115,9 +115,9 @@ abstract class BaseSintegra
 
     /**
      * Get array containing lines of register 90 with the totalizers
-     * @param Array $somatorioPorBloco
+     * @param array $somatorioPorBloco
      * @param String $inicioLinha
-     * @return Array
+     * @return array
      */
     private function getTotalizadoresRegistro90($somatorioPorBloco, $inicioLinha)
     {
@@ -145,7 +145,7 @@ abstract class BaseSintegra
             $totalGeral += 1;
         }
         $totalGeral += 1;
-        $totalizador99 = SintegraEnum::TOTALIZADOR_99 . str_pad($totalGeral, 8, "0", STR_PAD_LEFT);
+        $totalizador99 = Enum::TOTALIZADOR_99 . str_pad($totalGeral, 8, "0", STR_PAD_LEFT);
         $linha .= $totalizador99;
         if (strlen($linha) > 0) {
             $totalizadoresLinhas[] = $linha;
