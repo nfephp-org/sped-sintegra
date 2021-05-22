@@ -18,7 +18,7 @@ class Z70 extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^[0-9]{11,14}$',
             'required' => true,
-            'info' => 'CNPJ do remetente nas entradas e dos destinátarios nas saídas',
+            'info' => 'CNPJ do emitente nas entradas e dos destinátarios nas saídas',
             'format' => 'totalNumber',
             'length' => 14
         ],
@@ -26,7 +26,7 @@ class Z70 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^ISENTO|[0-9]{2,14}$',
             'required' => false,
-            'info' => 'Inscrição estadual do remetente nas entradas e do destinatário nas saídas',
+            'info' => 'Inscrição estadual do emitente nas entradas e do destinatário nas saídas',
             'format' => 'totalNumber',
             'length' => 14
         ],
@@ -42,7 +42,7 @@ class Z70 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)$',
             'required' => true,
-            'info' => 'Sigla da Unidade da Federação do remetente',
+            'info' => 'Sigla da Unidade da Federação do emitente',
             'format' => 'empty',
             'length' => 2
         ],

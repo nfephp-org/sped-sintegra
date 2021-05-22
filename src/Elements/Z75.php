@@ -90,7 +90,7 @@ class Z75 extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => 'Base de Cálculo do ICMS de substituição tributária (com 2 decimais))',
+            'info' => 'Base de Cálculo do ICMS de substituição tributária (com 2 decimais)',
             'format' => 'totalNumber',
             'length' => 13
         ],

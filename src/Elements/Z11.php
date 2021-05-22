@@ -39,7 +39,7 @@ class Z11 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^.{2,15}$',
             'required' => false,
-            'info' => 'Bairro do estabeleicimento',
+            'info' => 'Bairro do estabelecimento',
             'format' => '',
             'length' => 15
         ],
@@ -54,16 +54,16 @@ class Z11 extends Element implements ElementInterface
         'CONTATO' => [
             'type' => 'string',
             'regex' => '^.{1,28}$',
-            'required' => true,
+            'required' => false,
             'info' => 'Nome da pessoa responsavel pelo estabelecimento',
-            'format' => '',
+            'format' => 'empty',
             'length' => 28
         ],
         'TELEFONE' => [
             'type' => 'string',
             'regex' => '^[0-9]{5,12}$',
             'required' => true,
-            'info' => 'Telefone do estabeleicimento',
+            'info' => 'Telefone do estabelecimento',
             'format' => 'totalNumber',
             'length' => 12
         ],

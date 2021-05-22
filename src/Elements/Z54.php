@@ -88,7 +88,7 @@ class Z54 extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => '	Quantidade do produto (com 3 decimais)',
+            'info' => 'Quantidade do produto (com 3 decimais)',
             'format' => 'totalNumber',
             'length' => 11
         ],
