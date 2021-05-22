@@ -116,8 +116,8 @@ class Z10 extends Element
      */
     public function postValidation()
     {
-        $dini = \DateTime::createFromFormat('Ymd', $this->std->DT_INI);
-        $dfim = \DateTime::createFromFormat('Ymd', $this->std->DT_FIM);
+        $dini = \DateTime::createFromFormat('Ymd', $this->std->dt_ini);
+        $dfim = \DateTime::createFromFormat('Ymd', $this->std->dt_fim);
         $lastday = date("Ymt", strtotime($dini->format('Y-m-d')));
         if ($dfim <= $dini) {
             throw new \Exception("Erro: Bloco1, campo 10 - A data final deve "
