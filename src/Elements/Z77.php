@@ -92,7 +92,7 @@ class Z77 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => '	Quantidade do produto (com 3 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v3',
             'length' => 13
         ],
         'VL_SERVICO' => [
@@ -108,7 +108,7 @@ class Z77 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor do Desconto Concedido no item (com 2 decimais).',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'VL_BC_ICMS' => [
@@ -116,12 +116,12 @@ class Z77 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de Cálculo do ICMS (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'ALIQUOTA' => [
             'type' => 'numeric',
-            'regex' => '^\d+(\.\d*)?|\.\d+$',
+            'regex' => '^[0-9]{1,2}$',
             'required' => true,
             'info' => 'Alíquota do ICMS (valor inteiro)',
             'format' => 'aliquota',

@@ -100,7 +100,7 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor total da nota fiscal (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'VL_BC_ICMS' => [
@@ -108,7 +108,7 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de Cálculo do ICMS (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'VL_ICMS' => [
@@ -116,7 +116,7 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Montante do imposto (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'ISENTA_NTRIBUTADA' => [
@@ -124,7 +124,7 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor amparado por isenção ou não incidência (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'OUTRAS' => [
@@ -132,7 +132,7 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor que não confira débito ou crédito do ICMS (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'ALIQUOTA' => [
@@ -140,7 +140,7 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Alíquota do ICMS (valor inteiro)',
-            'format' => 'aliquota',
+            'format' => 'totalNumber',
             'length' => 2
         ],
         'SITUACAO' => [

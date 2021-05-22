@@ -91,7 +91,7 @@ class Z55 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor do GNRE (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         "DATA_VENCIMENTO" => [

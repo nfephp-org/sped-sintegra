@@ -100,7 +100,7 @@ class Z53 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de cálculo de retenção do ICMS (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'VL_ICMS_RET' => [
@@ -108,7 +108,7 @@ class Z53 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'ICMS retido pelo substituto (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'DESPESAS' => [
@@ -116,7 +116,7 @@ class Z53 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Soma das despesas acessórias (frete, seguro e outras - com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'SITUACAO' => [

@@ -36,7 +36,7 @@ class Z74 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => '	Quantidade do produto (com 3 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v3',
             'length' => 13
         ],
         'VL_PRODUTO' => [
@@ -44,7 +44,7 @@ class Z74 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor bruto do produto (valor unitário multiplicado por quantidade) - com 2 decimais',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'CODIGO_POSSE' => [

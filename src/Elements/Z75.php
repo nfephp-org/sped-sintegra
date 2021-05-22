@@ -67,7 +67,7 @@ class Z75 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Alíquota do IPI do produto (com 2 decimais)',
-            'format' => 'aliquota',
+            'format' => '3v2',
             'length' => 5
         ],
         'ALIQUOTA_ICMS' => [
@@ -75,7 +75,7 @@ class Z75 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Alíquota do ICMS aplicável a mercadoria ou serviço nas operações',
-            'format' => 'aliquota',
+            'format' => '2v2',
             'length' => 4
         ],
         'REDUCAO_BASE_ICMS' => [
@@ -83,7 +83,7 @@ class Z75 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => '% de Redução na base de cálculo do ICMS, nas operações internas (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '3v2',
             'length' => 5
         ],
         'VL_BC_ICMS' => [
@@ -91,7 +91,7 @@ class Z75 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de Cálculo do ICMS de substituição tributária (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
     ];

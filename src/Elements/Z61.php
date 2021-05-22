@@ -84,7 +84,7 @@ class Z61 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor total do(s) documento(s) fiscal(is)/Movimento diário (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'VL_BC_ICMS' => [
@@ -92,7 +92,7 @@ class Z61 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de cálculo do(s) documento(s) fiscal(is)/Total diário (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'VL_ICMS' => [
@@ -100,7 +100,7 @@ class Z61 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor do Montante do Imposto/Total diário (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'ISENTO_NTRIBUTADO' => [
@@ -108,7 +108,7 @@ class Z61 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor amparado por isenção ou não-incidência/Total diário (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'OUTRAS_DESPESAS' => [
@@ -116,7 +116,7 @@ class Z61 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor que não confira débito ou crédito de ICMS/Total diário (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '11v2',
             'length' => 13
         ],
         'ALIQUOTA' => [
@@ -124,7 +124,7 @@ class Z61 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Alíquota Utilizada no Cálculo do ICMS (com 2 decimais)',
-            'format' => 'aliquota',
+            'format' => '2v2',
             'length' => 4
         ],
         'BRANCOS_3' => [

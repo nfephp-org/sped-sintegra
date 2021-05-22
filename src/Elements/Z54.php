@@ -89,7 +89,7 @@ class Z54 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Quantidade do produto (com 3 decimais)',
-            'format' => 'totalNumber',
+            'format' => '8v3',
             'length' => 11
         ],
         'VL_PRODUTO' => [
@@ -97,7 +97,7 @@ class Z54 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor bruto do produto (valor unitário multiplicado por quantidade) - com 2 decimais',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'DESCONTO' => [
@@ -105,7 +105,7 @@ class Z54 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor do Desconto Concedido no item (com 2 decimais).',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'VL_BC_ICMS' => [
@@ -113,7 +113,7 @@ class Z54 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de cálculo do ICMS (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'VL_BC_ICMS_ST' => [
@@ -121,7 +121,7 @@ class Z54 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de cálculo do ICMS de retenção na Substituição Tributária (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'VL_IPI' => [
@@ -129,7 +129,7 @@ class Z54 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor do IPI (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v2',
             'length' => 12
         ],
         'ALIQUOTA' => [
@@ -137,7 +137,7 @@ class Z54 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => false,
             'info' => 'Alíquota Utilizada no Cálculo do ICMS (com 2 decimais)',
-            'format' => 'aliquota',
+            'format' => '2v2',
             'length' => 4
         ],
     ];

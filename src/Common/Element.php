@@ -201,7 +201,7 @@ abstract class Element implements ElementInterface
         if ($format == 'empty') {
             return $this->formatFieldEmpty($value, $length);
         }
-        $this->values->$name = (float)$value;
+        $this->values->$name = (float) $value;
         return $this->numberFormat(floatval($value), $format, $fieldname);
     }
 
@@ -219,7 +219,7 @@ abstract class Element implements ElementInterface
         $p = explode('.', "{$value}");
         $ndec = !empty($p[1]) ? strlen($p[1]) : 0; //decimal digits
         $nint = strlen($p[0]); //integer digits
-        $intdig = (int)$n[0];
+        $intdig = (int) $n[0];
         if ($nint > $intdig) {
             throw new \InvalidArgumentException("[$this->reg] O [$fieldname] é maior "
                 . "que o permitido [$format].");
@@ -227,27 +227,27 @@ abstract class Element implements ElementInterface
         if ($mdec !== false) {
             //is multi decimal
             $mm = explode('-', $n[1]);
-            $decmin = (int)$mm[0];
-            $decmax = (int)$mm[1];
+            $decmin = (int) $mm[0];
+            $decmax = (int) $mm[1];
             //verificar a quantidade de decimais informada
             //se maior ou igual ao minimo e menor ou igual ao maximo
             if ($ndec >= $decmin && $ndec <= $decmax) {
                 //deixa como está
-                return number_format($value, $ndec, ',', '');
+                return number_format($value, $ndec, '', '');
             }
             //se menor que o minimo, formata para o minimo
             if ($ndec < $decmin) {
-                return number_format($value, $decmin, ',', '');
+                return number_format($value, $decmin, '', '');
             }
             //se maior que o maximo, formata para o maximo
             if ($ndec > $decmax) {
-                return number_format($value, $decmax, ',', '');
+                return number_format($value, $decmax, '', '');
             }
         }
-        $decplaces = (int)$n[1];
-        return number_format($value, $decplaces, ',', '');
+        $decplaces = (int) $n[1];
+        return number_format($value, $decplaces, '', '');
     }
-
+    
 
     private function numberTotalFormat($value, $length)
     {

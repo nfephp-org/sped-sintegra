@@ -37,16 +37,15 @@ class Z60R extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Quantidade comercializada da mercadoria/produto no dia (com 3 decimais)',
-            'format' => 'totalNumber',
+            'format' => '10v3',
             'length' => 13
         ],
         'VL_PRODUTO' => [
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => 'Valor líquido (valor bruto diminuído do desconto) da mercadoria/produto ou serviço acumulado no mês (com
-2 decimais)',
-            'format' => 'totalNumber',
+            'info' => 'Valor líquido (valor bruto diminuído do desconto) da mercadoria/produto ou serviço acumulado no mês (com 2 decimais)',
+            'format' => '14v2',
             'length' => 16
         ],
         'VL_BC_ICMS' => [
@@ -54,7 +53,7 @@ class Z60R extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Base de cálculo do ICMS - valor acumulado no dia (com 2 decimais)',
-            'format' => 'totalNumber',
+            'format' => '14v2',
             'length' => 16
         ],
         'ALIQUOTA' => [
@@ -62,7 +61,7 @@ class Z60R extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Identificador da Situação Tributária / Alíquota do ICMS (com 2 decimais)',
-            'format' => 'empty',
+            'format' => '2v2',
             'length' => 4
         ],
         'BRANCOS' => [
