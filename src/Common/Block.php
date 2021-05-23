@@ -30,7 +30,7 @@ abstract class Block implements BlockInterface
             throw new \Exception("Sem dados passados para o método [$name].");
         }
         $elclass = new $className($arguments[0]);
-        $this->bloco .= "{$elclass}\n";
+        $this->bloco .= "{$elclass}\r\n";
     }
 
     /**
