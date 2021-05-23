@@ -41,7 +41,7 @@ $std->COD_MOD = '55'; //Obrig Código do modelo da nota fiscal
 //63 - Bilhete de Passagem Eletrônico, modelo 63
 //65 - Nota Fiscal de Consumidor Eletrônica, modelo 65
 //67 - Conhecimento de Transporte Eletrônico para Outros Serviços, modelo 67
-$std->SERIE = '099'; //Obrig Série do documento fiscal
+$std->SERIE = '9'; //Obrig Série do documento fiscal
 $std->NUM_DOC = '612047';//Obrig passar somente os ultimos 6 digitos (se houver mais de 6)
 $std->CFOP = '6102'; //Obrig Código Fiscal de Operação e Prestação
 $std->EMITENTE = 'P';//Obrig P-Proprio T-terceiros

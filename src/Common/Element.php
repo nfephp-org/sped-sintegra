@@ -98,7 +98,8 @@ abstract class Element implements ElementInterface
 
                 $newValue = $this->formatString(
                     $formated,
-                    $stdParam->$key
+                    $stdParam->$key,
+                    $stdParam->$key->type
                 );
 
                 $newstd->$key = $newValue;
@@ -172,8 +173,7 @@ abstract class Element implements ElementInterface
         $length,
         $fieldname = '',
         $format = null
-    )
-    {
+    ) {
         if ($value === null) {
             $value = '';
         }
@@ -203,6 +203,7 @@ abstract class Element implements ElementInterface
         }
         $this->values->$name = (float) $value;
         return $this->numberFormat(floatval($value), $format, $fieldname);
+        //return str_pad($num, $length, '0', STR_PAD_LEFT);
     }
 
     /**
@@ -270,10 +271,16 @@ abstract class Element implements ElementInterface
      * Retorna string conforme o tamanho, pois sintegra considera as posições
      * @return string
      */
-    protected function formatString($value, $param)
+    protected function formatString($value, $param, $type)
     {
+        $pad = STR_PAD_LEFT;
+        $strchar = '0';
+        if ($type == 'string') {
+            $pad = STR_PAD_RIGHT;
+            $strchar = ' ';
+        }
         $length = $param->length;
-        $newValue = strtoupper(str_pad($value, $length, $this->strchar, STR_PAD_RIGHT));
+        $newValue = strtoupper(str_pad($value, $length, $strchar, $pad));
         return $newValue;
     }
 
