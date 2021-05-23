@@ -44,7 +44,7 @@ abstract class BaseSintegra
      */
     protected function totalize($sintegra)
     {
-        $sintegraArray = explode("\n", $sintegra);
+        $sintegraArray = explode("\r\n", $sintegra);
         $inicioLinha = $this->getInicioLinha($sintegraArray[0]);
         $somatorioPorBloco = $this->getSomatorioPorBloco($sintegraArray);
         $totalizadoresLinhas = $this->getTotalizadoresRegistro90($somatorioPorBloco, $inicioLinha);
