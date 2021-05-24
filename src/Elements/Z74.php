@@ -68,7 +68,7 @@ class Z74 extends Element implements ElementInterface
             'regex' => '^ISENTO|[0-9]{2,14}$',
             'required' => false,
             'info' => 'Inscrição estadual do possuidor / proprietário',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'UF' => [

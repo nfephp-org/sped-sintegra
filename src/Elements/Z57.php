@@ -28,7 +28,7 @@ class Z57 extends Element implements ElementInterface
             'regex' => '^ISENTO|[0-9]{2,14}$',
             'required' => false,
             'info' => 'Inscrição estadual do remetente nas entradas e do destinatário nas saídas',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'COD_MOD' => [

@@ -22,7 +22,7 @@ class Z10 extends Element
             'regex' => '^ISENTO|[0-9]{0,14}$',
             'required' => false,
             'info' => 'Número de inscrição do estadual.',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'NOME_CONTRIBUINTE' => [
