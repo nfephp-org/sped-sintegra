@@ -28,7 +28,7 @@ class Z71 extends Element implements ElementInterface
             'regex' => '^ISENTO|[0-9]{2,14}$',
             'required' => false,
             'info' => 'Inscrição estadual do tomador do serviço',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'DATA_EMISSAO' => [
