@@ -12,8 +12,8 @@ $std->CODIGO_PRODUTO = '1';
 $std->QUANTIDADE = '1';
 $std->VL_PRODUTO = '100';
 $std->CODIGO_POSSE = '1';
-$std->CNPJ = '66291561000103';
-$std->IE = '283305054';
+$std->CNPJ = null;
+$std->IE = null;
 $std->UF = 'PR';
 $std->BRANCOS = null;
 
