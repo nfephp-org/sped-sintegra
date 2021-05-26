@@ -58,7 +58,7 @@ class Z74 extends Element implements ElementInterface
         'CNPJ' => [
             'type' => 'numeric',
             'regex' => '^[0-9]{11,14}$',
-            'required' => true,
+            'required' => false,
             'info' => 'CNPJ do possuidor/proprietário',
             'format' => 'totalNumber',
             'length' => 14
