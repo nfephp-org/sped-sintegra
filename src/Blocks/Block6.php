@@ -17,6 +17,6 @@ final class Block6 extends Block implements BlockInterface
     public $elements = [
         'z60' => ['class' => Elements\Z60M::class, 'level' => 0, 'type' => 'single'],
         'z61' => ['class' => Elements\Z61::class, 'level' => 0, 'type' => 'single'],
-        'z61R' => ['class' => Elements\Z61R::class, 'level' => 0, 'type' => 'single'],
+        'z61r' => ['class' => Elements\Z61R::class, 'level' => 0, 'type' => 'single'],
     ];
 }
