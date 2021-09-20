@@ -65,7 +65,7 @@ class Z74 extends Element implements ElementInterface
         ],
         'IE' => [
             'type' => 'string',
-            'regex' => '^ISENTO|[0-9]{2,14}$',
+            'regex' => '^ISENTO|[0-9]{0,14}$',
             'required' => false,
             'info' => 'Inscrição estadual do possuidor / proprietário',
             'format' => '',
