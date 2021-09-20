@@ -40,7 +40,7 @@ class Z70 extends Element implements ElementInterface
         ],
         'UF' => [
             'type' => 'string',
-            'regex' => '^(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)$',
+            'regex' => '^(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO|EX)$',
             'required' => true,
             'info' => 'Sigla da Unidade da Federação do emitente',
             'format' => 'empty',
