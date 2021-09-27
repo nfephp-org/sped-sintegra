@@ -79,7 +79,7 @@ class Z61R extends Element implements ElementInterface
             'required' => false,
             'info' => 'Brancos',
             'format' => 'empty',
-            'length' => 53
+            'length' => 54
         ]
     ];
 
