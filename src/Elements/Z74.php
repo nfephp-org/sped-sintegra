@@ -65,7 +65,7 @@ class Z74 extends Element implements ElementInterface
         ],
         'IE' => [
             'type' => 'string',
-            'regex' => '^ISENTO|[0-9]{2,14}$',
+            'regex' => '^ISENTO|[0-9]{0,14}$',
             'required' => false,
             'info' => 'Inscrição estadual do possuidor / proprietário',
             'format' => '',
@@ -73,7 +73,7 @@ class Z74 extends Element implements ElementInterface
         ],
         'UF' => [
             'type' => 'string',
-            'regex' => '^(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)$',
+            'regex' => '^(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO|EX)$',
             'required' => true,
             'info' => 'UF do possuidor/proprietário',
             'format' => 'empty',
