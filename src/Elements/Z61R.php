@@ -27,7 +27,7 @@ class Z61R extends Element implements ElementInterface
         ],
         'PERIODO_EMISSAO' => [
             'type' => 'string',
-            'regex' => '^(2[0-9]{3})(0?[1-9]|1[012])$',
+            'regex' => '^(0?[1-9]|1[012])(2[0-9]{3})$',
             'required' => false,
             'info' => 'Mês e Ano de emissão dos documentos fiscais',
             'format' => '',
