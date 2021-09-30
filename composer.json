@@ -24,6 +24,12 @@
             "email": "cperin20@gmail.com.br",
             "homepage": "http://www.cloud-dfe.com.br",
             "role": "Developer"
+        },
+        {
+            "name": "Gustavo Lidani",
+            "email": "lidanig0@gmail.com",
+            "homepage": "https://github.com/lidani",
+            "role": "Developer"
         }
     ],
     "require": {
