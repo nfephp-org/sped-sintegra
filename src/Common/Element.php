@@ -20,9 +20,10 @@ abstract class Element implements ElementInterface
      * Constructor
      * @param string $reg
      */
-    public function __construct($reg)
+    public function __construct($reg, $len = 126)
     {
         $this->reg = $reg;
+        $this->len = $len;
         $this->values = new stdClass();
     }
 
@@ -248,7 +249,7 @@ abstract class Element implements ElementInterface
         $decplaces = (int) $n[1];
         return number_format($value, $decplaces, '', '');
     }
-    
+
 
     private function numberTotalFormat($value, $length)
     {
