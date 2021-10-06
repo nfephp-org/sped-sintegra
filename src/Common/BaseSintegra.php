@@ -99,6 +99,7 @@ abstract class BaseSintegra
             Enum::REGISTRO_77 => 0,
             Enum::REGISTRO_85 => 0,
             Enum::REGISTRO_86 => 0,
+            Enum::REGISTRO_88 => 0,
         ];
         foreach ($sintegraArray as $element) {
             $numeroBloco = substr($element, 0, 2);
