@@ -16,7 +16,8 @@ use \stdClass;
 
 class Z88SMS extends Element implements ElementInterface
 {
-    const REGISTRO = '88SMS';
+    const REGISTRO = '88';
+    protected $subtipo = 'SMS';
 
     protected $parameters = [
         'CNPJ' => [
@@ -31,7 +32,7 @@ class Z88SMS extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '',
             'required' => true,
-            'info' => 'SME = Sem Movimento de Entradas; SMS = Sem Movimento de Saídas',
+            'info' => 'Sem Movimento de Saídas',
             'format' => '',
             'length' => 34
         ],
