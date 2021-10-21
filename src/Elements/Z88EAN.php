@@ -16,7 +16,8 @@ use \stdClass;
 
 class Z88EAN extends Element implements ElementInterface
 {
-    const REGISTRO = '88EAN';
+    const REGISTRO = '88';
+    protected $subtipo = 'EAN';
 
     protected $parameters = [
         'VERSAO_EAN' => [

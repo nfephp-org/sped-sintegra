@@ -17,7 +17,8 @@ use \stdClass;
 
 class Z88DV extends Element implements ElementInterface
 {
-    const REGISTRO = '88DV';
+    const REGISTRO = '88';
+    protected $subtipo = 'DV';
 
     protected $parameters = [
         'DATA_EMISSAO' => [

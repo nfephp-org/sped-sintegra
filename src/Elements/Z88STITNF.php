@@ -17,7 +17,8 @@ use \stdClass;
 
 class Z88STITNF extends Element implements ElementInterface
 {
-    const REGISTRO = '88STITNF';
+    const REGISTRO = '88';
+    protected $subtipo = 'STITNF';
 
     protected $parameters = [
         'CNPJ' => [
