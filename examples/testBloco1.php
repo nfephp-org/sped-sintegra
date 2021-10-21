@@ -17,7 +17,7 @@ try {
     $std->UF = 'MA'; //Obrig Sigla da Unidade da Federação da pessoa
     $std->FAX = null; //opcional Telefone do estabelecimento
     $std->DT_INI = '20210101'; //Obrig Data inicial das informações contidas no arquivo
-    $std->DT_FIM = '20210131'; //Obrig Data final das informações contidas no arquivo
+    $std->DT_FIM = '20210129'; //Obrig Data final das informações contidas no arquivo
     $std->COGIGO_MAGNETICO = '1'; //opcional Código da identificação da estrutura do arquivo magnético entregue
 //1 - Estrutura conforme Convênio ICMS 57/95 na versão do Convênio ICMS 31/99
 //2 - Estrutura conforme Convênio ICMS 57/95 na versão atual

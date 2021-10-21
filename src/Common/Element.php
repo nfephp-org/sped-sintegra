@@ -7,20 +7,45 @@ use stdClass;
 
 abstract class Element implements ElementInterface
 {
-
+    /**
+     * @var \stdClass
+     */
     public $std;
+    /**
+     * @var \stdClass
+     */
     public $values;
+    /**
+     * @var array
+     */
     public $errors = [];
+    /**
+     * @var array
+     */
     protected $parameters;
+    /**
+     * @var string
+     */
     private $reg;
+    /**
+     *
+     * @var string
+     */
     private $strchar = ' ';
+    /**
+     * @var int
+     */
     protected $len = 126;
+    /**
+     * @var string|null
+     */
     protected $subtipo = null;
-
 
     /**
      * Constructor
+     *
      * @param string $reg
+     * @param int $len
      */
     public function __construct($reg, $len = 126)
     {
@@ -29,14 +54,21 @@ abstract class Element implements ElementInterface
         $this->values = new stdClass();
     }
 
+    /**
+     * Post validation
+     *
+     * @return void
+     */
     public function postValidation()
     {
-        return;
     }
 
     /**
      * Valida e ajusta os dados de entrada para os padões estabelecidos
+     *
      * @param \stdClass $std
+     *
+     * @return \stdClass
      */
     protected function standarize(\stdClass $std)
     {
@@ -87,6 +119,7 @@ abstract class Element implements ElementInterface
                 strtoupper($key),
                 $stdParam->$key->format
             );
+            //formata o comprimento das strings
             $newValue = $this->formatString(
                 $formated,
                 $stdParam->$key,
@@ -99,9 +132,11 @@ abstract class Element implements ElementInterface
 
     /**
      * Verifica os campos com-relação ao tipo e seu regex
+     *
      * @param string|integer|float|null $input
      * @param stdClass $param
      * @param string $fieldname
+     *
      * @return string|void
      */
     protected function isFieldInError($input, $param, $fieldname, $element, $required)
@@ -114,10 +149,9 @@ abstract class Element implements ElementInterface
             if ($type === 'numeric' && is_numeric($input)) {
                 return;
             }
-
             return "[$this->reg] campo: $fieldname é requerido.";
         }
-        if (($input === null || $input === '') && !$required) {
+        if ($input === '' && !$required) {
             return;
         }
         if (empty($regex)) {
@@ -155,11 +189,12 @@ abstract class Element implements ElementInterface
 
     /**
      * Formata os campos float
+     *
      * @param string|integer|float|null $value
      * @param string $format
      * @param string $fieldname
+     *
      * @return int|string|float|null
-     * @throws \InvalidArgumentException
      */
     protected function formater(
         $value,
@@ -195,10 +230,11 @@ abstract class Element implements ElementInterface
 
     /**
      * Format number
+     *
      * @param float $value
      * @param string $format
+     *
      * @return string
-     * @throws \InvalidArgumentException
      */
     private function numberFormat($value, $format, $fieldname)
     {
@@ -209,8 +245,6 @@ abstract class Element implements ElementInterface
         $nint = strlen($p[0]); //integer digits
         $intdig = (int) $n[0];
         if ($nint > $intdig) {
-            //throw new \InvalidArgumentException("[$this->reg] O [$fieldname] é maior "
-            //    . "que o permitido [$format].");
             $this->errors[] = (object) [
                 'message' => "[$this->reg] campo: $fieldname é maior "
                     . "que o permitido [$format]."
@@ -242,8 +276,10 @@ abstract class Element implements ElementInterface
 
     /**
      * Format Total numbers
+     *
      * @param float $value
      * @param int $length
+     *
      * @return string
      */
     private function numberTotalFormat($value, $length)
@@ -253,8 +289,10 @@ abstract class Element implements ElementInterface
 
     /**
      * Format aliquotas
+     *
      * @param float $value
      * @param int $length
+     *
      * @return string
      */
     private function numberFormatAliquota($value, $length)
@@ -266,8 +304,10 @@ abstract class Element implements ElementInterface
 
     /**
      * Format empty fields
+     *
      * @param string $value
      * @param int $length
+     *
      * @return string
      */
     private function formatFieldEmpty($value, $length)
@@ -299,6 +339,7 @@ abstract class Element implements ElementInterface
 
     /**
      * Construtor do elemento
+     *
      * @return string
      */
     protected function build()
@@ -320,6 +361,7 @@ abstract class Element implements ElementInterface
 
     /**
      * Retorna o elemento formatado em uma string
+     *
      * @return string
      */
     public function __toString()

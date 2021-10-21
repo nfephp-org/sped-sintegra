@@ -112,7 +112,8 @@ class Z10 extends Element
 
     /**
      * Validação secundária sobre as data informadas
-     * @throws \Exception
+     *
+     * @return void
      */
     public function postValidation()
     {
@@ -120,12 +121,18 @@ class Z10 extends Element
         $dfim = \DateTime::createFromFormat('Ymd', $this->std->dt_fim);
         $lastday = date("Ymt", strtotime($dini->format('Y-m-d')));
         if ($dfim <= $dini) {
-            throw new \Exception("Erro: Bloco1, campo 10 - A data final deve "
-                . "ser maior que a data inicial.");
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: DT_FIM A data final deve "
+                . "ser maior que a data inicial.",
+                'std' => $this->std
+            ];
         }
         if ($this->std->dt_fim != $lastday) {
-            throw new \Exception("Erro: Bloco1, campo 10 - A data final deve "
-                . "ser o último dia do mês indicado na data inicial.");
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: DT_FIM A data final deve "
+                . "ser o último dia do mês indicado na data inicial.",
+                'std' => $this->std
+            ];
         }
     }
 }
