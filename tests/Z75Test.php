@@ -24,7 +24,7 @@ class Z75Test extends TestCase
         $b1 = new Z75($std);
         $resp = "{$b1}";
 
-        $expected = '7501022020010220201             19059090Bala Fini Morango (Tributado)                        UN    000000700000000000000000000';
+        $expected = strtoupper('7520200101202101311             19059090Bala Fini Morango (Tributado)                        UN    000000700000000000000000000');
         $this->assertEquals($expected, $resp);
     }
 }

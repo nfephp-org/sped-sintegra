@@ -1,0 +1,5 @@
+parameters:
+    ignoreErrors:
+        - 
+            message: "#^Access to an undefined property NFePHP\\\\Sintegra\\\\Common\\\\BlockInterface\\:\\:\\$errors\\.$#"
+            path: src/Common/BaseSintegra.php

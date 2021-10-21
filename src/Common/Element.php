@@ -26,7 +26,7 @@ abstract class Element implements ElementInterface
     /**
      * @var string
      */
-    private $reg;
+    protected $reg;
     /**
      *
      * @var string
@@ -284,6 +284,7 @@ abstract class Element implements ElementInterface
      */
     private function numberTotalFormat($value, $length)
     {
+        $value = (string) $value;
         return str_pad($value, $length, "0", STR_PAD_LEFT);
     }
 
@@ -297,8 +298,8 @@ abstract class Element implements ElementInterface
      */
     private function numberFormatAliquota($value, $length)
     {
+        $value = (string) $value;
         $value = str_pad($value, 4, "0", STR_PAD_RIGHT);
-
         return str_pad($value, $length, "0", STR_PAD_LEFT);
     }
 

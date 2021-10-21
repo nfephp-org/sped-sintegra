@@ -83,7 +83,10 @@ class Z56 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^(1|2|3)$',
             'required' => true,
-            'info' => 'Tipo de operação (1 - venda para concessionária; 2- "Faturamento Direto" - Convênio ICMS 51/00; 3 - Venda direta)',
+            'info' => 'Tipo de operação ('
+            . '1 - venda para concessionária; '
+            . '2- "Faturamento Direto" - Convênio ICMS 51/00; '
+            . '3 - Venda direta)',
             'format' => '',
             'length' => 1
         ],

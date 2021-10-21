@@ -3,7 +3,8 @@
 namespace NFePHP\Sintegra\Elements;
 
 /**
- * Analítico - Identificador de cada situação tributária no final do dia de cada equipamento emissor de cupom fiscal
+ * Analítico - Identificador de cada situação tributária no final do dia de
+ * cada equipamento emissor de cupom fiscal
  */
 
 use NFePHP\Sintegra\Common\Element;
@@ -43,7 +44,8 @@ class Z60A extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => 'Valor acumulado no final do dia no totalizador parcial da situação tributária / alíquota indicada no campo 05 (com 2 decimais)',
+            'info' => 'Valor acumulado no final do dia no totalizador parcial da '
+            . 'situação tributária / alíquota indicada no campo 05 (com 2 decimais)',
             'format' => '10v2',
             'length' => 12
         ],

@@ -115,7 +115,8 @@ class Z53 extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => 'Soma das despesas acessórias (frete, seguro e outras - com 2 decimais)',
+            'info' => 'Soma das despesas acessórias (frete, seguro e outras '
+            . 'com 2 decimais)',
             'format' => '11v2',
             'length' => 13
         ],
@@ -123,7 +124,13 @@ class Z53 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^(S|N|E|X|2|4)$',
             'required' => true,
-            'info' => 'Situação da Nota fiscal (N - Documento Fiscal Normal; S - Documento Fiscal Cancelado; E - Lançamento Extemporâneo de Documento Fiscal Normal; X - Lançamento Extemporâneo de Documento Fiscal Cancelado; 2 - Documento com USO DENEGADO; 4 - Documento com USO inutilizado)',
+            'info' => 'Situação da Nota fiscal ('
+            . 'N - Documento Fiscal Normal; '
+            . 'S - Documento Fiscal Cancelado; '
+            . 'E - Lançamento Extemporâneo de Documento Fiscal Normal; '
+            . 'X - Lançamento Extemporâneo de Documento Fiscal Cancelado; '
+            . '2 - Documento com USO DENEGADO; '
+            . '4 - Documento com USO inutilizado)',
             'format' => '',
             'length' => 1
         ],

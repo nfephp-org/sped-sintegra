@@ -52,7 +52,8 @@ class Z60M extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^[0-9]{1,6}$',
             'required' => true,
-            'info' => 'Número do primeiro documento fiscal emitido no dia (Número do Contador de Ordem de Operação - COO)',
+            'info' => 'Número do primeiro documento fiscal emitido no dia '
+            . '(Número do Contador de Ordem de Operação - COO)',
             'format' => 'totalNumber',
             'length' => 6
         ],
@@ -60,7 +61,8 @@ class Z60M extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^[0-9]{1,6}$',
             'required' => true,
-            'info' => 'Número do último documento fiscal emitido no dia (Número do Contador de Ordem de Operação - COO)',
+            'info' => 'Número do último documento fiscal emitido no dia '
+            . '(Número do Contador de Ordem de Operação - COO)',
             'format' => 'totalNumber',
             'length' => 6
         ],
