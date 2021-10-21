@@ -4,6 +4,8 @@ namespace NFePHP\Sintegra\Common;
 
 abstract class BaseSintegra
 {
+    public $errors = [];
+    
     protected $possibles = [];
 
     /**
@@ -18,6 +20,7 @@ abstract class BaseSintegra
         $name = strtolower((new \ReflectionClass($block))->getShortName());
         if (key_exists($name, $this->possibles)) {
             $this->{$name} = $block->get();
+            $this->errors = array_merge($this->errors, $block->errors);
         }
     }
 

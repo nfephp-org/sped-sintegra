@@ -51,6 +51,11 @@ try {
 
     header("Content-Type: text/plain");
     echo $txt;
+    
+    echo "\n";
+    echo "\n";
+    
+    print_r($sintegra->errors);
 
 } catch (\Exception $e) {
     echo $e->getMessage();
