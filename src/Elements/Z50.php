@@ -198,11 +198,15 @@ class Z50 extends Element implements ElementInterface
             '60', //60 - Cupom Fiscal Eletrônico, CF-e- ECF, modelo 60
             '63', //63 - Bilhete de Passagem Eletrônico, modelo 63
             '65', //65 - Nota Fiscal de Consumidor Eletrônica, modelo 65
+            '66', //66 - NOta Fiscal Energia Eletrica Eletrônica, modelo 66
             '67', //67 - Conhecimento de Transporte Eletrônico para Outros Serviços, modelo 67
         ];
         if (!in_array($this->std->cod_mod, $possible)) {
-            throw new \Exception("Erro: Bloco5, campo 50 - "
-                . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.");
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: COD_MOD "
+                . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.",
+                'std' => $this->std
+            ];        
         }
     }
 }
