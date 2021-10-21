@@ -17,7 +17,6 @@ final class Block8 extends Block implements BlockInterface
     public $elements = [
         'z85' => ['class' => Elements\Z85::class, 'level' => 0, 'type' => 'single'],
         'z86' => ['class' => Elements\Z86::class, 'level' => 0, 'type' => 'single'],
-
         'z88dv' => ['class' => Elements\Z88DV::class, 'level' => 0, 'type' => 'single'],
         'z88ean' => ['class' => Elements\Z88EAN::class, 'level' => 0, 'type' => 'single'],
         'z88sme' => ['class' => Elements\Z88SME::class, 'level' => 0, 'type' => 'single'],
