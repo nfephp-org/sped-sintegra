@@ -8,6 +8,7 @@ namespace NFePHP\Sintegra\Common;
 abstract class Block implements BlockInterface
 {
     public $elements = [];
+    public $errors = [];
     protected $bloco = '';
     protected $elementTotal;
 
@@ -31,6 +32,7 @@ abstract class Block implements BlockInterface
         }
         $elclass = new $className($arguments[0]);
         $this->bloco .= "{$elclass}\r\n";
+        $this->errors = array_merge($this->errors, $elclass->errors);
     }
 
     /**

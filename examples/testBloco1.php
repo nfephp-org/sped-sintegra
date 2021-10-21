@@ -49,6 +49,12 @@ try {
 
     header("Content-Type: text/plain");
     echo $txt;
+    
+    echo "\n";
+    echo "\n";
+    
+    print_r($b1->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
