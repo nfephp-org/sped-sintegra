@@ -36,7 +36,7 @@ try {
 
     $std = new \stdClass();
     $std->LOGRADOURO = 'RUA DO OUVIDOR'; //Obrig Endereço do estabelcimento,
-    $std->NUMERO = '100'; //Obrig Número do endereço
+    $std->NUMERO = ''; //Obrig Número do endereço
     $std->COMPLEMENTO = null; //opcional Complemento do endereço
     $std->BAIRRO = ''; //opcional Bairro do estabelecimento
     $std->CEP = '12345678'; //Obrig CEP do endereço
@@ -49,12 +49,12 @@ try {
 
     header("Content-Type: text/plain");
     echo $txt;
-    
+
     echo "\n";
     echo "\n";
-    
+
     print_r($b1->errors);
-    
+
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
