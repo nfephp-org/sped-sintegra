@@ -5,7 +5,9 @@ namespace NFePHP\Sintegra\Elements;
 /**
  * Estado de MG
  *
- * REGISTRO '88STES' - Informações Referentes a Estoque de Produtos Sujeitos ao Regime de Substituição Tributária ou de Produtos que Tiveram Mudança na Forma de Tributação.
+ * REGISTRO '88STES' - Informações Referentes a Estoque de Produtos Sujeitos ao
+ * Regime de Substituição Tributária ou de Produtos que Tiveram Mudança na
+ * Forma de Tributação.
  *
  * @see http://www.fazenda.mg.gov.br/empresas/legislacao_tributaria/ricms_2002_seco/anexovii2002_6.html
  */
