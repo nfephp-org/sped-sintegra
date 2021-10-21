@@ -16,7 +16,7 @@ abstract class Element implements ElementInterface
     private $strchar = ' ';
     protected $len = 126;
     protected $subtipo = null;
-    
+
 
     /**
      * Constructor
@@ -75,7 +75,10 @@ abstract class Element implements ElementInterface
                 $stdParam->$key->required
             );
             if ($resp) {
-                $this->errors[] = $resp;
+                $this->errors[] = (object) [
+                    'message' => $resp,
+                    'std' => $std
+                ];
             }
             //e formatar o dado passado
             $formated = $this->formater(
@@ -107,6 +110,11 @@ abstract class Element implements ElementInterface
         $regex = $param->regex;
 
         if (empty($input) && $required) {
+            // Não retornar erro se o campo for numerico e foi inserido o valor 0
+            if ($type === 'numeric' && is_numeric($input)) {
+                return;
+            }
+
             return "[$this->reg] campo: $fieldname é requerido.";
         }
         if (($input === null || $input === '') && !$required) {
@@ -203,8 +211,10 @@ abstract class Element implements ElementInterface
         if ($nint > $intdig) {
             //throw new \InvalidArgumentException("[$this->reg] O [$fieldname] é maior "
             //    . "que o permitido [$format].");
-            $this->errors[] = "[$this->reg] campo: $fieldname é maior "
-                . "que o permitido [$format].";
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: $fieldname é maior "
+                    . "que o permitido [$format]."
+            ];
         }
         if ($mdec !== false) {
             //is multi decimal
@@ -301,7 +311,9 @@ abstract class Element implements ElementInterface
         $lenreg = strlen($register) + strlen($this->subtipo) + strlen($this->reg);
         if ($lenreg != $len) {
             //throw new \Exception("Erro na construção do elemento esperado {$len} encontrado {$lenreg}.");
-            $this->errors[] = "[$this->reg] Erro na construção do elemento esperado {$len} encontrado {$lenreg}.";
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] Erro na construção do elemento esperado {$len} encontrado {$lenreg}."
+            ];
         }
         return $register;
     }
