@@ -58,6 +58,11 @@ try {
 
     header("Content-Type: text/plain");
     echo "{$z50}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($z50->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
