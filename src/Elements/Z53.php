@@ -37,7 +37,7 @@ class Z53 extends Element implements ElementInterface
     protected $parameters = [
         'CNPJ' => [
             'type' => 'string',
-            'regex' => '^[0-9]{14}$',
+            'regex' => '^[0-9]{11,14}$',
             'required' => false,
             'info' => 'CNPJ do remetente nas entradas e dos destinátarios nas saídas',
             'format' => '',

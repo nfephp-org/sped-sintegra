@@ -65,6 +65,10 @@ try {
 
     header("Content-Type: text/plain");
     echo "{$z53}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($z53->errors);
 
 } catch (\Exception $e) {
     echo $e->getMessage();

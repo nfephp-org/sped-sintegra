@@ -34,7 +34,7 @@ class Z88EAN extends Element implements ElementInterface
     protected $parameters = [
         'VERSAO_EAN' => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'regex' => '^[0-9]{8,14}$',
             'required' => true,
             'info' => 'Versão do código EAN (08, 12, 13 ou 14)',
             'format' => '',
