@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Common;
 
 use NFePHP\Common\Strings;
@@ -136,6 +148,8 @@ abstract class Element implements ElementInterface
      * @param string|integer|float|null $input
      * @param stdClass $param
      * @param string $fieldname
+     * @param string $element
+     * @param bool $required
      *
      * @return string|void
      */
@@ -191,8 +205,9 @@ abstract class Element implements ElementInterface
      * Formata os campos float
      *
      * @param string|integer|float|null $value
-     * @param string $format
+     * @param int $length
      * @param string $fieldname
+     * @param string|null $format
      *
      * @return int|string|float|null
      */
@@ -233,6 +248,7 @@ abstract class Element implements ElementInterface
      *
      * @param float $value
      * @param string $format
+     * @param string $fieldname
      *
      * @return string
      */
