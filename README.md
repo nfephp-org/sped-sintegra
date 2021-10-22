@@ -30,19 +30,19 @@ Já os contribuintes inscritos no cadastro de ICMS do Estado da Bahia como Empre
 Os contribuintes inscritos na condição de Normal – NO, com faturamento no ano de 2005 inferior a R$ 72 milhões, que utilize SEPD apenas para escrituração de livros fiscais e emissão de cupom fiscal, foram dispensados de enviar os registros tipo 60R (Resumo mensal por item de mercadoria do cupom fiscal) e 61R (Resumo mensal por item de mercadoria da nota fiscal de venda ao consumidor) para movimentos datados até 31 de dezembro de 2006.
 
 ### GOIÁS
-No Estado de Goiás, somente os contribuintes optantes pelo Simples Nacional que ainda não emitem documentos fiscais eletrônicos que devem
+No **Estado de Goiás**, somente os contribuintes optantes pelo Simples Nacional que ainda não emitem documentos fiscais eletrônicos que devem
 continuar fazendo o envio do SINTEGRA.
 
 ### MARANHÃO
-Para os contribuintes do Estado do Maranhão, que emitem documento (Nota Fiscal ou Conhecimento de Transporte) ou fazem a escrituração de Livros Fiscais por processamento de dados, inclusive, quando a escrituração for feita em escritório de contabilidade, são obrigados a remeter até o dia 15 de cada mês arquivo magnético do SINTEGRA.
+Para os contribuintes do **Estado do Maranhão**, que emitem documento (Nota Fiscal ou Conhecimento de Transporte) ou fazem a escrituração de Livros Fiscais por processamento de dados, inclusive, quando a escrituração for feita em escritório de contabilidade, são obrigados a remeter até o dia 15 de cada mês arquivo magnético do SINTEGRA.
 
 ### MINAS GERAIS
-Em Minas Gerais, estão obrigados ao SINTEGRA os contribuintes que utilizam Processamento Eletrônico de Dados (PED) e/ou emitem Nota Fiscal (NF-e) e/ou Conhecimento de Transporte (CT-e) e/ou utilizam Equipamento Emissor de Cupom Fiscal (ECF). 
+Em **Minas Gerais**, estão obrigados ao SINTEGRA os contribuintes que utilizam Processamento Eletrônico de Dados (PED) e/ou emitem Nota Fiscal (NF-e) e/ou Conhecimento de Transporte (CT-e) e/ou utilizam Equipamento Emissor de Cupom Fiscal (ECF). 
 
 Já os contribuintes dispensados dessa obrigação, são todos que transmitem a Escrituração Fiscal Digital (EFD).
 
 ### PARÁ
-No Estado do Pará, estão obrigados todos os contribuintes usuários de sistema eletrônico de Processamento Eletrônico de Dados – PED, tanto para emissão de documentos quanto para escrituração de livros fiscais, a partir do mês de referência em que foi autorizado o uso do sistema.
+No **Estado do Pará**, estão obrigados todos os contribuintes usuários de sistema eletrônico de Processamento Eletrônico de Dados – PED, tanto para emissão de documentos quanto para escrituração de livros fiscais, a partir do mês de referência em que foi autorizado o uso do sistema.
 
 O contribuinte que utilizar PED para emissão de notas fiscais é obrigado a declarar o documento (registro 50) e seus itens correspondentes (mercadorias – Registro 54), relativamente aos documentos de emissão própria que não tenham sido cancelados.
 
@@ -53,26 +53,26 @@ O registro 74 somente é obrigatório no mês de fevereiro, com o inventário re
 Os demais registros são obrigatórios caso haja operação/prestação correspondente ao tipo de registro. 
 
 ### PARAÍBA
-Os contribuintes inscritos no cadastro do Estado da Paraíba que devem prestar suas informações econômico/fiscais ao Estado via meio magnético, transmitindo pela internet ou entregando nas repartições fiscais, deverão fazer o SINTEGRA através do aplicativo validador SER disponível no portal do Guia de Informação Mensal (GIM). 
+Os contribuintes inscritos no cadastro do **Estado da Paraíba** que devem prestar suas informações econômico/fiscais ao Estado via meio magnético, transmitindo pela internet ou entregando nas repartições fiscais, deverão fazer o SINTEGRA através do aplicativo validador SER disponível no portal do Guia de Informação Mensal (GIM). 
 
 Os demais contribuintes (substitutos tributários) devem utilizar uma das versões do validador SINTEGRA para enviar suas declarações, dando sempre preferência para as versões mais atuais.
 
 ### PARANÁ
-No Estado do Paraná, as empresas obrigadas à entrega do arquivo EFD e os contribuintes que utilizam a Nota Fiscal de Consumidor Eletrônica - NFC-e estão dispensadas de entregar o Arquivo Magnético do SINTEGRA.
+No **Estado do Paraná**, as empresas obrigadas à entrega do arquivo EFD e os contribuintes que utilizam a Nota Fiscal de Consumidor Eletrônica - NFC-e estão dispensadas de entregar o Arquivo Magnético do SINTEGRA.
 
 Deve apresentar o arquivo magnético todo contribuinte que emite documento fiscal (Nota Fiscal, Cupom Fiscal ou Conhecimento de Transporte, etc) ou faça a escrituração de Livro Fiscal por processamento Eletrônico de Dados (PED), inclusive quando a escrituração fiscal for feita em escritório de contabilidade.
 
 ### PERNANBUCO
-Os contribuintes do Estado de Pernambuco obrigados a entregar o SEF (Sistema de Escrituração Fiscal) estão dispensado da entrega do SINTEGRA. Já o contribuinte de outro Estado e com inscrição de Substituto Tributário (ST) em Pernambuco deve apresentar a informação em arquivo magnético SINTEGRA.
+Os contribuintes do **Estado de Pernambuco** obrigados a entregar o SEF (Sistema de Escrituração Fiscal) estão dispensado da entrega do SINTEGRA. Já o contribuinte de outro Estado e com inscrição de Substituto Tributário (ST) em Pernambuco deve apresentar a informação em arquivo magnético SINTEGRA.
 
 ### RIO GRANDE DO NORTE
-Os contribuintes do Rio Grande do Norte que emitem documento fiscal (Nota Fiscal ou Conhecimento de Transporte) por processamento de dados ou fazem a escrituração de Livro Fiscal por processamento de dados,inclusive, quando a escrituração fiscal for feita em escritório de contabilidade, contribuintes que utilizem equipamento Emissor de Cupom Fiscal(ECF) que tenha condições de gerar arquivo magnético, por si ou quando conectado a outro computador, estão obrigados a entrega do SINTEGRA.
+Os contribuintes do **Rio Grande do Norte** que emitem documento fiscal (Nota Fiscal ou Conhecimento de Transporte) por processamento de dados ou fazem a escrituração de Livro Fiscal por processamento de dados,inclusive, quando a escrituração fiscal for feita em escritório de contabilidade, contribuintes que utilizem equipamento Emissor de Cupom Fiscal(ECF) que tenha condições de gerar arquivo magnético, por si ou quando conectado a outro computador, estão obrigados a entrega do SINTEGRA.
 
 ### SERGIPE
-Os contribuintes do Estado de Sergipe que fazem uso de Sistema Eletrônico de Processamento de Dados (SEPD) para emissão de documentos e/ou livros fiscais estão obrigados - desde setembro de 2000, a remeterem à SEFAZ, mensalmente, os arquivos magnéticos gerados por esse sistema e previamente submetidos à crítica do programa validador do SINTEGRA.
+Os contribuintes do **Estado de Sergipe** que fazem uso de Sistema Eletrônico de Processamento de Dados (SEPD) para emissão de documentos e/ou livros fiscais estão obrigados - desde setembro de 2000, a remeterem à SEFAZ, mensalmente, os arquivos magnéticos gerados por esse sistema e previamente submetidos à crítica do programa validador do SINTEGRA.
 
 ### SÃO PAULO
-Os contribuintes do Estado de São Paulo que fazem emissão por sistema eletrônico de processamento de dados dos documentos fiscais previstos no Artigo 124 do RICMS, aprovado pelo Decreto 45.490, de 30 de novembro de 2000, bem como a escrituração dos livros fiscais, estão obrigados a apresentação do arquivo magnético SINTEGRA.
+Os contribuintes do **Estado de São Paulo** que fazem emissão por sistema eletrônico de processamento de dados dos documentos fiscais previstos no Artigo 124 do RICMS, aprovado pelo Decreto 45.490, de 30 de novembro de 2000, bem como a escrituração dos livros fiscais, estão obrigados a apresentação do arquivo magnético SINTEGRA.
 
 Já os contribuintes obrigados à entrega da Escrituração Fiscal Digital (EFD) estão dispensados de enviar os arquivos do Sintegra, pois a EFD já contém a totalidade das informações fiscais. 
 
