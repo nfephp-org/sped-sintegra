@@ -205,19 +205,22 @@ abstract class Element implements ElementInterface
     /**
      * Valida o CNPJ ou CPF passado no campo CNPJ
      *
+     * @param string $doc CNPJ/CPF
+     * @param string $field nome do campo
+     *
      * @return void
      */
-    protected function validDoc()
+    protected function validDoc(string $doc, string $field)
     {
-        if (substr($this->std->cnpj, 0, 3) == '000') {
-            $result = Documents\Cpf::createFromString($this->std->cnpj);
+        if (substr($doc, 0, 3) == '000') {
+            $result = Documents\Cpf::createFromString($doc);
         } else {
-            $result = Documents\Cnpj::createFromString($this->std->cnpj);
+            $result = Documents\Cnpj::createFromString($doc);
         }
         if ($result === false) {
             $this->errors[] = (object) [
-                'message' => "[$this->reg] campo: CNPJ/CPF "
-                . "[{$this->std->cnpj}] é INCORRETO ou FALSO.",
+                'message' => "[$this->reg] campo: {$field} "
+                . "[{$doc}] é INCORRETO ou FALSO.",
                 'std' => $this->std
             ];
         }

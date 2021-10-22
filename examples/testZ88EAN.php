@@ -15,14 +15,16 @@ $std->CODIGO_BARRAS = '78935761';
 $std->BRANCOS = '';
 
 try {
-    $z88EAN = new Z88EAN($std);
+    
+    $elem = new Z88EAN($std);
 
     header("Content-Type: text/plain");
-    echo "{$z88EAN}";
+    echo "{$elem}";
     
     echo "\n";
     echo "\n";
-    print_r($z88EAN->errors);
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

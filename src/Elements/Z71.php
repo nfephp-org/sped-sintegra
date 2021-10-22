@@ -175,4 +175,13 @@ class Z71 extends Element implements ElementInterface
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
+    
+    /**
+     * Validação secundária sobre as data informadas
+     * @throws \Exception
+     */
+    public function postValidation()
+    {
+        $this->validDoc($this->std->cnpj_tom, 'CNPJ_TOM');
+    }
 }

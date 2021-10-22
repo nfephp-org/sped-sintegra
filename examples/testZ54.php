@@ -7,7 +7,7 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z54;
 
 $std = new stdClass();
-$std->CNPJ = '66291561000103'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
+$std->CNPJ = '99999090910270'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
 $std->COD_MOD = '55'; //Obrig Código do modelo da nota fiscal
 $std->SERIE = '099'; //Obrig Série do documento fiscal
 $std->NUM_DOC = '612047';//Obrig passar somente os ultimos 6 digitos (se houver mais de 6)
@@ -25,10 +25,15 @@ $std->VL_IPI = 10.00; //Obrig Valor do IPI (com 2 decimais)
 $std->ALIQUOTA = 10.00; //Obrig Alíquota Utilizada no Cálculo do ICMS (com 2 decimais)
 
 try {
-    $z54 = new Z54($std);
+    
+    $elem = new Z54($std);
 
     header("Content-Type: text/plain");
-    echo "{$z54}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
 
 } catch (\Exception $e) {
     echo $e->getMessage();

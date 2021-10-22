@@ -19,10 +19,16 @@ $std->REDUCAO_BASE_ICMS = '0';
 $std->VL_BC_ICMS = '0';
 
 try {
-    $z75 = new Z75($std);
+    
+    $elem = new Z75($std);
 
     header("Content-Type: text/plain");
-    echo "{$z75}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

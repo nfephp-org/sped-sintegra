@@ -7,7 +7,7 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z53;
 
 $std = new stdClass();
-$std->CNPJ = '66291561000103'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
+$std->CNPJ = '99999090910270'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
 $std->IE = '283305054'; //opcional IE do remetente ou isento ou null
 $std->DATA_EMISSAO = '20050502'; //Obrig data de emissão
 $std->UF = 'SC'; //Obrig Sigla da Unidade da Federação do remetente
@@ -61,14 +61,15 @@ $std->CODIGO_ANTECIPACAO = '1'; //Obrig Código que identifica o tipo da Antecip
 
 
 try {
-    $z53 = new Z53($std);
+    
+    $elem = new Z53($std);
 
     header("Content-Type: text/plain");
-    echo "{$z53}";
+    echo "{$elem}";
     
     echo "\n";
     echo "\n";
-    print_r($z53->errors);
+    print_r($elem->errors);
 
 } catch (\Exception $e) {
     echo $e->getMessage();

@@ -210,5 +210,6 @@ class Z54 extends Element implements ElementInterface
                 'std' => $this->std
             ];
         }
+        $this->validDoc($this->std->cnpj, 'CNPJ');
     }
 }

@@ -187,5 +187,15 @@ class Z88STITNF extends Element implements ElementInterface
     {
         parent::__construct(self::REGISTRO, 237);
         $this->std = $this->standarize($std);
+        $this->postValidation();
+    }
+    
+    /**
+     * Validação secundária sobre as data informadas
+     * @throws \Exception
+     */
+    public function postValidation()
+    {
+        $this->validDoc($this->std->cnpj, 'CNPJ');
     }
 }

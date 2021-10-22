@@ -14,11 +14,17 @@ $std->CONTATO = 'FULANO DE TAL'; //Obrig Nome da pessoa responsavel pelo estabel
 $std->TELEFONE = '5555555'; //Obrig Telefone do estabelecimento
 
 try {
-    $z11 = new NFePHP\Sintegra\Elements\Z11($std);
-    $txt = "{$z11}";
+    $elem = new NFePHP\Sintegra\Elements\Z11($std);
+    $txt = "{$elem}";
 
     header("Content-Type: text/plain");
     echo $txt;
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

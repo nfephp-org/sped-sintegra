@@ -17,10 +17,16 @@ $std->VL_ICMS = '040';
 $std->BRANCOS = null;
 
 try {
-    $z60M = new Z60R($std);
+    
+    $elem = new Z60R($std);
 
     header("Content-Type: text/plain");
-    echo "{$z60M}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

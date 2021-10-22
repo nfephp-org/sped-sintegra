@@ -7,7 +7,7 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z51;
 
 $std = new stdClass();
-$std->CNPJ = '66291561000103'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
+$std->CNPJ = '99999090910270'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
 $std->IE = '283305054'; //opcional IE do remetente ou isento ou null
 $std->DATA_EMISSAO = '20050502'; //Obrig data de emissão
 $std->UF = 'SC'; //Obrig Sigla da Unidade da Federação do remetente
@@ -22,10 +22,14 @@ $std->OUTRAS = 0;//Obrig Valor que não confira débito ou crédito do ICMS (com
 $std->SITUACAO = 'N';//Obrig S-cancelado ou N-normal Situação da Nota fiscal
 
 try {
-    $z51 = new Z51($std);
+    $elem = new Z51($std);
 
     header("Content-Type: text/plain");
-    echo "{$z51}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
 
 } catch (\Exception $e) {
     echo $e->getMessage();

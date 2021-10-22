@@ -7,27 +7,33 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z88DV;
 
 $std = new stdClass();
-$std->DATA_EMISSAO = '';
-$std->SERIE = '';
-$std->NUM_DOC = '';
-$std->NUM_COO = '';
-$std->DATA_EMISSAO_CUPOM = '';
-$std->NUMERO_ITEM = '';
-$std->CODIGO_PRODUTO = '';
-$std->QUANTIDADE = '';
-$std->RELATORIO_NUM_COO = '';
-$std->RELATORIO_DATA_EMISSAO = '';
-$std->NUM_FAB = '';
-$std->CNPJ = '';
-$std->VL_UNITARIO = '';
-$std->VL_BC_ICMS = '';
-$std->VL_ICMS = '';
+$std->DATA_EMISSAO = '20201212';
+$std->SERIE = '1';
+$std->NUM_DOC = '111';
+$std->NUM_COO = '12345';
+$std->DATA_EMISSAO_CUPOM = '20201212';
+$std->NUMERO_ITEM = '1';
+$std->CODIGO_PRODUTO = '123456';
+$std->QUANTIDADE = '10';
+$std->RELATORIO_NUM_COO = '1';
+$std->RELATORIO_DATA_EMISSAO = '20201212';
+$std->NUM_FAB = '12345';
+$std->CNPJ = '99999999999999';
+$std->VL_UNITARIO = '100';
+$std->VL_BC_ICMS = '100';
+$std->VL_ICMS = '18';
 
 try {
-    $z88DV = new Z88DV($std);
+    
+    $elem = new Z88DV($std);
 
     header("Content-Type: text/plain");
-    echo "{$z88DV}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

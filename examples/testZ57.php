@@ -7,7 +7,7 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z57;
 
 $std = new stdClass();
-$std->CNPJ = '66291561000103';
+$std->CNPJ = '99999090910270';
 $std->IE = '283305054';
 $std->COD_MOD = '01';
 $std->SERIE = '099';
@@ -20,10 +20,16 @@ $std->NUM_LOTE = '20050502200505021';
 $std->BRANCOS = null;
 
 try {
-    $z57 = new Z57($std);
+    
+    $elem = new Z57($std);
 
     header("Content-Type: text/plain");
-    echo "{$z57}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

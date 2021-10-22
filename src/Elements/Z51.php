@@ -43,7 +43,7 @@ class Z51 extends Element implements ElementInterface
     protected $parameters = [
         'CNPJ' => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{14}$',
+            'regex' => '^[0-9]{11,14}$',
             'required' => false,
             'info' => 'CNPJ do remetente nas entradas e dos destinátarios nas saídas',
             'format' => 'totalNumber',
@@ -162,5 +162,14 @@ class Z51 extends Element implements ElementInterface
         parent::__construct(self::REGISTRO);
         $this->std = $this->standarize($std);
         $this->postValidation();
+    }
+    
+    /**
+     * Validação secundária sobre as data informadas
+     * @throws \Exception
+     */
+    public function postValidation()
+    {
+        $this->validDoc($this->std->cnpj, 'CNPJ');
     }
 }

@@ -7,7 +7,7 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z70;
 
 $std = new stdClass();
-$std->CNPJ = '66291561000103';
+$std->CNPJ = '99999090910270';
 $std->IE = '283305054';
 $std->DATA_EMISSAO = '20050502';
 $std->UF = 'PR';
@@ -25,10 +25,16 @@ $std->MOD_FRETE = '2';
 $std->SITUACAO = 'S';
 
 try {
-    $z60M = new Z70($std);
+    
+    $elem = new Z70($std);
 
     header("Content-Type: text/plain");
-    echo "{$z60M}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

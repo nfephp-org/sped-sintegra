@@ -20,10 +20,16 @@ $std->VL_TOTAL_GERAL = '1000';
 $std->BRANCOS = null;
 
 try {
-    $z60M = new Z60M($std);
+    
+    $elem = new Z60M($std);
 
     header("Content-Type: text/plain");
-    echo "{$z60M}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

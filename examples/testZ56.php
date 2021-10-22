@@ -7,7 +7,7 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z56;
 
 $std = new stdClass();
-$std->CNPJ = '66291561000103';
+$std->CNPJ = '99999090910270';
 $std->COD_MOD = '01';
 $std->SERIE = '099';
 $std->NUM_DOC = '23';
@@ -22,11 +22,16 @@ $std->CHASSI = '20050502200505021';
 $std->BRANCOS = null;
 
 try {
-    $z56 = new Z56($std);
+    
+    $elem = new Z56($std);
 
     header("Content-Type: text/plain");
-    echo "{$z56}";
+    echo "{$elem}";
 
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
