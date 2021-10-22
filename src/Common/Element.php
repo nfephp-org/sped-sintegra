@@ -212,17 +212,19 @@ abstract class Element implements ElementInterface
      */
     protected function validDoc(string $doc, string $field)
     {
-        if (substr($doc, 0, 3) == '000') {
-            $result = Documents\Cpf::createFromString($doc);
-        } else {
-            $result = Documents\Cnpj::createFromString($doc);
-        }
-        if ($result === false) {
-            $this->errors[] = (object) [
-                'message' => "[$this->reg] campo: {$field} "
-                . "[{$doc}] é INCORRETO ou FALSO.",
-                'std' => $this->std
-            ];
+        if ($doc != '0000000000000') {
+            if (substr($doc, 0, 3) == '000') {
+                $result = Documents\Cpf::createFromString($doc);
+            } else {
+                $result = Documents\Cnpj::createFromString($doc);
+            }
+            if ($result === false) {
+                $this->errors[] = (object) [
+                    'message' => "[$this->reg] campo: {$field} "
+                    . "[{$doc}] é INCORRETO ou FALSO.",
+                    'std' => $this->std
+                ];
+            }
         }
     }
 
