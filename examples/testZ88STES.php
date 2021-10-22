@@ -7,19 +7,25 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z88STES;
 
 $std = new stdClass();
-$std->CNPJ = '';
-$std->DATA_INVENTARIO = '';
-$std->CODIGO_PRODUTO = '';
-$std->QUANTIDADE = '';
-$std->VL_ICMS_ST = '';
-$std->VL_ICMS_OP = '';
+$std->CNPJ = '99999090910270';
+$std->DATA_INVENTARIO = '20201231';
+$std->CODIGO_PRODUTO = '123456';
+$std->QUANTIDADE = '10';
+$std->VL_ICMS_ST = '150.26';
+$std->VL_ICMS_OP = '13.45';
 $std->BRANCOS = '';
 
 try {
-    $z88STES = new Z88STES($std);
+    
+    $elem = new Z88STES($std);
 
     header("Content-Type: text/plain");
-    echo "{$z88STES}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

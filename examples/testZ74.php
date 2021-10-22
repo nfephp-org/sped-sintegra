@@ -18,10 +18,16 @@ $std->UF = 'PR';
 $std->BRANCOS = null;
 
 try {
-    $z74 = new Z74($std);
+    
+    $elem = new Z74($std);
 
     header("Content-Type: text/plain");
-    echo "{$z74}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

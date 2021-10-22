@@ -4,9 +4,9 @@ ini_set('display_errors', 'On');
 require_once '../bootstrap.php';
 
 $std = new \stdClass();
-$std->cNPJ = 'AAA12345678901'; //Obrig
+$std->cNPJ = '99999090910270'; //Obrig
 $std->IE = null; //opcional
-//$std->NOME_CONTRIBUINTE = 'FULANO DE TAL LTDA lkj skj kjs kjl kjs lkjs lkjs lkj jksj slkj lkjs lj lskj ljslkj slkj skljs slkj lsj slkjs lkjs ksj slkj skj lkj slkj lkjs lskj slkjslskj lksj lksjlskjsl sjlk jls sls j'; //Obrig Nome comercial (razao social)
+$std->NOME_CONTRIBUINTE = 'FULANO DE TAL LTDA'; //Obrig Nome comercial (razao social)
 $std->MUNICIPIO = 'BREJO SECO'; //Obrig Municipio do estabelecimento
 $std->UF = 'MA'; //Obrig Sigla da Unidade da Federação da pessoa
 $std->FAX = null; //opcional Telefone do estabelecimento
@@ -26,14 +26,16 @@ $std->COGIGO_FINALIDADE = '1'; //opcional Código da finalidade do arquivo magn�
 //5 - Desfazimento: arquivo de informação referente a operações/prestações não efetivadas . Neste caso, o arquivo deverá conter, além dos registros tipo 10 e tipo 90, apenas os registros referentes as operações/prestações não efetivadas
 
 try {
-    $z10 = new NFePHP\Sintegra\Elements\Z10($std);
-    $txt = "{$z10}";
+    
+    $elem = new NFePHP\Sintegra\Elements\Z10($std);
+    $txt = "{$elem}";
 
     header("Content-Type: text/plain");
     echo $txt;
+    
     echo "\n";
     echo "\n";
-    print_r($z10->errors);
+    print_r($elem->errors);
     
 } catch (\Exception $e) {
     echo $e->getMessage();

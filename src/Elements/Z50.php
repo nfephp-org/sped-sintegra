@@ -226,6 +226,6 @@ class Z50 extends Element implements ElementInterface
                 'std' => $this->std
             ];
         }
-        $this->validDoc();
+        $this->validDoc($this->std->cnpj, 'CNPJ');
     }
 }

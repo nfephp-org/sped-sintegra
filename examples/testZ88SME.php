@@ -7,15 +7,21 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z88SME;
 
 $std = new stdClass();
-$std->CNPJ = '';
-$std->MENSAGEM = '';
+$std->CNPJ = '99999090910270';
+$std->MENSAGEM = 'Sem Movimento de Entradas';
 $std->BRANCOS = '';
 
 try {
-    $z88SME = new Z88SME($std);
+    
+    $elem = new Z88SME($std);
 
     header("Content-Type: text/plain");
-    echo "{$z88SME}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

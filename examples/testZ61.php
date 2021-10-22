@@ -24,10 +24,16 @@ $std->ALIQUOTA = '0';
 $std->BRANCOS_3 = null;
 
 try {
-    $z60M = new Z61($std);
+    
+    $elem = new Z61($std);
 
     header("Content-Type: text/plain");
-    echo "{$z60M}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

@@ -7,7 +7,7 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z55;
 
 $std = new stdClass();
-$std->CNPJ = '66291561000103'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
+$std->CNPJ = '99999090910270'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
 $std->IE = '283305054'; //opcional IE do remetente ou isento ou null
 $std->SERIE = '099'; //Obrig Série do documento fiscal
 $std->GNRE_DATA = '20050502'; //Obrig data de emissão
@@ -22,10 +22,15 @@ $std->MES_ANO = '052021'; //Obrig data de emissão
 $std->CONVENIO = '200505'; //Obrig data de emissão
 
 try {
-    $z54 = new Z55($std);
+    
+    $elem = new Z55($std);
 
     header("Content-Type: text/plain");
-    echo "{$z54}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
 
 } catch (\Exception $e) {
     echo $e->getMessage();

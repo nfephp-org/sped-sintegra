@@ -66,5 +66,15 @@ class Z88SME extends Element implements ElementInterface
     {
         parent::__construct(self::REGISTRO);
         $this->std = $this->standarize($std);
+        $this->postValidation();
+    }
+    
+    /**
+     * Validação secundária sobre as data informadas
+     * @throws \Exception
+     */
+    public function postValidation()
+    {
+        $this->validDoc($this->std->cnpj, 'CNPJ');
     }
 }

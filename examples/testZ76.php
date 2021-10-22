@@ -26,10 +26,16 @@ $std->ALIQUOTA = '0';
 $std->SITUACAO = 'S';
 
 try {
-    $z76 = new Z76($std);
+    
+    $elem = new Z76($std);
 
     header("Content-Type: text/plain");
-    echo "{$z76}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

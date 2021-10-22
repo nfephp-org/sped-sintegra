@@ -8,7 +8,7 @@ use NFePHP\Sintegra\Elements\Z61R;
 
 $std = new stdClass();
 $std->MESTRE = 'R';
-$std->PERIODO_EMISSAO = '200505';
+$std->PERIODO_EMISSAO = '052020';
 $std->COD_PRODUTO = '1';
 $std->QUANTIDADE = '2';
 $std->VALOR_PRODUTO = '100';
@@ -17,10 +17,16 @@ $std->ALIQUOTA = '0';
 $std->BRANCOS = null;
 
 try {
-    $z60M = new Z61R($std);
+    
+    $elem = new Z61R($std);
 
     header("Content-Type: text/plain");
-    echo "{$z60M}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
