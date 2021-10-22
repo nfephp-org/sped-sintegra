@@ -237,7 +237,7 @@ class Z50 extends Element implements ElementInterface
      */
     private function validDoc()
     {
-        if (strlen($this->std->cnpj) == 11) {
+        if (substr($this->std->cnpj, 0, 3) == '000') {
             $result = Documents\Cpf::createFromString($this->std->cnpj);
         } else {
             $result = Documents\Cnpj::createFromString($this->std->cnpj);

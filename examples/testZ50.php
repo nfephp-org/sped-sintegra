@@ -7,7 +7,7 @@ require_once '../bootstrap.php';
 use NFePHP\Sintegra\Elements\Z50;
 
 $std = new stdClass();
-$std->CNPJ = '66291561000103'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
+$std->CNPJ = '00431733813';//'66291561000103'; //Obrig CNPJ/CPF do remetente nas entradas e dos destinátarios nas saídas
 $std->IE = '283305054'; //opcional IE do remetente ou isento ou null
 $std->DATA_EMISSAO = '20050502'; //Obrig data de emissão
 $std->UF = 'SC'; //Obrig Sigla da Unidade da Federação do remetente
