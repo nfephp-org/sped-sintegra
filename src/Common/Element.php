@@ -16,6 +16,7 @@ namespace NFePHP\Sintegra\Common;
 
 use NFePHP\Common\Strings;
 use stdClass;
+use Brazanation\Documents;
 
 abstract class Element implements ElementInterface
 {
@@ -199,6 +200,27 @@ abstract class Element implements ElementInterface
             return "[$this->reg] campo: $fieldname valor incorreto [$input]. (validação: $regex) $param->info";
         }
         return;
+    }
+    
+    /**
+     * Valida o CNPJ ou CPF passado no campo CNPJ
+     *
+     * @return void
+     */
+    protected function validDoc()
+    {
+        if (substr($this->std->cnpj, 0, 3) == '000') {
+            $result = Documents\Cpf::createFromString($this->std->cnpj);
+        } else {
+            $result = Documents\Cnpj::createFromString($this->std->cnpj);
+        }
+        if ($result === false) {
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: CNPJ/CPF "
+                . "[{$this->std->cnpj}] é INCORRETO ou FALSO.",
+                'std' => $this->std
+            ];
+        }
     }
 
     /**

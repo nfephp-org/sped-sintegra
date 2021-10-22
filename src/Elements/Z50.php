@@ -28,7 +28,6 @@ namespace NFePHP\Sintegra\Elements;
 
 use NFePHP\Sintegra\Common\Element;
 use NFePHP\Sintegra\Common\ElementInterface;
-use Brazanation\Documents;
 
 class Z50 extends Element implements ElementInterface
 {
@@ -228,26 +227,5 @@ class Z50 extends Element implements ElementInterface
             ];
         }
         $this->validDoc();
-    }
-    
-    /**
-     * Valida o CNPJ ou CPF passado no campo CNPJ
-     *
-     * @return void
-     */
-    private function validDoc()
-    {
-        if (substr($this->std->cnpj, 0, 3) == '000') {
-            $result = Documents\Cpf::createFromString($this->std->cnpj);
-        } else {
-            $result = Documents\Cnpj::createFromString($this->std->cnpj);
-        }
-        if ($result === false) {
-            $this->errors[] = (object) [
-                'message' => "[$this->reg] campo: CNPJ/CPF "
-                . "[{$this->std->cnpj}] é INCORRETO ou FALSO.",
-                'std' => $this->std
-            ];
-        }
     }
 }
