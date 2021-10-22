@@ -140,6 +140,10 @@ Cleiton Perin (developer)
 
 Gustavo Lidani (developer)
 
+Debora Cristina Fontanella (contribuitor)
+
+Wendel Ferreira (contribuitor)
+
 ## LICENÇA
 Este pacote está diponibilizado sob LGPLv3 ou MIT License (MIT). Leia  [Arquivo de Licença](LICENSE.md) para maiores informações.
 
