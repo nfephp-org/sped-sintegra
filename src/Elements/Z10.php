@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 use NFePHP\Sintegra\Common\Element;
@@ -119,6 +131,13 @@ class Z10 extends Element
     {
         $dini = \DateTime::createFromFormat('Ymd', $this->std->dt_ini);
         $dfim = \DateTime::createFromFormat('Ymd', $this->std->dt_fim);
+        if ($dini === false) {
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: DT_INI náo é uma data no formato esperado.",
+                'std' => $this->std
+            ];
+            return;
+        }
         $lastday = date("Ymt", strtotime($dini->format('Y-m-d')));
         if ($dfim <= $dini) {
             $this->errors[] = (object) [

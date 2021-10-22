@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra;
 
 use NFePHP\Sintegra\Blocks\Block1;
@@ -17,6 +29,9 @@ use NFePHP\Sintegra\Common\BaseSintegra;
  */
 final class Sintegra extends BaseSintegra
 {
+    /**
+     * @var array
+     */
     protected $possibles = [
         'block1' => ['class' => Block1::class, 'order' => 1],
         'block5' => ['class' => Block5::class, 'order' => 2],

@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Common;
 
 abstract class BaseSintegra
@@ -8,13 +20,17 @@ abstract class BaseSintegra
      * @var array
      */
     public $errors = [];
-    
+    /**
+     * @var array
+     */
     protected $possibles = [];
 
     /**
      * Add blocks to class
      *
      * @param BlockInterface $block
+     *
+     * @return void
      */
     public function add(BlockInterface $block = null)
     {
@@ -30,6 +46,8 @@ abstract class BaseSintegra
 
     /**
      * Create a SINTEGRA string
+     *
+     * @return string
      */
     public function get()
     {
@@ -46,7 +64,9 @@ abstract class BaseSintegra
 
     /**
      * Totals blocks contents
+     *
      * @param string $sintegra
+     *
      * @return string
      */
     protected function totalize($sintegra)
@@ -67,7 +87,9 @@ abstract class BaseSintegra
 
     /**
      * Get start of every line of register 90
+     *
      * @param string $inicioArquivo
+     *
      * @return string
      */
     private function getInicioLinha($inicioArquivo)
