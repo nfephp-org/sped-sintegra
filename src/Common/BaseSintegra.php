@@ -177,9 +177,7 @@ abstract class BaseSintegra
         $strTotalGeral = (string) $totalGeral;
         $totalizador99 = Enum::TOTALIZADOR_99 . str_pad($strTotalGeral, 8, "0", STR_PAD_LEFT);
         $linha .= $totalizador99;
-        if (strlen($linha) > 0) {
-            $totalizadoresLinhas[] = $linha;
-        }
+        $totalizadoresLinhas[] = $linha;
         return $totalizadoresLinhas;
     }
 }

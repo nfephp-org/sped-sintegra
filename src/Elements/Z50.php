@@ -28,6 +28,7 @@ namespace NFePHP\Sintegra\Elements;
 
 use NFePHP\Sintegra\Common\Element;
 use NFePHP\Sintegra\Common\ElementInterface;
+use Brazanation\Documents;
 
 class Z50 extends Element implements ElementInterface
 {
@@ -38,7 +39,7 @@ class Z50 extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^[0-9]{11,14}$',
             'required' => true,
-            'info' => 'CNPJ do emitente nas entradas e dos destinátarios nas saídas',
+            'info' => 'CNPJ/CPF do emitente nas entradas e dos destinátarios nas saídas',
             'format' => 'totalNumber',
             'length' => 14
         ],
@@ -223,6 +224,28 @@ class Z50 extends Element implements ElementInterface
             $this->errors[] = (object) [
                 'message' => "[$this->reg] campo: COD_MOD "
                 . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.",
+                'std' => $this->std
+            ];
+        }
+        $this->validDoc();
+    }
+    
+    /**
+     * Valida o CNPJ ou CPF passado no campo CNPJ
+     *
+     * @return void
+     */
+    private function validDoc()
+    {
+        if (strlen($this->std->cnpj) == 11) {
+            $result = Documents\Cpf::createFromString($this->std->cnpj);
+        } else {
+            $result = Documents\Cnpj::createFromString($this->std->cnpj);
+        }
+        if ($result === false) {
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: CNPJ/CPF "
+                . "[{$this->std->cnpj}] é INCORRETO ou FALSO.",
                 'std' => $this->std
             ];
         }
