@@ -23,11 +23,11 @@ O **Estado do Amapá** dispensa da entrega todos os contribuintes obrigados a ap
 
 ### BAHIA
 O **Estado da Bahia** especifica que estão obrigados a apresentação do arquivo SINTEGRA todo contribuinte inscrito no cadastro do ICMS da Bahia com faturamento/ano no exercício anterior,
-superior a R$ 360.000,00, que emita documento fiscal eletronicamente e/ou faça escrituração de Livro Fiscal por processamento de dados, mesmo se utilizar sistemas de terceiros. Aplica-se também aos usuários de Equipamentos Emissor de Cupom Fiscal (ECF) que exerçam atividade econômica de comércio por atacado e contribuinte inscrito como substituto tributário independentes de serem usuário de SEPD (Sistema Eletrônico de Processamento de Dados). 
+superior a R$ 360.000,00, que emita documento fiscal eletronicamente e/ou faça escrituração de Livro Fiscal por processamento de dados, mesmo se utilizar sistemas de terceiros. Aplica-se também aos usuários de Equipamentos Emissor de Cupom Fiscal (ECF) que exerçam atividade econômica de comércio por atacado e contribuinte inscrito como substituto tributário independentes de serem usuário de SPED (Sistema Eletrônico de Processamento de Dados). 
 
-Já os contribuintes inscritos no cadastro de ICMS do Estado da Bahia como Empresas de Pequeno Porte e contribuintes inscritos na condição de Normal – NO, com faturamento no ano de 2005 inferior a R$ 72 milhões, que utilize SEPD exclusivamente para emissão de cupom fiscal, foram dispensadas do envio e manutenção dos arquivos SINTEGRA para movimentos datados até dezembro de 2006. 
+Já os contribuintes inscritos no cadastro de ICMS do Estado da Bahia como Empresas de Pequeno Porte e contribuintes inscritos na condição de Normal – NO, com faturamento no ano de 2005 inferior a R$ 72 milhões, que utilize SPED exclusivamente para emissão de cupom fiscal, foram dispensadas do envio e manutenção dos arquivos SINTEGRA para movimentos datados até dezembro de 2006. 
 
-Os contribuintes inscritos na condição de Normal – NO, com faturamento no ano de 2005 inferior a R$ 72 milhões, que utilize SEPD apenas para escrituração de livros fiscais e emissão de cupom fiscal, foram dispensados de enviar os registros tipo 60R (Resumo mensal por item de mercadoria do cupom fiscal) e 61R (Resumo mensal por item de mercadoria da nota fiscal de venda ao consumidor) para movimentos datados até 31 de dezembro de 2006.
+Os contribuintes inscritos na condição de Normal – NO, com faturamento no ano de 2005 inferior a R$ 72 milhões, que utilize SPED apenas para escrituração de livros fiscais e emissão de cupom fiscal, foram dispensados de enviar os registros tipo 60R (Resumo mensal por item de mercadoria do cupom fiscal) e 61R (Resumo mensal por item de mercadoria da nota fiscal de venda ao consumidor) para movimentos datados até 31 de dezembro de 2006.
 
 ### GOIÁS
 No **Estado de Goiás**, somente os contribuintes optantes pelo Simples Nacional que ainda não emitem documentos fiscais eletrônicos que devem
@@ -69,7 +69,7 @@ Os contribuintes do **Estado de Pernambuco** obrigados a entregar o SEF (Sistema
 Os contribuintes do **Rio Grande do Norte** que emitem documento fiscal (Nota Fiscal ou Conhecimento de Transporte) por processamento de dados ou fazem a escrituração de Livro Fiscal por processamento de dados,inclusive, quando a escrituração fiscal for feita em escritório de contabilidade, contribuintes que utilizem equipamento Emissor de Cupom Fiscal(ECF) que tenha condições de gerar arquivo magnético, por si ou quando conectado a outro computador, estão obrigados a entrega do SINTEGRA.
 
 ### SERGIPE
-Os contribuintes do **Estado de Sergipe** que fazem uso de Sistema Eletrônico de Processamento de Dados (SEPD) para emissão de documentos e/ou livros fiscais estão obrigados - desde setembro de 2000, a remeterem à SEFAZ, mensalmente, os arquivos magnéticos gerados por esse sistema e previamente submetidos à crítica do programa validador do SINTEGRA.
+Os contribuintes do **Estado de Sergipe** que fazem uso de Sistema Eletrônico de Processamento de Dados (SPED) para emissão de documentos e/ou livros fiscais estão obrigados - desde setembro de 2000, a remeterem à SEFAZ, mensalmente, os arquivos magnéticos gerados por esse sistema e previamente submetidos à crítica do programa validador do SINTEGRA.
 
 ### SÃO PAULO
 Os contribuintes do **Estado de São Paulo** que fazem emissão por sistema eletrônico de processamento de dados dos documentos fiscais previstos no Artigo 124 do RICMS, aprovado pelo Decreto 45.490, de 30 de novembro de 2000, bem como a escrituração dos livros fiscais, estão obrigados a apresentação do arquivo magnético SINTEGRA.
