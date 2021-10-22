@@ -2,6 +2,15 @@
 
 SINTEGRA, Sistema Integrado de Informações sobre Operações Interestaduais com Mercadorias e Serviços, foi implantado no Brasil através do Convênio ICMS 57/1995 para facilitar o fornecimento de informações dos contribuintes às fiscalizações estaduais, permitindo o controle informatizado das operações de entradas e saídas interestaduais realizadas pelos contribuintes de ICMS.
 
+[![Latest Stable Version][ico-stable]][link-packagist]
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![License][ico-license]][link-packagist]
+[![Total Downloads][ico-downloads]][link-downloads]
+
+[![Issues][ico-issues]][link-issues]
+[![Forks][ico-forks]][link-forks]
+[![Stars][ico-stars]][link-stars]
+
 # Finalidade
 
 Esta biblioteca tem por finalidade auxiliar na geração do arquivo TXT no formato do Sintegra, para aqueles estados que ainda o utilizam.
@@ -134,4 +143,19 @@ Gustavo Lidani (developer)
 ## LICENÇA
 Este pacote está diponibilizado sob LGPLv3 ou MIT License (MIT). Leia  [Arquivo de Licença](LICENSE.md) para maiores informações.
 
+[ico-stable]: https://poser.pugx.org/nfephp-org/sped-sintegra/version
+[ico-stars]: https://img.shields.io/github/stars/nfephp-org/sped-sintegra.svg?style=flat-square
+[ico-forks]: https://img.shields.io/github/forks/nfephp-org/sped-sintegra.svg?style=flat-square
+[ico-issues]: https://img.shields.io/github/issues/nfephp-org/sped-sintegra.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/nfephp-org/sped-sintegra.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/nfephp-org/sped-sintegra.svg?style=flat-square
+[ico-license]: https://poser.pugx.org/nfephp-org/nfephp/license.svg?style=flat-square
+
+
+[link-packagist]: https://packagist.org/packages/nfephp-org/sped-sintegra
+[link-downloads]: https://packagist.org/packages/nfephp-org/sped-sintegra
+[link-author]: https://github.com/nfephp-org
+[link-issues]: https://github.com/nfephp-org/sped-sintegra/issues
+[link-forks]: https://github.com/nfephp-org/sped-sintegra/network
+[link-stars]: https://github.com/nfephp-org/sped-sintegra/stargazers
 
