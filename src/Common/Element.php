@@ -97,11 +97,11 @@ abstract class Element implements ElementInterface
         $paramKeys = array_keys($this->parameters);
         //passa os paramatros com as chaves modificadas para um stdClass
         if (!$json = json_encode($this->parameters)) {
-            throw new \RuntimeException("Falta definir os parametros ou existe erro no array");
+            throw new \Exception("Falta definir os parametros ou existe erro no array");
         }
         $stdParam = json_decode($json);
         if ($stdParam === null) {
-            throw new \RuntimeException("Houve uma falha na conversão para stdClass");
+            throw new \Exception("Houve uma falha na conversão para stdClass");
         }
         // init defautls params
         foreach ($stdParam as $key => $param) {
@@ -395,7 +395,6 @@ abstract class Element implements ElementInterface
         $len = $this->len;
         $lenreg = strlen($register) + strlen($this->subtipo) + strlen($this->reg);
         if ($lenreg != $len) {
-            //throw new \Exception("Erro na construção do elemento esperado {$len} encontrado {$lenreg}.");
             $this->errors[] = (object) [
                 'message' => "[$this->reg] Erro na construção do elemento esperado {$len} encontrado {$lenreg}."
             ];

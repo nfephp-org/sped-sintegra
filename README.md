@@ -115,7 +115,7 @@ composer require nfephp-org/sped-sintegra:dev-master
 ```
 
 ## REQUISITOS
-- PHP 7.x ou maior
+- PHP 7.1 ou maior
 
 ## DOCUMENTAÇÃO
 - a ser feita

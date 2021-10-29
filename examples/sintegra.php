@@ -100,18 +100,20 @@ try {
     $sintegra = new Sintegra();
     $sintegra->add($b1);
     $sintegra->add($b5);
-
-    
+  
     
     $txt = $sintegra->get();
 
     header("Content-Type: text/plain");
     echo $txt;
 
-    echo "\n";
-    echo "\n";
-
-    print_r($sintegra->errors);
+    //caso existam erros eles estarão na propriedade ARRAY publica errors
+    if (!empty($elem->errors)) {
+        echo "\n";
+        echo "\n";
+        print_r($sintegra->errors);
+    }
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
