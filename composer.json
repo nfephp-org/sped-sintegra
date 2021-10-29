@@ -33,14 +33,14 @@
         }
     ],
     "require": {
-        "php" : ">=7.0",
+        "php" : ">=7.1",
         "nfephp-org/sped-common": "^5.0",
         "brazanation/documents": "^2.0",
         "nfephp-org/sped-gtin": "^1.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12.50",
-        "phpunit/phpunit": "^9.4",
+        "phpunit/phpunit": "^9.5",
         "squizlabs/php_codesniffer": "^3.5",
         "scrutinizer/ocular": "^1.7"
     },
