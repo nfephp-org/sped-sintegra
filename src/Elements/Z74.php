@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
@@ -51,7 +63,10 @@ class Z74 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^(1|2|3)$',
             'required' => true,
-            'info' => 'Código de posse das mercadorias inventariadas (1 - Mercadorias de propriedade do Informante e em seu poder; 2 - Mercadorias de propriedade do Informante em poder de terceiros; 3 - Mercadorias de propriedade de terceiros em poder do Informante)',
+            'info' => 'Código de posse das mercadorias inventariadas ('
+            . '1 - Mercadorias de propriedade do Informante e em seu poder; '
+            . '2 - Mercadorias de propriedade do Informante em poder de terceiros; '
+            . '3 - Mercadorias de propriedade de terceiros em poder do Informante)',
             'format' => 'empty',
             'length' => 1
         ],

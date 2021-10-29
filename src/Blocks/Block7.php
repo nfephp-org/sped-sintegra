@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Blocks;
 
 use NFePHP\Sintegra\Common\Block;
@@ -18,6 +30,9 @@ use NFePHP\Sintegra\Elements;
  */
 final class Block7 extends Block implements BlockInterface
 {
+    /**
+     * @var array
+     */
     public $elements = [
         'z70' => ['class' => Elements\Z70::class, 'level' => 0, 'type' => 'single'],
         'z71' => ['class' => Elements\Z71::class, 'level' => 0, 'type' => 'single'],

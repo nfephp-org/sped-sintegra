@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
@@ -138,7 +150,11 @@ class Z70 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^(S|N|E|X|2|4)$',
             'required' => true,
-            'info' => 'Situação do documento fiscal (N - Documento Fiscal Normal; S - Documento Fiscal Cancelado; E - Lançamento Extemporâneo de Documento Fiscal Normal; X - Lançamento Extemporâneo de Documento Fiscal Cancelado; 2 - Documento com USO DENEGADO; 4 - Documento com USO inutilizado)',
+            'info' => 'Situação do documento fiscal (N - Documento Fiscal Normal;'
+            . ' S - Documento Fiscal Cancelado; E - Lançamento Extemporâneo de '
+            . 'Documento Fiscal Normal; X - Lançamento Extemporâneo de Documento '
+            . 'Fiscal Cancelado; 2 - Documento com USO DENEGADO; 4 - Documento '
+            . 'com USO inutilizado)',
             'format' => '',
             'length' => 1
         ],

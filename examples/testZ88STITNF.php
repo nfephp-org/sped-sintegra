@@ -27,10 +27,16 @@ $std->VL_IPI = 0.0;
 $std->CHAVE_NFE = str_repeat('0', 44);
 
 try {
-    $z88STITNF = new Z88STITNF($std);
+    
+    $elem = new Z88STITNF($std);
 
     header("Content-Type: text/plain");
-    echo "{$z88STITNF}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

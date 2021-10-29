@@ -54,10 +54,15 @@ $std->ALIQUOTA = 18;//Obrig Alíquota do ICMS (com 2 decimais)
 $std->SITUACAO = 'N';//Obrig S-cancelado ou N-normal Situação da Nota fiscal
 
 try {
-    $z50 = new Z50($std);
+    $elem = new Z50($std);
 
     header("Content-Type: text/plain");
-    echo "{$z50}";
+    echo "{$elem}";
+    
+    echo "\n";
+    echo "\n";
+    print_r($elem->errors);
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

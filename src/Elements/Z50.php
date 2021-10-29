@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
@@ -26,7 +38,7 @@ class Z50 extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^[0-9]{11,14}$',
             'required' => true,
-            'info' => 'CNPJ do emitente nas entradas e dos destinátarios nas saídas',
+            'info' => 'CNPJ/CPF do emitente nas entradas e dos destinátarios nas saídas',
             'format' => 'totalNumber',
             'length' => 14
         ],
@@ -146,7 +158,13 @@ class Z50 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^(S|N|E|X|2|4)$',
             'required' => true,
-            'info' => 'Situação da Nota fiscal (N - Documento Fiscal Normal; S - Documento Fiscal Cancelado; E - Lançamento Extemporâneo de Documento Fiscal Normal; X - Lançamento Extemporâneo de Documento Fiscal Cancelado; 2 - Documento com USO DENEGADO; 4 - Documento com USO inutilizado)',
+            'info' => 'Situação da Nota fiscal ('
+            . 'N - Documento Fiscal Normal; '
+            . 'S - Documento Fiscal Cancelado; '
+            . 'E - Lançamento Extemporâneo de Documento Fiscal Normal; '
+            . 'X - Lançamento Extemporâneo de Documento Fiscal Cancelado; '
+            . '2 - Documento com USO DENEGADO; '
+            . '4 - Documento com USO inutilizado)',
             'format' => '',
             'length' => 1
         ]
@@ -198,11 +216,16 @@ class Z50 extends Element implements ElementInterface
             '60', //60 - Cupom Fiscal Eletrônico, CF-e- ECF, modelo 60
             '63', //63 - Bilhete de Passagem Eletrônico, modelo 63
             '65', //65 - Nota Fiscal de Consumidor Eletrônica, modelo 65
+            '66', //66 - NOta Fiscal Energia Eletrica Eletrônica, modelo 66
             '67', //67 - Conhecimento de Transporte Eletrônico para Outros Serviços, modelo 67
         ];
         if (!in_array($this->std->cod_mod, $possible)) {
-            throw new \Exception("Erro: Bloco5, campo 50 - "
-                . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.");
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: COD_MOD "
+                . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.",
+                'std' => $this->std
+            ];
         }
+        $this->validDoc($this->std->cnpj, 'CNPJ');
     }
 }

@@ -1,14 +1,36 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Common;
 
 abstract class BaseSintegra
 {
+    /**
+     * @var array
+     */
+    public $errors = [];
+    /**
+     * @var array
+     */
     protected $possibles = [];
 
     /**
-     * Add
+     * Add blocks to class
+     *
      * @param BlockInterface $block
+     *
+     * @return void
      */
     public function add(BlockInterface $block = null)
     {
@@ -18,11 +40,14 @@ abstract class BaseSintegra
         $name = strtolower((new \ReflectionClass($block))->getShortName());
         if (key_exists($name, $this->possibles)) {
             $this->{$name} = $block->get();
+            $this->errors = array_merge($this->errors, $block->errors);
         }
     }
 
     /**
      * Create a SINTEGRA string
+     *
+     * @return string
      */
     public function get()
     {
@@ -39,7 +64,9 @@ abstract class BaseSintegra
 
     /**
      * Totals blocks contents
+     *
      * @param string $sintegra
+     *
      * @return string
      */
     protected function totalize($sintegra)
@@ -51,7 +78,8 @@ abstract class BaseSintegra
         $registro90 = '';
         $totalLinhasRegistro = count($totalizadoresLinhas);
         foreach ($totalizadoresLinhas as $linha) {
-            $complementoLinha = str_pad($totalLinhasRegistro, (126 - strlen($linha)), " ", STR_PAD_LEFT) . "\r\n";
+            $strTotalLinhasRegistro = (string) $totalLinhasRegistro;
+            $complementoLinha = str_pad($strTotalLinhasRegistro, (126 - strlen($linha)), " ", STR_PAD_LEFT) . "\r\n";
             $registro90 .= $linha . $complementoLinha;
         }
         return $registro90;
@@ -59,7 +87,9 @@ abstract class BaseSintegra
 
     /**
      * Get start of every line of register 90
+     *
      * @param string $inicioArquivo
+     *
      * @return string
      */
     private function getInicioLinha($inicioArquivo)
@@ -73,12 +103,13 @@ abstract class BaseSintegra
 
     /**
      * Get array of total lines by block
+     *
      * @param array $sintegraArray
+     *
      * @return array
      */
     private function getSomatorioPorBloco($sintegraArray)
     {
-        $keys = [];
         $somatorioPorBloco = [
             Enum::REGISTRO_10 => 0,
             Enum::REGISTRO_11 => 0,
@@ -104,11 +135,7 @@ abstract class BaseSintegra
         foreach ($sintegraArray as $element) {
             $numeroBloco = substr($element, 0, 2);
             if (!empty($numeroBloco)) {
-                if (!isset($keys[$numeroBloco])) {
-                    $somatorioPorBloco[$numeroBloco] += 1;
-                    continue;
-                }
-                $somatorioPorBloco[$numeroBloco] = 1;
+                $somatorioPorBloco[$numeroBloco] += 1;
             }
         }
         return $somatorioPorBloco;
@@ -116,8 +143,10 @@ abstract class BaseSintegra
 
     /**
      * Get array containing lines of register 90 with the totalizers
+     *
      * @param array $somatorioPorBloco
      * @param String $inicioLinha
+     *
      * @return array
      */
     private function getTotalizadoresRegistro90($somatorioPorBloco, $inicioLinha)
@@ -137,7 +166,6 @@ abstract class BaseSintegra
                 $totalizadoresLinhas[] = $linha;
                 $linha = $inicioLinha;
             }
-
             $linha .= $totalizadorRegistro;
         }
         if (strlen($linha) > 115) {
@@ -146,11 +174,10 @@ abstract class BaseSintegra
             $totalGeral += 1;
         }
         $totalGeral += 1;
-        $totalizador99 = Enum::TOTALIZADOR_99 . str_pad($totalGeral, 8, "0", STR_PAD_LEFT);
+        $strTotalGeral = (string) $totalGeral;
+        $totalizador99 = Enum::TOTALIZADOR_99 . str_pad($strTotalGeral, 8, "0", STR_PAD_LEFT);
         $linha .= $totalizador99;
-        if (strlen($linha) > 0) {
-            $totalizadoresLinhas[] = $linha;
-        }
+        $totalizadoresLinhas[] = $linha;
         return $totalizadoresLinhas;
     }
 }

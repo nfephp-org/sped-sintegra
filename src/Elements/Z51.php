@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
@@ -31,7 +43,7 @@ class Z51 extends Element implements ElementInterface
     protected $parameters = [
         'CNPJ' => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{14}$',
+            'regex' => '^[0-9]{11,14}$',
             'required' => false,
             'info' => 'CNPJ do remetente nas entradas e dos destinátarios nas saídas',
             'format' => 'totalNumber',
@@ -129,7 +141,13 @@ class Z51 extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^(S|N|E|X|2|4)$',
             'required' => true,
-            'info' => 'Situação da Nota fiscal (N - Documento Fiscal Normal; S - Documento Fiscal Cancelado; E - Lançamento Extemporâneo de Documento Fiscal Normal; X - Lançamento Extemporâneo de Documento Fiscal Cancelado; 2 - Documento com USO DENEGADO; 4 - Documento com USO inutilizado)',
+            'info' => 'Situação da Nota fiscal ('
+            . 'N - Documento Fiscal Normal; '
+            . 'S - Documento Fiscal Cancelado; '
+            . 'E - Lançamento Extemporâneo de Documento Fiscal Normal; '
+            . 'X - Lançamento Extemporâneo de Documento Fiscal Cancelado; '
+            . '2 - Documento com USO DENEGADO; '
+            . '4 - Documento com USO inutilizado)',
             'format' => '',
             'length' => 1
         ]
@@ -144,5 +162,14 @@ class Z51 extends Element implements ElementInterface
         parent::__construct(self::REGISTRO);
         $this->std = $this->standarize($std);
         $this->postValidation();
+    }
+    
+    /**
+     * Validação secundária sobre as data informadas
+     * @throws \Exception
+     */
+    public function postValidation()
+    {
+        $this->validDoc($this->std->cnpj, 'CNPJ');
     }
 }

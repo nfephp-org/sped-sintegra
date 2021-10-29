@@ -5,7 +5,7 @@
     "description": "API para geração dos arquivos para Sintegra",
     "keywords": ["sintegra", "nfephp"],
     "homepage": "https://github.com/nfephp-org/sped-sintegra",
-    "license": ["GPL-3.0+", "LGPL-3.0+"],
+    "license": ["MIT", "GPL-3.0+", "LGPL-3.0+"],
     "authors": [
         {
             "name": "Ismael A. Goncalves",
@@ -34,7 +34,9 @@
     ],
     "require": {
         "php" : ">=7.0",
-        "nfephp-org/sped-common": "^5.0"
+        "nfephp-org/sped-common": "^5.0",
+        "brazanation/documents": "^2.0",
+        "nfephp-org/sped-gtin": "^1.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12.50",
@@ -53,12 +55,10 @@
         }
     },
     "scripts": {
-        "phpunit": "phpunit",
         "phpcbf": "vendor/bin/phpcbf --standard=psr2 src/",
         "phpcs": "vendor/bin/phpcs --standard=psr2 src/",
-        "phpstan": "vendor/bin/phpstan analyse src/ --level 7",
-        "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+        "stan": "vendor/bin/phpstan analyse --level=6 src/",
+        "test": "phpunit --colors=always"
     },
     "config": {
         "optimize-autoloader": true

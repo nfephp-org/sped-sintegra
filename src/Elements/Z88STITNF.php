@@ -1,11 +1,24 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
  * Estado de MG
  *
- * REGISTRO '88STITNF' - Informações sobre Itens das Notas Fiscais Relativas à Entrada de Produtos Sujeitos ao Regime de Substituição Tributária.
+ * REGISTRO '88STITNF' - Informações sobre Itens das Notas Fiscais Relativas
+ * à Entrada de Produtos Sujeitos ao Regime de Substituição Tributária.
  *
  * @see http://www.fazenda.mg.gov.br/empresas/legislacao_tributaria/ricms_2002_seco/anexovii2002_6.html
  */
@@ -16,7 +29,8 @@ use \stdClass;
 
 class Z88STITNF extends Element implements ElementInterface
 {
-    const REGISTRO = '88STITNF';
+    const REGISTRO = '88';
+    protected $subtipo = 'STITNF';
 
     protected $parameters = [
         'CNPJ' => [
@@ -173,5 +187,15 @@ class Z88STITNF extends Element implements ElementInterface
     {
         parent::__construct(self::REGISTRO, 237);
         $this->std = $this->standarize($std);
+        $this->postValidation();
+    }
+    
+    /**
+     * Validação secundária sobre as data informadas
+     * @throws \Exception
+     */
+    public function postValidation()
+    {
+        $this->validDoc($this->std->cnpj, 'CNPJ');
     }
 }

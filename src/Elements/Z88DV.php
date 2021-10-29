@@ -1,11 +1,24 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
  * Estado de MG
  *
- * REGISTRO "88DV" - Informações sobre itens registrados em Cupom Fiscal relativos à Entrada de Produtos em Devolução ou Troca
+ * REGISTRO "88DV" - Informações sobre itens registrados em Cupom Fiscal
+ * relativos à Entrada de Produtos em Devolução ou Troca
  *
  * @see http://www.fazenda.mg.gov.br/empresas/legislacao_tributaria/ricms_2002_seco/anexovii2002_6.html
  */
@@ -16,7 +29,8 @@ use \stdClass;
 
 class Z88DV extends Element implements ElementInterface
 {
-    const REGISTRO = '88DV';
+    const REGISTRO = '88';
+    protected $subtipo = 'DV';
 
     protected $parameters = [
         'DATA_EMISSAO' => [
@@ -47,7 +61,8 @@ class Z88DV extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^[0-9]{1,6}$',
             'required' => true,
-            'info' => 'Número do Contador de Ordem de Operação - COO do Cupom Fiscal de venda do produto devolvido ou trocado',
+            'info' => 'Número do Contador de Ordem de Operação - COO do Cupom '
+            . 'Fiscal de venda do produto devolvido ou trocado',
             'format' => 'totalNumber',
             'length' => 6
         ],
@@ -55,7 +70,8 @@ class Z88DV extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^(2[0-9]{3})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])$',
             'required' => true,
-            'info' => 'Data de emissão do Cupom Fiscal de venda do produto devolvido ou trocado (formato AAAAMMDD)',
+            'info' => 'Data de emissão do Cupom Fiscal de venda do produto '
+            . 'devolvido ou trocado (formato AAAAMMDD)',
             'format' => '',
             'length' => 8
         ],
@@ -87,7 +103,8 @@ class Z88DV extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^[0-9]{1,6}$',
             'required' => true,
-            'info' => 'Número do Contador de Ordem de Operação - COO do Relatório Gerencial de Devolução/Troca',
+            'info' => 'Número do Contador de Ordem de Operação - COO do '
+            . 'Relatório Gerencial de Devolução/Troca',
             'format' => 'totalNumber',
             'length' => 6
         ],
@@ -95,7 +112,8 @@ class Z88DV extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^(2[0-9]{3})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])$',
             'required' => true,
-            'info' => 'Data de emissão do Relatório Gerencial de Devolução/Troca (formato AAAAMMDD)',
+            'info' => 'Data de emissão do Relatório Gerencial de '
+            . 'Devolução/Troca (formato AAAAMMDD)',
             'format' => '',
             'length' => 8
         ],
@@ -103,7 +121,8 @@ class Z88DV extends Element implements ElementInterface
             'type' => 'string',
             'regex' => '^.{1,20}$',
             'required' => true,
-            'info' => 'Número de série de fabricação do ECF que emitiu o Cupom Fiscal de venda',
+            'info' => 'Número de série de fabricação do ECF que emitiu o '
+            . 'Cupom Fiscal de venda',
             'format' => 'empty',
             'length' => 20
         ],

@@ -1,24 +1,64 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Common;
 
 use NFePHP\Common\Strings;
 use stdClass;
+use Brazanation\Documents;
 
 abstract class Element implements ElementInterface
 {
-
+    /**
+     * @var \stdClass
+     */
     public $std;
+    /**
+     * @var \stdClass
+     */
     public $values;
+    /**
+     * @var array
+     */
+    public $errors = [];
+    /**
+     * @var array
+     */
     protected $parameters;
-    private $reg;
+    /**
+     * @var string
+     */
+    protected $reg;
+    /**
+     *
+     * @var string
+     */
     private $strchar = ' ';
+    /**
+     * @var int
+     */
     protected $len = 126;
+    /**
+     * @var string|null
+     */
     protected $subtipo = null;
 
     /**
      * Constructor
+     *
      * @param string $reg
+     * @param int $len
      */
     public function __construct($reg, $len = 126)
     {
@@ -27,21 +67,27 @@ abstract class Element implements ElementInterface
         $this->values = new stdClass();
     }
 
+    /**
+     * Post validation
+     *
+     * @return void
+     */
     public function postValidation()
     {
-        return;
     }
 
     /**
      * Valida e ajusta os dados de entrada para os padões estabelecidos
+     *
      * @param \stdClass $std
+     *
+     * @return \stdClass
      */
     protected function standarize(\stdClass $std)
     {
         if (empty($this->parameters)) {
             throw new \Exception('Parametros não estabelecidos na classe');
         }
-        $errors = [];
         //passa todos as variáveis do stdClass para minusculo
         $arr = array_change_key_case(get_object_vars($std), CASE_LOWER);
         $std = json_decode(json_encode($arr));
@@ -59,115 +105,138 @@ abstract class Element implements ElementInterface
         }
         // init defautls params
         foreach ($stdParam as $key => $param) {
-            if (!$param->required && $std->$key === null) {
+            if (!isset($std->$key)) {
                 $std->$key = '';
-            }
-        }
-        //verifica se foram passados os dados obrigatórios
-        foreach ($std as $key => $value) {
-            if (!isset($stdParam->$key)) {
-                //ignore non defined params
-                continue;
-            }
-            if ($stdParam->$key->required && $std->$key === null) {
-                $errors[] = "$key é requerido.";
             }
         }
         $newstd = new \stdClass();
         foreach ($paramKeys as $key) {
-            if (!key_exists($key, $arr)) {
-                $newstd->$key = null;
-            } else {
-                //se o valor para o parametro foi passado, então validar
-                $resp = $this->isFieldInError(
-                    $std->$key,
-                    $stdParam->$key,
-                    strtoupper($key),
-                    $this->reg,
-                    $stdParam->$key->required
-                );
-                if ($resp) {
-                    $errors[] = $resp;
-                }
-                //e formatar o dado passado
-                $formated = $this->formater(
-                    $std->$key,
-                    $stdParam->$key->length,
-                    strtoupper($key),
-                    $stdParam->$key->format
-                );
-
-                $newValue = $this->formatString(
-                    $formated,
-                    $stdParam->$key,
-                    $stdParam->$key->type
-                );
-
-                $newstd->$key = $newValue;
+            //se o valor para o parametro foi passado, então validar
+            $resp = $this->isFieldInError(
+                $std->$key,
+                $stdParam->$key,
+                strtoupper($key),
+                $this->reg,
+                $stdParam->$key->required
+            );
+            if ($resp) {
+                $this->errors[] = (object) [
+                    'message' => $resp,
+                    'std' => $std
+                ];
             }
-        }
-        //se algum erro for detectado disparar um Exception
-        if (!empty($errors)) {
-            throw new \InvalidArgumentException(implode("\n", $errors));
+            //e formatar o dado passado
+            $formated = $this->formater(
+                $std->$key,
+                $stdParam->$key->length,
+                strtoupper($key),
+                $stdParam->$key->format
+            );
+            //formata o comprimento das strings
+            $newValue = $this->formatString(
+                $formated,
+                $stdParam->$key,
+                $stdParam->$key->type
+            );
+            $newstd->$key = $newValue;
         }
         return $newstd;
     }
 
     /**
      * Verifica os campos com-relação ao tipo e seu regex
+     *
      * @param string|integer|float|null $input
      * @param stdClass $param
      * @param string $fieldname
-     * @return string|boolean
+     * @param string $element
+     * @param bool $required
+     *
+     * @return string|void
      */
     protected function isFieldInError($input, $param, $fieldname, $element, $required)
     {
         $type = $param->type;
         $regex = $param->regex;
 
-        if (($input === null || $input === '') && !$required) {
-            return false;
+        if (empty($input) && $required) {
+            // Não retornar erro se o campo for numerico e foi inserido o valor 0
+            if ($type === 'numeric' && is_numeric($input)) {
+                return;
+            }
+            return "[$this->reg] campo: $fieldname é requerido.";
+        }
+        if ($input === '' && !$required) {
+            return;
         }
         if (empty($regex)) {
-            return false;
+            return;
         }
         switch ($type) {
             case 'integer':
                 if (!is_numeric($input)) {
-                    return "[$this->reg] $element campo: $fieldname deve ser um valor numérico inteiro.";
+                    return "[$this->reg] campo: $fieldname deve ser um valor numérico inteiro.";
                 }
                 break;
             case 'numeric':
                 if (!is_numeric($input)) {
-                    return "[$this->reg] $element campo: $fieldname deve ser um numero.";
+                    return "[$this->reg] campo: $fieldname deve ser um numero.";
                 }
                 break;
             case 'string':
                 if (!is_string($input)) {
-                    return "[$this->reg] $element campo: $fieldname deve ser uma string.";
+                    return "[$this->reg] campo: $fieldname deve ser uma string.";
                 }
                 break;
         }
         $input = (string)$input;
         if ($regex === 'email') {
             if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
-                return "[$this->reg] $element campo: $fieldname Esse email [$input] está incorreto.";
+                return "[$this->reg] campo: $fieldname Esse email [$input] está incorreto.";
             }
-            return false;
+            return;
         }
         if (!preg_match("/$regex/", $input)) {
-            return "[$this->reg] $element campo: $fieldname valor incorreto [$input]. (validação: $regex) $param->info";
+            return "[$this->reg] campo: $fieldname valor incorreto [$input]. (validação: $regex) $param->info";
         }
-        return false;
+        return;
+    }
+    
+    /**
+     * Valida o CNPJ ou CPF passado no campo CNPJ
+     *
+     * @param string $doc CNPJ/CPF
+     * @param string $field nome do campo
+     *
+     * @return void
+     */
+    protected function validDoc(string $doc, string $field)
+    {
+        if ($doc != '0000000000000') {
+            if (substr($doc, 0, 3) == '000') {
+                $result = Documents\Cpf::createFromString($doc);
+            } else {
+                $result = Documents\Cnpj::createFromString($doc);
+            }
+            if ($result === false) {
+                $this->errors[] = (object) [
+                    'message' => "[$this->reg] campo: {$field} "
+                    . "[{$doc}] é INCORRETO ou FALSO.",
+                    'std' => $this->std
+                ];
+            }
+        }
     }
 
     /**
      * Formata os campos float
+     *
      * @param string|integer|float|null $value
-     * @param string $format
+     * @param int $length
      * @param string $fieldname
+     * @param string|null $format
+     *
      * @return int|string|float|null
-     * @throws \InvalidArgumentException
      */
     protected function formater(
         $value,
@@ -190,29 +259,25 @@ abstract class Element implements ElementInterface
         if ($value === '' && $format !== 'empty') {
             $value = 0;
         }
-
         if ($format == 'totalNumber') {
             return $this->numberTotalFormat(floatval($value), $length);
-        }
-
-        if ($format == 'aliquota') {
+        } elseif ($format == 'aliquota') {
             return $this->numberFormatAliquota($value, $length);
-        }
-
-        if ($format == 'empty') {
+        } elseif ($format == 'empty') {
             return $this->formatFieldEmpty($value, $length);
         }
         $this->values->$name = (float) $value;
         return $this->numberFormat(floatval($value), $format, $fieldname);
-        //return str_pad($num, $length, '0', STR_PAD_LEFT);
     }
 
     /**
      * Format number
+     *
      * @param float $value
      * @param string $format
+     * @param string $fieldname
+     *
      * @return string
-     * @throws \InvalidArgumentException
      */
     private function numberFormat($value, $format, $fieldname)
     {
@@ -223,8 +288,10 @@ abstract class Element implements ElementInterface
         $nint = strlen($p[0]); //integer digits
         $intdig = (int) $n[0];
         if ($nint > $intdig) {
-            throw new \InvalidArgumentException("[$this->reg] O [$fieldname] é maior "
-                . "que o permitido [$format].");
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: $fieldname é maior "
+                    . "que o permitido [$format]."
+            ];
         }
         if ($mdec !== false) {
             //is multi decimal
@@ -250,19 +317,43 @@ abstract class Element implements ElementInterface
         return number_format($value, $decplaces, '', '');
     }
 
-
+    /**
+     * Format Total numbers
+     *
+     * @param float $value
+     * @param int $length
+     *
+     * @return string
+     */
     private function numberTotalFormat($value, $length)
     {
+        $value = (string) $value;
         return str_pad($value, $length, "0", STR_PAD_LEFT);
     }
 
+    /**
+     * Format aliquotas
+     *
+     * @param float $value
+     * @param int $length
+     *
+     * @return string
+     */
     private function numberFormatAliquota($value, $length)
     {
+        $value = (string) $value;
         $value = str_pad($value, 4, "0", STR_PAD_RIGHT);
-
         return str_pad($value, $length, "0", STR_PAD_LEFT);
     }
 
+    /**
+     * Format empty fields
+     *
+     * @param string $value
+     * @param int $length
+     *
+     * @return string
+     */
     private function formatFieldEmpty($value, $length)
     {
         return str_pad($value, $length, $this->strchar, STR_PAD_RIGHT);
@@ -270,6 +361,11 @@ abstract class Element implements ElementInterface
 
     /**
      * Retorna string conforme o tamanho, pois sintegra considera as posições
+     *
+     * @param string $value
+     * @param stdClass $param
+     * @param string $type
+     *
      * @return string
      */
     protected function formatString($value, $param, $type)
@@ -287,6 +383,7 @@ abstract class Element implements ElementInterface
 
     /**
      * Construtor do elemento
+     *
      * @return string
      */
     protected function build()
@@ -298,13 +395,17 @@ abstract class Element implements ElementInterface
         $len = $this->len;
         $lenreg = strlen($register) + strlen($this->subtipo) + strlen($this->reg);
         if ($lenreg != $len) {
-            throw new \Exception("Erro na construção do elemento esperado {$len} encontrado {$lenreg}.");
+            //throw new \Exception("Erro na construção do elemento esperado {$len} encontrado {$lenreg}.");
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] Erro na construção do elemento esperado {$len} encontrado {$lenreg}."
+            ];
         }
         return $register;
     }
 
     /**
      * Retorna o elemento formatado em uma string
+     *
      * @return string
      */
     public function __toString()

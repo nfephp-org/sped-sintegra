@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
@@ -12,16 +24,18 @@ namespace NFePHP\Sintegra\Elements;
 
 use NFePHP\Sintegra\Common\Element;
 use NFePHP\Sintegra\Common\ElementInterface;
+use NFePHP\Gtin\Gtin;
 use \stdClass;
 
 class Z88EAN extends Element implements ElementInterface
 {
-    const REGISTRO = '88EAN';
+    const REGISTRO = '88';
+    protected $subtipo = 'EAN';
 
     protected $parameters = [
         'VERSAO_EAN' => [
             'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'regex' => '^8|12|13|14$',
             'required' => true,
             'info' => 'Versão do código EAN (08, 12, 13 ou 14)',
             'format' => '',
@@ -77,5 +91,25 @@ class Z88EAN extends Element implements ElementInterface
     {
         parent::__construct(self::REGISTRO);
         $this->std = $this->standarize($std);
+        $this->postValidation();
+    }
+    
+    /**
+     * Validação secundária sobre as data informadas
+     * @throws \Exception
+     */
+    public function postValidation()
+    {
+        try {
+            $num = (int) $this->std->versao_ean;
+            $gtin = substr($this->std->codigo_barras, -$num);
+            Gtin::check($gtin)->isValid();
+        } catch (\Exception $e) {
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: CODIGO_BARRAS "
+                . "[{$gtin}] não é válido.",
+                'std' => $this->std
+            ];
+        }
     }
 }

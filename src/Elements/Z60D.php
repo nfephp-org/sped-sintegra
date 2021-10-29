@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
@@ -46,7 +58,8 @@ class Z60D extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => 'Quantidade comercializada da mercadoria/produto no dia (com 3 decimais)',
+            'info' => 'Quantidade comercializada da mercadoria/produto no dia '
+            . '(com 3 decimais)',
             'format' => '10v3',
             'length' => 13
         ],
@@ -54,7 +67,8 @@ class Z60D extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => 'Valor líquido (valor bruto diminuído dos descontos) da mercadoria/produto acumulado no dia (com 2 decimais)',
+            'info' => 'Valor líquido (valor bruto diminuído dos descontos) '
+            . 'da mercadoria/produto acumulado no dia (com 2 decimais)',
             'format' => 'totalNumber',
             'length' => 16
         ],
@@ -62,7 +76,8 @@ class Z60D extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => 'Base de cálculo do ICMS - valor acumulado no dia (com 2 decimais)',
+            'info' => 'Base de cálculo do ICMS - valor acumulado no dia '
+            . '(com 2 decimais)',
             'format' => '14v2',
             'length' => 16
         ],
@@ -70,7 +85,8 @@ class Z60D extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => 'Identificador da Situação Tributária / Alíquota do ICMS (com 2 decimais)',
+            'info' => 'Identificador da Situação Tributária / Alíquota do ICMS '
+            . '(com 2 decimais)',
             'format' => '2v2',
             'length' => 4
         ],

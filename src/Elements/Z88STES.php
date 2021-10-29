@@ -1,11 +1,25 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
  * Estado de MG
  *
- * REGISTRO '88STES' - Informações Referentes a Estoque de Produtos Sujeitos ao Regime de Substituição Tributária ou de Produtos que Tiveram Mudança na Forma de Tributação.
+ * REGISTRO '88STES' - Informações Referentes a Estoque de Produtos Sujeitos ao
+ * Regime de Substituição Tributária ou de Produtos que Tiveram Mudança na
+ * Forma de Tributação.
  *
  * @see http://www.fazenda.mg.gov.br/empresas/legislacao_tributaria/ricms_2002_seco/anexovii2002_6.html
  */
@@ -16,7 +30,8 @@ use \stdClass;
 
 class Z88STES extends Element implements ElementInterface
 {
-    const REGISTRO = '88STES';
+    const REGISTRO = '88';
+    protected $subtipo = 'STES';
 
     protected $parameters = [
         'CNPJ' => [
@@ -85,5 +100,15 @@ class Z88STES extends Element implements ElementInterface
     {
         parent::__construct(self::REGISTRO);
         $this->std = $this->standarize($std);
+        $this->postValidation();
+    }
+    
+    /**
+     * Validação secundária sobre as data informadas
+     * @throws \Exception
+     */
+    public function postValidation()
+    {
+        $this->validDoc($this->std->cnpj, 'CNPJ');
     }
 }

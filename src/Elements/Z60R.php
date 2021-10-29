@@ -1,9 +1,22 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 /**
- * Resumo Mensal - Registro de mercadoria/produto ou serviço processado em equipamento Emissor de Cupom Fiscal.
+ * Resumo Mensal - Registro de mercadoria/produto ou serviço processado
+ * em equipamento Emissor de Cupom Fiscal.
  */
 
 use NFePHP\Sintegra\Common\Element;
@@ -44,7 +57,8 @@ class Z60R extends Element implements ElementInterface
             'type' => 'numeric',
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
-            'info' => 'Valor líquido (valor bruto diminuído do desconto) da mercadoria/produto ou serviço acumulado no mês (com 2 decimais)',
+            'info' => 'Valor líquido (valor bruto diminuído do desconto) da '
+            . 'mercadoria/produto ou serviço acumulado no mês (com 2 decimais)',
             'format' => '14v2',
             'length' => 16
         ],

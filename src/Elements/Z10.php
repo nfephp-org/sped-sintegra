@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Sintegra
+ * @copyright 2019 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-sintegra
+ */
+
 namespace NFePHP\Sintegra\Elements;
 
 use NFePHP\Sintegra\Common\Element;
@@ -112,20 +124,34 @@ class Z10 extends Element
 
     /**
      * Validação secundária sobre as data informadas
-     * @throws \Exception
+     *
+     * @return void
      */
     public function postValidation()
     {
         $dini = \DateTime::createFromFormat('Ymd', $this->std->dt_ini);
         $dfim = \DateTime::createFromFormat('Ymd', $this->std->dt_fim);
+        if ($dini === false) {
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: DT_INI náo é uma data no formato esperado.",
+                'std' => $this->std
+            ];
+            return;
+        }
         $lastday = date("Ymt", strtotime($dini->format('Y-m-d')));
         if ($dfim <= $dini) {
-            throw new \Exception("Erro: Bloco1, campo 10 - A data final deve "
-                . "ser maior que a data inicial.");
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: DT_FIM A data final deve "
+                . "ser maior que a data inicial.",
+                'std' => $this->std
+            ];
         }
         if ($this->std->dt_fim != $lastday) {
-            throw new \Exception("Erro: Bloco1, campo 10 - A data final deve "
-                . "ser o último dia do mês indicado na data inicial.");
+            $this->errors[] = (object) [
+                'message' => "[$this->reg] campo: DT_FIM A data final deve "
+                . "ser o último dia do mês indicado na data inicial.",
+                'std' => $this->std
+            ];
         }
     }
 }
