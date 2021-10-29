@@ -30,6 +30,8 @@ jobs:
       - name: Set phpunit version
         if: matrix.php-version == '7.1'
         run: composer require "phpunit/phpunit:^6.0" -W --dev
+        if: matrix.php-version == '7.2'
+        run: composer require "phpunit/phpunit:^8.0" -W --dev
 
       - name: Composer Install
         run: |
