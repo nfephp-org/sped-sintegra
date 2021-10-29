@@ -4,7 +4,8 @@ ini_set('display_errors', 'On');
 require_once '../bootstrap.php';
 
 $std = new \stdClass();
-$std->cNPJ = '99999090910270'; //Obrig
+//$std->cNPJ = '777745230'; //Obrig 00110
+$std->cNPJ = '50795722052';
 $std->IE = null; //opcional
 $std->NOME_CONTRIBUINTE = 'FULANO DE TAL LTDA'; //Obrig Nome comercial (razao social)
 $std->MUNICIPIO = 'BREJO SECO'; //Obrig Municipio do estabelecimento
@@ -33,9 +34,12 @@ try {
     header("Content-Type: text/plain");
     echo $txt;
     
-    echo "\n";
-    echo "\n";
-    print_r($elem->errors);
+    //caso existam erros eles estarão na propriedade ARRAY publica errors
+    if (!empty($elem->errors)) {
+        echo "\n";
+        echo "\n";
+        print_r($elem->errors);
+    }    
     
 } catch (\Exception $e) {
     echo $e->getMessage();

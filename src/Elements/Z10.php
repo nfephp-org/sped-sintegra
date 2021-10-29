@@ -25,7 +25,7 @@ class Z10 extends Element
             'type' => 'numeric',
             'regex' => '^[0-9]{11,14}$',
             'required' => true,
-            'info' => 'Número de inscrição do estabelecimento matriz da pessoa jurídica no CNPJ.',
+            'info' => 'Número de inscrição do estabelecimento matriz da pessoa jurídica no CNPJ ou CPF.',
             'format' => 'totalNumber',
             'length' => 14
         ],
@@ -152,6 +152,17 @@ class Z10 extends Element
                 . "ser o último dia do mês indicado na data inicial.",
                 'std' => $this->std
             ];
+        }
+        //valida o CNPJ/CPF informado
+        $resp = \Brazanation\Documents\Cnpj::createFromString($this->std->cnpj);
+        if ($resp === false) {
+            $resp = \Brazanation\Documents\Cpf::createFromString(substr($this->std->cnpj, -11));
+            if ($resp === false) {
+                $this->errors[] = (object) [
+                    'message' => "[$this->reg] campo: CNPJ/CPF É inválido.",
+                    'std' => $this->std
+                ];
+            }
         }
     }
 }
