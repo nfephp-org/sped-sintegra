@@ -2,9 +2,16 @@
     "name": "nfephp-org/sped-sintegra",
     "type": "library",
     "description": "API para geração dos arquivos para Sintegra",
-    "keywords": ["sintegra", "nfephp"],
+    "keywords": [
+        "sintegra",
+        "nfephp"
+    ],
     "homepage": "https://github.com/nfephp-org/sped-sintegra",
-    "license": ["MIT", "GPL-3.0+", "LGPL-3.0+"],
+    "license": [
+        "MIT",
+        "GPL-3.0+",
+        "LGPL-3.0+"
+    ],
     "authors": [
         {
             "name": "Ismael A. Goncalves",
@@ -29,23 +36,27 @@
             "email": "lidanig0@gmail.com",
             "homepage": "https://github.com/lidani",
             "role": "Developer"
+        },
+        {
+            "name": "Comunidade NFePHP",
+            "homepage": "https://github.com/nfephp-org/sped-da/graphs/contributors"
         }
     ],
     "require": {
-        "php" : ">=7.1",
-        "nfephp-org/sped-common": "^5.0",
-        "brazanation/documents": "^2.0",
-        "nfephp-org/sped-gtin": "^1.0"
+        "php": ">= 7.4",
+        "nfephp-org/sped-common": "^5.1.0",
+        "brazanation/documents": "^2.1.0",
+        "nfephp-org/sped-gtin": "^1.1.0"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12.50",
-        "phpunit/phpunit": "^9.5",
-        "squizlabs/php_codesniffer": "^3.5",
-        "scrutinizer/ocular": "^1.7"
+        "squizlabs/php_codesniffer": "^3.6",
+        "phpunit/phpunit": "^9.3",
+        "phpstan/phpstan": "^1.4",
+        "sebastian/phpcpd": "^6.0"
     },
     "autoload": {
         "psr-4": {
-          "NFePHP\\Sintegra\\": "src/"
+            "NFePHP\\Sintegra\\": "src/"
         }
     },
     "autoload-dev": {
