@@ -213,7 +213,7 @@ abstract class Element implements ElementInterface
     protected function validDoc(string $doc, string $field)
     {
         if ($doc != '0000000000000') {
-            if (substr($doc, 0, 3) == '000') {
+            if (substr($doc, 0, 3) == '000' and strlen($doc) < 14) {
                 $result = Documents\Cpf::createFromString($doc);
             } else {
                 $result = Documents\Cnpj::createFromString($doc);
