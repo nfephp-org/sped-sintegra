@@ -33,11 +33,11 @@ class Z54 extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ do remetente nas entradas e dos destinátarios nas saídas',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'COD_MOD' => [
@@ -206,7 +206,7 @@ class Z54 extends Element implements ElementInterface
         if (!in_array($this->std->cod_mod, $possible)) {
             $this->errors[] = (object) [
                 'message' => "[$this->reg] campo: COD_MOD "
-                . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.",
+                    . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.",
                 'std' => $this->std
             ];
         }

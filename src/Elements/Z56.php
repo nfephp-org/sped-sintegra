@@ -28,11 +28,11 @@ class Z56 extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ do remetente nas entradas e dos destinátarios nas saídas',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'COD_MOD' => [
@@ -96,18 +96,18 @@ class Z56 extends Element implements ElementInterface
             'regex' => '^(1|2|3)$',
             'required' => true,
             'info' => 'Tipo de operação ('
-            . '1 - venda para concessionária; '
-            . '2- "Faturamento Direto" - Convênio ICMS 51/00; '
-            . '3 - Venda direta)',
+                . '1 - venda para concessionária; '
+                . '2- "Faturamento Direto" - Convênio ICMS 51/00; '
+                . '3 - Venda direta)',
             'format' => '',
             'length' => 1
         ],
         'CNPJ_CONCESSIONARIA' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ da concessionária',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'ALIQUOTA_IPI' => [
@@ -146,7 +146,7 @@ class Z56 extends Element implements ElementInterface
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
-    
+
     /**
      * Validação secundária sobre as data informadas
      * @throws \Exception

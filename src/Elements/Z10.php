@@ -22,11 +22,11 @@ class Z10 extends Element
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'Número de inscrição do estabelecimento matriz da pessoa jurídica no CNPJ ou CPF.',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'IE' => [
@@ -142,14 +142,14 @@ class Z10 extends Element
         if ($dfim <= $dini) {
             $this->errors[] = (object) [
                 'message' => "[$this->reg] campo: DT_FIM A data final deve "
-                . "ser maior que a data inicial.",
+                    . "ser maior que a data inicial.",
                 'std' => $this->std
             ];
         }
         if ($this->std->dt_fim != $lastday) {
             $this->errors[] = (object) [
                 'message' => "[$this->reg] campo: DT_FIM A data final deve "
-                . "ser o último dia do mês indicado na data inicial.",
+                    . "ser o último dia do mês indicado na data inicial.",
                 'std' => $this->std
             ];
         }

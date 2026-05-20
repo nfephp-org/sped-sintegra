@@ -28,11 +28,11 @@ class Z71 extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ_TOM' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ do tomador do serviço',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'IE_TOM' => [
@@ -100,11 +100,11 @@ class Z71 extends Element implements ElementInterface
             'length' => 2
         ],
         'CNPJ_REM_DEST' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ do remetente/destinatário da nota scal',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'IE_REM_DEST' => [
@@ -175,7 +175,7 @@ class Z71 extends Element implements ElementInterface
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
-    
+
     /**
      * Validação secundária sobre as data informadas
      * @throws \Exception

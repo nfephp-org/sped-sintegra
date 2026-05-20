@@ -28,11 +28,11 @@ class Z76 extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ/CPF do tomador do serviço',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'IE' => [
@@ -88,13 +88,13 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^(1|2|3)$',
             'required' => true,
             'info' => 'Código da identificação do tipo de receita ('
-            . '1 Receita própria; '
-            . '2 Receita de terceiros; '
-            . '3 Ressarcimento - utilizar este código somente nas hipóteses de '
-            . 'estorno de débito do imposto, em que as correspondentes '
-            . 'deduções do valor do serviço, da base de cálculo e do respectivo '
-            . 'imposto, são lançados no documento fiscal com sinal negativo nos '
-            . 'termos do Convênio ICMS 126/98.)',
+                . '1 Receita própria; '
+                . '2 Receita de terceiros; '
+                . '3 Ressarcimento - utilizar este código somente nas hipóteses de '
+                . 'estorno de débito do imposto, em que as correspondentes '
+                . 'deduções do valor do serviço, da base de cálculo e do respectivo '
+                . 'imposto, são lançados no documento fiscal com sinal negativo nos '
+                . 'termos do Convênio ICMS 126/98.)',
             'format' => 'empty',
             'length' => 1
         ],
@@ -143,7 +143,7 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor amparado por isenção ou não incidência '
-            . '(com 2 decimais)',
+                . '(com 2 decimais)',
             'format' => '10v2',
             'length' => 12
         ],
@@ -152,7 +152,7 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^\d+(\.\d*)?|\.\d+$',
             'required' => true,
             'info' => 'Valor que não confira débito ou crédito do ICMS '
-            . '(com 2 decimais)',
+                . '(com 2 decimais)',
             'format' => '10v2',
             'length' => 12
         ],
@@ -169,12 +169,12 @@ class Z76 extends Element implements ElementInterface
             'regex' => '^(S|N|E|X|2|4)$',
             'required' => true,
             'info' => 'Situação da Nota fiscal ('
-            . 'N - Documento Fiscal Normal; '
-            . 'S - Documento Fiscal Cancelado; '
-            . 'E - Lançamento Extemporâneo de Documento Fiscal Normal; '
-            . 'X - Lançamento Extemporâneo de Documento Fiscal Cancelado; '
-            . '2 - Documento com USO DENEGADO; '
-            . '4 - Documento com USO inutilizado)',
+                . 'N - Documento Fiscal Normal; '
+                . 'S - Documento Fiscal Cancelado; '
+                . 'E - Lançamento Extemporâneo de Documento Fiscal Normal; '
+                . 'X - Lançamento Extemporâneo de Documento Fiscal Cancelado; '
+                . '2 - Documento com USO DENEGADO; '
+                . '4 - Documento com USO inutilizado)',
             'format' => '',
             'length' => 1
         ]

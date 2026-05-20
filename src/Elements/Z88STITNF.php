@@ -34,11 +34,11 @@ class Z88STITNF extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ do informante',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'COD_MOD' => [
@@ -170,8 +170,8 @@ class Z88STITNF extends Element implements ElementInterface
             'length' => 12
         ],
         'CHAVE_NFE' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{44}$',
+            'type' => 'string',
+            'regex' => '^[A-Z0-9]{44}$',
             'required' => true,
             'info' => 'Chave da NF-e',
             'format' => '',
@@ -189,7 +189,7 @@ class Z88STITNF extends Element implements ElementInterface
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
-    
+
     /**
      * Validação secundária sobre as data informadas
      * @throws \Exception

@@ -28,20 +28,20 @@ class Z77 extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ/CPF do tomador do serviço',
-            'format' => 'totalNumber',
-            'length' => 14
-        ],
-        'IE' => [
-            'type' => 'string',
-            'regex' => '^ISENTO|[0-9]{2,14}$',
-            'required' => false,
-            'info' => 'Inscrição estadual do tomador do serviço',
             'format' => '',
             'length' => 14
+        ],
+        'COD_MOD' => [
+            'type' => 'numeric',
+            'regex' => '^[0-9]{2}$',
+            'required' => true,
+            'info' => 'Código do modelo da nota fiscal',
+            'format' => 'totalNumber',
+            'length' => 2
         ],
         'SERIE' => [
             'type' => 'string',
@@ -136,15 +136,15 @@ class Z77 extends Element implements ElementInterface
             'regex' => '^[0-9]{1,2}$',
             'required' => true,
             'info' => 'Alíquota do ICMS (valor inteiro)',
-            'format' => 'aliquota',
+            'format' => 'totalNumber',
             'length' => 2
         ],
         'CNPJ_MF' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ/MF da operadora de destino',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'TERMINAL' => [

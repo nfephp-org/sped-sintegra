@@ -30,14 +30,14 @@ class Z88SME extends Element implements ElementInterface
 {
     const REGISTRO = '88';
     protected $subtipo = 'SME';
-    
+
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ ou CPF do Informante',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'MENSAGEM' => [
@@ -68,7 +68,7 @@ class Z88SME extends Element implements ElementInterface
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
-    
+
     /**
      * Validação secundária sobre as data informadas
      * @throws \Exception

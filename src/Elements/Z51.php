@@ -42,11 +42,11 @@ class Z51 extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => false,
             'info' => 'CNPJ do remetente nas entradas e dos destinátarios nas saídas',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'IE' => [
@@ -142,12 +142,12 @@ class Z51 extends Element implements ElementInterface
             'regex' => '^(S|N|E|X|2|4)$',
             'required' => true,
             'info' => 'Situação da Nota fiscal ('
-            . 'N - Documento Fiscal Normal; '
-            . 'S - Documento Fiscal Cancelado; '
-            . 'E - Lançamento Extemporâneo de Documento Fiscal Normal; '
-            . 'X - Lançamento Extemporâneo de Documento Fiscal Cancelado; '
-            . '2 - Documento com USO DENEGADO; '
-            . '4 - Documento com USO inutilizado)',
+                . 'N - Documento Fiscal Normal; '
+                . 'S - Documento Fiscal Cancelado; '
+                . 'E - Lançamento Extemporâneo de Documento Fiscal Normal; '
+                . 'X - Lançamento Extemporâneo de Documento Fiscal Cancelado; '
+                . '2 - Documento com USO DENEGADO; '
+                . '4 - Documento com USO inutilizado)',
             'format' => '',
             'length' => 1
         ]
@@ -163,7 +163,7 @@ class Z51 extends Element implements ElementInterface
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
-    
+
     /**
      * Validação secundária sobre as data informadas
      * @throws \Exception

@@ -35,11 +35,11 @@ class Z50 extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ/CPF do emitente nas entradas e dos destinátarios nas saídas',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'IE' => [
@@ -159,12 +159,12 @@ class Z50 extends Element implements ElementInterface
             'regex' => '^(S|N|E|X|2|4)$',
             'required' => true,
             'info' => 'Situação da Nota fiscal ('
-            . 'N - Documento Fiscal Normal; '
-            . 'S - Documento Fiscal Cancelado; '
-            . 'E - Lançamento Extemporâneo de Documento Fiscal Normal; '
-            . 'X - Lançamento Extemporâneo de Documento Fiscal Cancelado; '
-            . '2 - Documento com USO DENEGADO; '
-            . '4 - Documento com USO inutilizado)',
+                . 'N - Documento Fiscal Normal; '
+                . 'S - Documento Fiscal Cancelado; '
+                . 'E - Lançamento Extemporâneo de Documento Fiscal Normal; '
+                . 'X - Lançamento Extemporâneo de Documento Fiscal Cancelado; '
+                . '2 - Documento com USO DENEGADO; '
+                . '4 - Documento com USO inutilizado)',
             'format' => '',
             'length' => 1
         ]
@@ -222,7 +222,7 @@ class Z50 extends Element implements ElementInterface
         if (!in_array($this->std->cod_mod, $possible)) {
             $this->errors[] = (object) [
                 'message' => "[$this->reg] campo: COD_MOD "
-                . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.",
+                    . "Código [{$this->std->cod_mod}] de documento fiscal não encontrado.",
                 'std' => $this->std
             ];
         }

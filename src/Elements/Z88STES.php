@@ -35,11 +35,11 @@ class Z88STES extends Element implements ElementInterface
 
     protected $parameters = [
         'CNPJ' => [
-            'type' => 'numeric',
-            'regex' => '^[0-9]{11,14}$',
+            'type' => 'cpfcnpj',
+            'regex' => '^[A-Z0-9]{11,14}$',
             'required' => true,
             'info' => 'CNPJ do informante',
-            'format' => 'totalNumber',
+            'format' => '',
             'length' => 14
         ],
         'DATA_INVENTARIO' => [
@@ -102,7 +102,7 @@ class Z88STES extends Element implements ElementInterface
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
-    
+
     /**
      * Validação secundária sobre as data informadas
      * @throws \Exception
