@@ -44,9 +44,9 @@
     ],
     "require": {
         "php": ">= 7.4",
-        "nfephp-org/sped-common": "^5.1.0",
+        "nfephp-org/sped-common": "dev-master",
         "brazanation/documents": "^2.1.0",
-        "nfephp-org/sped-gtin": "^1.1.0"
+        "nfephp-org/sped-gtin": "dev-master"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.6",
